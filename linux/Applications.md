@@ -30,6 +30,7 @@
 - [Postman](https://flathub.org/apps/details/com.getpostman.Postman): `flatpak install flathub com.getpostman.Postman`
 - [Piper](https://flathub.org/apps/details/org.freedesktop.Piper): `flatpak install flathub org.freedesktop.Piper`
 - [Sublime Text](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
+- [Steam](https://flathub.org/apps/details/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
 - [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
 - [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
 
