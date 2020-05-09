@@ -12,7 +12,17 @@ _Entry should be AppName.desktop_
 
 ### Example Entry
 
-`[Desktop Entry] Encoding=UTF-8 Version=1.0 Type=Application Terminal=false Exec=~/{IMAGE_NAME}.AppImage Name={DESKTOP_NAME} Icon={IMAGE_LOCATION} MimeType=x-scheme-handler/xxx;text/html;`
+```
+  [Desktop Entry]
+  Encoding=UTF-8
+  Version=1.0
+  Type=Application
+  Terminal=false
+  Exec=~/{IMAGE_NAME}.AppImage
+  Name={DESKTOP_NAME}
+  Icon={IMAGE_LOCATION}
+  MimeType=x-scheme-handler/xxx;text/html;
+```
 
 ### Entries Currently Using
 
