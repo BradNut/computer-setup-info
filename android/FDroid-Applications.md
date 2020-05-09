@@ -1,4 +1,4 @@
-# FDroid Application for Android
+# FDroid Applications for Android
 
 - [andOTP](https://f-droid.org/en/packages/org.shadowice.flocke.andotp/)
 - [AntennaPod](https://f-droid.org/en/packages/de.danoeh.antennapod/)
