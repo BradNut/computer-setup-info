@@ -35,9 +35,9 @@
 
 ## App Image Applications
 
-- Plexamp
-- Standard Notes
-- Yubico Authenticator
+- [Plexamp](https://plexamp.com/#downloads)
+- [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
+- [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
 
 ### App Image Instructions
 
