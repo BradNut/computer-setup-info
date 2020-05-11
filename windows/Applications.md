@@ -1,4 +1,4 @@
-# OSX Apps
+# Windows Apps
 
 ## Software Applications
 
