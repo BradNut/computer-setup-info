@@ -1,0 +1,44 @@
+# OSX Apps
+
+## Software Applications
+
+- 7Zip
+- Acronis
+- AnyDesk
+- OpenOffice
+- balenaEtcher
+- Bitwarden
+- Brave Browser
+- Docker
+- Firefox
+- Flux
+- NVIDIA
+- GOG Galaxy
+- Libre Office
+- MEGA Sync
+- Mullvad VPN
+- NordVPN
+- OOSU10
+- Plex
+- ProtonVPN
+- qbittorrent
+- Sandboxie
+- Signal
+- Standard Notes
+- Steam
+- Sublime Text
+- SumatraPDF
+- Syncthing
+- Synology Drive
+- Synology Note Station
+- TomTomHOME
+- TomTomSportsConnect
+- Uplay
+- VLC
+- VSCode
+- W10Privacy
+- WebTorrent
+- WinDirStat
+- WindowsSpyBlocker
+- WinSCP
+- Yubico Auth
