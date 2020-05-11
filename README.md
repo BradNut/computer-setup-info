@@ -18,6 +18,12 @@ List of instructions, resources, steps for setting up a new computer
 
 #### [List of Applications](https://github.com/BradNut/computer-setup-info/blob/master/osx/Applications.md)
 
+### Synology
+
+#### [Applications installed](https://github.com/BradNut/computer-setup-info/blob/master/synology/Applications.md)
+
+#### [Docker Setup](https://github.com/BradNut/computer-setup-info/blob/master/synology/Docker-Setup.md)
+
 ### Windows
 
 #### [List of Applications](https://github.com/BradNut/computer-setup-info/blob/master/windows/Applications.md)
