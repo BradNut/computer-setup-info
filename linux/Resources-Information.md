@@ -1,6 +1,7 @@
 # Linux Resources
 
-## Useful Pageackes
+## Useful Packages
+
 - Gnome Tweaks: `sudo apt install gnome-tweaks`
 - Fonts Fira Code: `sudo apt install fonts-firacode`
 - Git: `sudo apt install git`
@@ -8,7 +9,9 @@
 - Vim: `sudo apt install vim`
 
 ## GUI
+
 Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click menu
+
 - Fix is that Gnome Shell is on "Default"
 - Install Gnome Tweaks: `sudo apt install gnome-tweaks`
 - Select "Appearance" and change Shell to "Yaru-dark" or whatever you want
