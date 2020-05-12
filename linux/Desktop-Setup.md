@@ -40,7 +40,7 @@ Icon=/home/bshellnu/Documents/Desktop Icons/plexamp.png
 MimeType=x-scheme-handler/xxx;text/html;
 ```
 
-- ![Plexamp](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png "Plexamp Icon")
+- [Plexamp Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png)
 
 - [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 
@@ -56,7 +56,7 @@ Icon=/home/bshellnu/Documents/Desktop
 Icons/StandardNotesIcon.png
 ```
 
-- ![Standard Notes](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png "Standard Notes Icon")
+- [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png)
 
 - [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
 
@@ -71,4 +71,4 @@ Name=Yubico Authenticator
 Icon=/home/bshellnu/Documents/Desktop Icons/YubicoAuthIcon.png
 ```
 
-- ![Yubico Auth](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png "Yubico Auth Icon")
+- [Yubico Auth Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png)
