@@ -27,6 +27,7 @@ MimeType=x-scheme-handler/xxx;text/html;
 ### Entries Currently Using
 
 - [Plexamp](https://plexamp.com/#downloads)
+
 ```
 [Desktop Entry]
 Encoding=UTF-8
@@ -39,7 +40,10 @@ Icon=/home/bshellnu/Documents/Desktop Icons/plexamp.png
 MimeType=x-scheme-handler/xxx;text/html;
 ```
 
+- ![Plexamp](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png "Plexamp Icon")
+
 - [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
+
 ```
 [Desktop Entry]
 Encoding=UTF-8
@@ -52,7 +56,10 @@ Icon=/home/bshellnu/Documents/Desktop
 Icons/StandardNotesIcon.png
 ```
 
+- ![Standard Notes](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png "Standard Notes Icon")
+
 - [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
+
 ```
 [Desktop Entry]
 Encoding=UTF-8
@@ -63,3 +70,5 @@ Exec=/home/bshellnu/yubioath-desktop-5.0.1-linux.AppImage
 Name=Yubico Authenticator
 Icon=/home/bshellnu/Documents/Desktop Icons/YubicoAuthIcon.png
 ```
+
+- ![Yubico Auth](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png "Yubico Auth Icon")
