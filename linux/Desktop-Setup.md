@@ -26,7 +26,7 @@ MimeType=x-scheme-handler/xxx;text/html;
 
 ### Entries Currently Using
 
-- [Plexamp](https://plexamp.com/#downloads)
+1. [Plexamp](https://plexamp.com/#downloads)
 
 ```
 [Desktop Entry]
@@ -42,7 +42,7 @@ MimeType=x-scheme-handler/xxx;text/html;
 
 - [Plexamp Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png)
 
-- [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
+2. [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 
 ```
 [Desktop Entry]
@@ -58,7 +58,7 @@ Icons/StandardNotesIcon.png
 
 - [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png)
 
-- [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
+3. [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
 
 ```
 [Desktop Entry]
