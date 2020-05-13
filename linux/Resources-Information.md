@@ -8,6 +8,8 @@
 - Curl: `sudo apt install curl`
 - Vim: `sudo apt install vim`
 
+---
+
 ## GUI
 
 Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click menu
@@ -16,13 +18,18 @@ Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click m
 - Install Gnome Tweaks: `sudo apt install gnome-tweaks`
 - Select "Appearance" and change Shell to "Yaru-dark" or whatever you want
 
+---
+
 ## Mouse Support
 
 - [Ratbagd DBus Daemon](https://github.com/libratbag/libratbag/blob/master/README.md#running-ratbagd-as-dbus-activated-systemd-service)
 - [Piper GUI for Ratbagd](https://github.com/libratbag/piper)
 
+---
+
 ## Trackpad Gestures
 *Working on Dell XPS 13*
+
 Following Medium article: [Mac-like Gestures on Ubuntu 20.04 Dell XPS 15](https://medium.com/@kaigo/mac-like-gestures-on-ubuntu-20-04-dell-xps-15-7ea6e3be7f76)
 
 Add your user to the input group:
@@ -52,29 +59,33 @@ These are the gestures you will need to emulate a mac-like experience.
 
 Configuration file in dotfiles: [Gestures.conf](https://github.com/BradNut/dotfiles/blob/master/Linux%20Settings/Gesture%20Settings/Gestures.conf)
 - 3-finger swipe up
- - xdotool key super
+  - xdotool key super
 - 3-finger swipe down
- - xdotool key Escape
+  - xdotool key Escape
 - 3-finger swipe right
- - xdotool key 'ctrl+alt+Left'
+  - xdotool key 'ctrl+alt+Left'
 - 3-finger swipe left
- - xdotool key 'ctrl+alt+Right'
+  - xdotool key 'ctrl+alt+Right'
 - 3-finger pinch out
- - xdotool key 'ctrl+plus'
+  - xdotool key 'ctrl+plus'
 - 3-finger ping in
- - xdotool key 'ctrl+minus'
+  - xdotool key 'ctrl+minus'
 - 4-finger swipe left
- - xdotool key 'alt+Left'
+  - xdotool key 'alt+Left'
 - 4-finger swipe right
- - xdotool key 'alt+Right'
+  - xdotool key 'alt+Right'
 
 Next you may notice the workspaces are ontop of each other instead of side-by-side like MacOS. To fix this we will need to install a gnome extension named workspace matrix available [here](https://extensions.gnome.org/extension/1485/workspace-matrix/).
 
 Now restart your system and you should be able to move workspaces, left and right using the three finger gesture or *ctrl+alt + left or right arrows*.
 
+---
+
 ## Internal Hard Drives
 
 - [Auto-mounting on boot](https://www.liberiangeek.net/2012/04/auto-mount-windows-ntfs-partitions-in-ubuntu-12-04-precise-pangolin/)
+
+---
 
 ## Gaming
 

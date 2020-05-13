@@ -6,38 +6,40 @@ List of instructions, resources, steps for setting up a new computer
 
 ## Android
 
-### [Direct APK Applications](https://github.com/BradNut/computer-setup-info/blob/master/linux/Direct-APK-Application.md)
+### [Direct APK Applications](../blob/master/linux/Direct-APK-Application)
 
-### [FDroid-Applications](https://github.com/BradNut/computer-setup-info/blob/master/linux/FDroid-Applications.md)
+### [FDroid-Applications](../blob/master/linux/FDroid-Applications)
 
-### [Google-Applications](https://github.com/BradNut/computer-setup-info/blob/master/linux/Google-Applications.md)
+### [Google-Applications](../blob/master/linux/Google-Applications)
 
 ## Linux
 
-### [List of Applications](https://github.com/BradNut/computer-setup-info/blob/master/linux/Applications.md)
+### [List of Applications](../blob/master/linux/Applications)
 
-### [Coding Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Coding-App-Setup.md)
+### [Coding Setup](../blob/master/linux/Coding-App-Setup)
 
-### [Desktop Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Desktop-Setup.md)
+### [Desktop Setup](../blob/master/linux/Desktop-Setup)
 
-### [Environment Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Environment-Setup.md)
+### [Environment Setup](../blob/master/linux/Environment-Setup)
 
-### [NordVPN Configuration](https://github.com/BradNut/computer-setup-info/blob/master/linux/NordVPN-Configuration.md)
+#### [NordVPN Configuration](../blob/master/linux/NordVPN-Configuration)
 
-### [ProtonVPN Configuration](https://github.com/BradNut/computer-setup-info/blob/master/linux/ProtonVPN-Configuration.md)
+#### [ProtonVPN Configuration](../blob/master/linux/ProtonVPN-Configuration)
 
-### [Useful Resources](https://github.com/BradNut/computer-setup-info/blob/master/linux/Resources-Information.md)
+### [Useful Resources](../blob/master/linux/Resources-Information)
+
+#### 
 
 ## OSX
 
-### [List of Applications](https://github.com/BradNut/computer-setup-info/blob/master/osx/Applications.md)
+### [List of Applications](../blob/master/osx/Applications)
 
 ## Synology
 
-### [Applications installed](https://github.com/BradNut/computer-setup-info/blob/master/synology/Applications.md)
+### [Applications installed](../blob/master/synology/Applications)
 
-### [Docker Setup](https://github.com/BradNut/computer-setup-info/blob/master/synology/Docker-Setup.md)
+### [Docker Setup](../blob/master/synology/Docker-Setup)
 
 ## Windows
 
-### [List of Applications](https://github.com/BradNut/computer-setup-info/blob/master/windows/Applications.md)
+### [List of Applications](../blob/master/windows/Applications)
