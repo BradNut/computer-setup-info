@@ -7,10 +7,12 @@
 - FileZilla
 - Firefox
 - Lutris
+- NordVPN
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman
 - Piper
 - Proton Bridge
+- Proton VPN
 - qBittorrent
 - Transmission
 - Signal
@@ -47,17 +49,13 @@ Linux AppImage Instructions:
 An AppImage is a self-contained instance of the application. Upon download, please move this file to a more permanent location on your system. You will need to keep this file for as long as you intend to use Standard Notes.
 
 We'll move this file from your downloads to your home directory:
-
-    mv ~/Downloads/Standard-Notes-3.4.1.AppImage ~/Standard-Notes-3.4.1.AppImage
-
-    cd ~
+- `mv ~/Downloads/{APP_IMAGE.AppImage} ~/{APP_IMAGE}.AppImage`
+- `cd ~`
 
 Now, make the file executable:
-
-    chmod a+x Standard-Notes-3.4.1.AppImage
+- `chmod a+x {APP_IMAGE}.AppImage`
 
 Finally, run the application:
-
-    ./Standard-Notes-3.4.1.AppImage
+- `./{APP_IMAGE}.AppImage`
 
 If you're prompted to create desktop shortcuts, choose Yes.

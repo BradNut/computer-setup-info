@@ -4,6 +4,7 @@
 
 - [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
 - [gTile](https://github.com/gTile)
+- [Workspace Matrix](https://extensions.gnome.org/extension/1485/workspace-matrix/)
 
 ## Desktop Icon Creation
 
@@ -52,8 +53,7 @@ Type=Application
 Terminal=false
 Exec=/home/bshellnu/Standard-Notes-3.3.5.AppImage
 Name=Standard Notes
-Icon=/home/bshellnu/Documents/Desktop
-Icons/StandardNotesIcon.png
+Icon=/home/bshellnu/Documents/Desktop Icons/StandardNotesIcon.png
 ```
 
 - [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png)
