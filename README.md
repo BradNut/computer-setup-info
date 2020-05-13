@@ -6,40 +6,40 @@ List of instructions, resources, steps for setting up a new computer
 
 ## Android
 
-### [Direct APK Applications](../blob/master/linux/Direct-APK-Application)
+### [Direct APK Applications](../master/linux/Direct-APK-Application)
 
-### [FDroid-Applications](../blob/master/linux/FDroid-Applications)
+### [FDroid-Applications](../master/linux/FDroid-Applications)
 
-### [Google-Applications](../blob/master/linux/Google-Applications)
+### [Google-Applications](../master/linux/Google-Applications)
 
 ## Linux
 
-### [List of Applications](../blob/master/linux/Applications)
+### [List of Applications](../master/linux/Applications)
 
-### [Coding Setup](../blob/master/linux/Coding-App-Setup)
+### [Coding Setup](../master/linux/Coding-App-Setup)
 
-### [Desktop Setup](../blob/master/linux/Desktop-Setup)
+### [Desktop Setup](../master/linux/Desktop-Setup)
 
-### [Environment Setup](../blob/master/linux/Environment-Setup)
+### [Environment Setup](../master/linux/Environment-Setup)
 
-#### [NordVPN Configuration](../blob/master/linux/NordVPN-Configuration)
+#### [NordVPN Configuration](../master/linux/NordVPN-Configuration)
 
-#### [ProtonVPN Configuration](../blob/master/linux/ProtonVPN-Configuration)
+#### [ProtonVPN Configuration](../master/linux/ProtonVPN-Configuration)
 
-### [Useful Resources](../blob/master/linux/Resources-Information)
+### [Useful Resources](../master/linux/Resources-Information)
 
 #### 
 
 ## OSX
 
-### [List of Applications](../blob/master/osx/Applications)
+### [List of Applications](../master/osx/Applications)
 
 ## Synology
 
-### [Applications installed](../blob/master/synology/Applications)
+### [Applications installed](../master/synology/Applications)
 
-### [Docker Setup](../blob/master/synology/Docker-Setup)
+### [Docker Setup](../master/synology/Docker-Setup)
 
 ## Windows
 
-### [List of Applications](../blob/master/windows/Applications)
+### [List of Applications](../master/windows/Applications)
