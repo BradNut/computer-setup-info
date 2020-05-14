@@ -1,4 +1,6 @@
 # Nord VPN Documentation on Debian, Ubuntu, Elementary OS, and Linux Mint
+*https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm*
+
 ## Installation
 The *NordVPN* native application is the recommended option for connecting to NordVPN servers on your Linux device. We designed it with your experience in mind, giving easy access to features such as CyberSec, auto-connect, and automated Kill Switch.
 

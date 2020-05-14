@@ -22,10 +22,6 @@ List of instructions, resources, steps for setting up a new computer
 
 ### [Environment Setup](../master/linux/Environment-Setup.md)
 
-#### [NordVPN Configuration](../master/linux/NordVPN-Configuration.md)
-
-#### [ProtonVPN Configuration](../master/linux/ProtonVPN-Configuration.md)
-
 ### [Useful Resources](../master/linux/Resources-Information.md)
 
 #### 

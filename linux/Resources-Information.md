@@ -10,7 +10,7 @@
 
 ---
 
-## GUI
+## GUI Setup
 
 Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click menu
 
@@ -20,7 +20,7 @@ Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click m
 
 ---
 
-## Mouse Support
+## Gaming Mouse Support
 
 - [Ratbagd DBus Daemon](https://github.com/libratbag/libratbag/blob/master/README.md#running-ratbagd-as-dbus-activated-systemd-service)
 - [Piper GUI for Ratbagd](https://github.com/libratbag/piper)

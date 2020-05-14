@@ -2,26 +2,38 @@
 
 ## Software Applications
 
-- Bitwarden
-- Brave Browser
-- FileZilla
+- [Anydesk](https://anydesk.com/en/downloads/linux)
+- [Bitwarden](https://bitwarden.com/#download)
+  - Locally using flatpak
+- [Brave Browser](https://brave.com/download/)
+- [FileZilla](https://filezilla-project.org/download.php?type=client)
+  - Locally using flatpak
 - Firefox
-- Lutris
-- NordVPN
+- [Lutris](https://lutris.net/downloads/)
+- [NordVPN](https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm)
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman
-- Piper
-- Proton Bridge
-- Proton VPN
+- [Piper](https://github.com/libratbag/piper)
+  - [Local Reference](../master/linux/Resources-Information.md)
+- [Proton Bridge](https://protonmail.com/bridge/install)
+  - [Bridge Setup](../master/linux/Proton-Bridge-Setup.md)
+- [Proton VPN](https://protonvpn.com/support/linux-vpn-tool/)
 - qBittorrent
+  - Locally using flatpak
+- Thunderbird
 - Transmission
-- Signal
-- Standard Notes
+- [Signal](https://signal.org/download/#)
+  - Locally using flatpak
+- [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 - Steam
+  - Locally using flatpak
 - Sublime Text
-- Synology Drive
+  - Locally using flatpak
+- [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - VSCode
 - Yubico Authenticator
+
+---
 
 ## Flatpak Applications
 
@@ -35,6 +47,8 @@
 - [Steam](https://flathub.org/apps/details/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
 - [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
 - [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
+
+---
 
 ## App Image Applications
 
@@ -59,3 +73,13 @@ Finally, run the application:
 - `./{APP_IMAGE}.AppImage`
 
 If you're prompted to create desktop shortcuts, choose Yes.
+
+---
+
+## Specific App Install Instructions
+
+## Signal Install
+### Linux (Debian-based) Install Instructions
+1. `curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -`
+2. `echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list`
+3. `sudo apt update && sudo apt install signal-desktop`
