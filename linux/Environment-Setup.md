@@ -4,6 +4,8 @@
 
 - Git: `sudo apt install git`
 - Curl: `sudo apt install curl`
+- Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
+  - [Install instructions](../master/linux/Docker-Setup.md)
 
 ### [Linux Brew](https://docs.brew.sh/Homebrew-on-Linux)
 
