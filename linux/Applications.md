@@ -10,6 +10,7 @@
   - Locally using flatpak
 - Firefox
 - [Lutris](https://lutris.net/downloads/)
+- [Mulvad](https://mullvad.net/en/download/)
 - [NordVPN](https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm)
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman
