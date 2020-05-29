@@ -2,8 +2,13 @@
 
 ## Gnome Extensions
 
+- [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
+- [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/)
 - [gTile](https://github.com/gTile)
+- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [Workspace Matrix](https://extensions.gnome.org/extension/1485/workspace-matrix/)
 
 ## Desktop Icon Creation
