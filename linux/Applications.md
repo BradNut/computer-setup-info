@@ -84,3 +84,11 @@ If you're prompted to create desktop shortcuts, choose Yes.
 1. `curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -`
 2. `echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list`
 3. `sudo apt update && sudo apt install signal-desktop`
+
+## Yubico Authenticator
+Ubuntu 20.04 does not fully connect to the devices. Extra repositories need installing.
+```
+$ sudo apt update && sudo apt install -y gnupg2 gnupg-agent scdaemon pcscd
+$ gpg --card-status
+```
+*gpg command should run with no errors*
