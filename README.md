@@ -22,19 +22,29 @@ List of instructions, resources, steps for setting up a new computer
 
 ### [Environment Setup](../master/linux/Environment-Setup.md)
 
-### [Useful Resources](../master/linux/Resources-Information.md)
+### VPN Configurations
+#### [NordVPN](../master/linux/NordVPN-Configuration.md)
+#### [ProtonVPN](../master/linux/ProtonVPN-Configuration.md)
 
-#### 
+### [Useful Resources](../master/linux/Resources-Information.md) 
 
 ## OSX
 
 ### [List of Applications](../master/osx/Applications.md)
 
+## Self Hosting
+### [Haugene Synology](../master/self-hosting/Huagene-Synology.md)
+### [Resources](../master/self-hosting/Resources.md)
+
 ## Synology
 
 ### [Applications installed](../master/synology/Applications.md)
 
+### [Configuration & Environment Setup](../master/synology/Configuration-Environment-Setup.md)
+
 ### [Docker Setup](../master/synology/Docker-Setup.md)
+
+### [Setup Media Automation](../master/synology/Advanced-Media-Setup.md)
 
 ## Windows
 

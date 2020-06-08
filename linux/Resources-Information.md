@@ -33,7 +33,6 @@ Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click m
 Documentation: https://linrunner.de/tlp/index.html
 Installation: https://linrunner.de/tlp/installation/index.html
 
-
 ---
 
 ## Trackpad Gestures
