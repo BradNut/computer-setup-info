@@ -7,6 +7,7 @@
 - FileZilla
 - Firefox
 - IntelliJ
+- iTerm2
 - Paw
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman

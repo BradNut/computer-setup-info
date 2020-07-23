@@ -69,7 +69,7 @@ Configuration file in dotfiles: [Gestures.conf](https://github.com/BradNut/dotfi
 - 3-finger swipe up
   - xdotool key super
 - 3-finger swipe down
-  - xdotool key Escape
+  - xdotool key 'alt+asciitilde'
 - 3-finger swipe right
   - xdotool key 'ctrl+alt+Left'
 - 3-finger swipe left

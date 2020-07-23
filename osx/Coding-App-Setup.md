@@ -1,5 +1,30 @@
 # Coding Applications
 
+## IntelliJ
+### Fonts
+- Fira Code Retina
+### Plugins
+- [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
+- [Kotlin](https://plugins.jetbrains.com/plugin/6954-kotlin)
+- [Lombok](https://plugins.jetbrains.com/plugin/6317-lombok)
+- [One Dark Theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
+- [Prettier](https://plugins.jetbrains.com/plugin/10456-prettier)
+- [Save Actions](https://plugins.jetbrains.com/plugin/7642-save-actions)
+- [Sonar Lint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+
+## iTerm2
+### Settings
+#### General
+- Theme: Minimal
+- Tab bar location: left
+- Status bar location: Bottom
+#### Profiles
+- Status bar enabled: true
+- Status bar configuration
+ - Bottom left: Current directory
+ - Middle: git state
+ - Bottom right: Clock
+
 ## Sublime Text 3
 
 - [Install](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
