@@ -31,6 +31,7 @@ List of instructions, resources, steps for setting up a new computer
 ## OSX
 
 ### [List of Applications](../master/osx/Applications.md)
+### [Coding App Setup](../master/osx/Coding-App-Setup.md)
 
 ## Self Hosting
 ### [Haugene Synology](../master/self-hosting/Huagene-Synology.md)
