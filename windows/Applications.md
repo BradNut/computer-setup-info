@@ -46,6 +46,7 @@
 
 ### Required Device Apps
 
+- [EPSON Scanner](https://epson.com/Support/Scanners/Perfection-Series/Epson-Perfection-V550-Photo/s/SPT_B11B210201)
 - [Synology Drive](https://global.download.synology.com/download/Tools/SynologyDriveClient/2.0.2-11078/Windows/Installer/Synology%20Drive%20Client-2.0.2-11078.exe)
 - [Synology Note Station](https://global.download.synology.com/download/Tools/NoteStationClient/2.1.6-272/Windows/x86_64/synology-note-station-client-2.1.6-272-win-x64-Setup.exe)
 - [TomTomHOME](https://us.support.tomtom.com/app/answers/detail/a_id/5122/~/installing-tomtom-home)

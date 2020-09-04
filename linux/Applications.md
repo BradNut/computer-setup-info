@@ -22,6 +22,7 @@
 - qBittorrent
   - Locally using flatpak
 - Thunderbird
+- [Timeshift](https://github.com/teejee2008/timeshift)
 - Transmission
 - [Signal](https://signal.org/download/#)
   - Locally using flatpak
@@ -31,6 +32,7 @@
 - Sublime Text
   - Locally using flatpak
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
+- [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - VSCode
 - Yubico Authenticator
 
