@@ -19,15 +19,13 @@
 - If using bash: `test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile`
 - `echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile`
 
-## Git
+## Dotfiles
+Dotfiles and editor preferences: https://github.com/BradNut/dotfiles
 
+## Git
 Edit .gitconfig with name and email
 `git config --global.name "Your Name"`
 `git config --global.email "you@example.com"`
-
-## Dotfiles
-
-Dotfiles and editor preferences: https://github.com/BradNut/dotfiles
 
 ## Terminal
 
@@ -70,3 +68,17 @@ Currently using zsh.
 
 - [Bash profile](https://github.com/BradNut/dotfiles/blob/master/.bash_profile)
 - [.bashrc](https://github.com/BradNut/dotfiles/blob/master/.bashrc)
+
+## SSH
+### Enable
+``` 
+$ sudo apt update
+$ sudo apt install openssh-server
+```
+Verify SSH is running:
+```
+$ sudo systemctl status ssh
+```
+
+### Generating SSH Keys
+Step by step: [Generating New SSH Key and adding to the SSH Agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
