@@ -30,13 +30,15 @@ Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click m
 ## Laptop Power Saver
 
 ### TLP
+
 Documentation: https://linrunner.de/tlp/index.html
 Installation: https://linrunner.de/tlp/installation/index.html
 
 ---
 
 ## Trackpad Gestures
-*Working on Dell XPS 13*
+
+_Working on Dell XPS 13_
 
 Following Medium article: [Mac-like Gestures on Ubuntu 20.04 Dell XPS 15](https://medium.com/@kaigo/mac-like-gestures-on-ubuntu-20-04-dell-xps-15-7ea6e3be7f76)
 
@@ -61,11 +63,12 @@ Next install a UI tool to make adding and editing gestures easier.
 `cd gestures`
 `sudo python3 setup.py install`
 
-Open the new program called *‘gestures’* from your activities menu.
+Open the new program called _‘gestures’_ from your activities menu.
 
 These are the gestures you will need to emulate a mac-like experience.
 
 Configuration file in dotfiles: [Gestures.conf](https://github.com/BradNut/dotfiles/blob/master/Linux%20Settings/Gesture%20Settings/Gestures.conf)
+
 - 3-finger swipe up
   - xdotool key super
 - 3-finger swipe down
@@ -85,7 +88,7 @@ Configuration file in dotfiles: [Gestures.conf](https://github.com/BradNut/dotfi
 
 Next you may notice the workspaces are ontop of each other instead of side-by-side like MacOS. To fix this we will need to install a gnome extension named workspace matrix available [here](https://extensions.gnome.org/extension/1485/workspace-matrix/).
 
-Now restart your system and you should be able to move workspaces, left and right using the three finger gesture or *ctrl+alt + left or right arrows*.
+Now restart your system and you should be able to move workspaces, left and right using the three finger gesture or _ctrl+alt + left or right arrows_.
 
 ---
 

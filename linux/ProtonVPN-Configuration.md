@@ -1,5 +1,7 @@
 # Proton VPN Documentation on Linux
+
 ## Installation
+
 Install docs: https://protonvpn.com/support/linux-vpn-tool/
 
 Link to the GitHub repository – https://github.com/ProtonVPN/linux-cli
@@ -7,6 +9,7 @@ Link to the GitHub repository – https://github.com/ProtonVPN/linux-cli
 For more extensive information about the features and how to use the VPN client, read the Usage Guide.
 
 You will need the latest updates of the following dependencies installed on your Linux repository:
+
 - openvpn
 - python3.5+
 - dialog (optional, needed for interactive selection)
@@ -51,13 +54,14 @@ Once you have installed the client, you will need to initialize your ProtonVPN p
 
 Once you have installed the client, you will need to initialize your ProtonVPN profile so you can connect it to a VPN server. You can do this by using the `sudo protonvpn init` command. This will bring up the screen below.
 
-When you are asked for your *Username* and *Password* on this screen, it is referring to your *OpenVPN credentials*, not your ProtonVPN login credentials.
+When you are asked for your _Username_ and _Password_ on this screen, it is referring to your _OpenVPN credentials_, not your ProtonVPN login credentials.
 
 Learn [how to find your OpenVPN credentials.](https://protonvpn.com/support/vpn-login/)
 
 ## Terminal Commands
+
 List of all Commands
-| Command |	Description |
+| Command | Description |
 | ----------- | ---------- |
 | protonvpn init | Initialize ProtonVPN profile. |
 | protonvpn connect, c | Select a ProtonVPN server and connect to it. |
@@ -68,10 +72,10 @@ List of all Commands
 | protonvpn c --cc [countrycode] | Connect to the fastest server in a specified country. |
 | protonvpn c --sc | Connect to the fastest Secure Core server. |
 | protonvpn reconnect, r | Reconnect or connect to the last server used. |
-| protonvpn disconnect, d |	Disconnect the current session. |
-| protonvpn status, s |	Print connection status. |
-| protonvpn configure |	Change CLI configuration. |
-| protonvpn refresh |	Refresh OpenVPN configuration and server data. |
+| protonvpn disconnect, d | Disconnect the current session. |
+| protonvpn status, s | Print connection status. |
+| protonvpn configure | Change CLI configuration. |
+| protonvpn refresh | Refresh OpenVPN configuration and server data. |
 | protonvpn examples | Print example commands. |
 | protonvpn --version | Display version. |
 | protonvpn --help | Show help message. |
