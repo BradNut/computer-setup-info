@@ -3,7 +3,7 @@
 ## Gnome Extensions
 
 - [Arc Menu](https://extensions.gnome.org/extension/3628/arcmenu/)
-- If error restart UI and/or check if installed: `sudo apt-get install gir1.2-gmenu-3.0` and `sudo apt-get install gnome-menus`
+  - If error restart UI and/or check if installed: `sudo apt-get install gir1.2-gmenu-3.0` and `sudo apt-get install gnome-menus`
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 - [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
