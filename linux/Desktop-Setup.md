@@ -2,7 +2,8 @@
 
 ## Gnome Extensions
 
-- [Arc Menu](https://extensions.gnome.org/extension/1228/arc-menu/)
+- [Arc Menu](https://extensions.gnome.org/extension/3628/arcmenu/)
+- If error restart UI and/or check if installed: `sudo apt-get install gir1.2-gmenu-3.0` and `sudo apt-get install gnome-menus`
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 - [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
@@ -43,7 +44,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec=/home/bshellnu/Plexamp-3.0.2.AppImage
+Exec=/home/bshellnu/Plexamp-3.0.2.AppImage --disable-seccomp-filter-sandbox
 Name=Plexamp
 Icon=/home/bshellnu/Documents/Desktop Icons/plexamp.png
 MimeType=x-scheme-handler/xxx;text/html;

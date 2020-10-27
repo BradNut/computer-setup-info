@@ -10,6 +10,13 @@
 
 ---
 
+## Useful Shortcuts
+
+- Enter a command: Alt+F2
+- Restart UI: Type "r" and enter
+
+---
+
 ## GUI Setup
 
 Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click menu

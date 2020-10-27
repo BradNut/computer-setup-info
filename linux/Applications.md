@@ -8,10 +8,13 @@
 - [Brave Browser](https://brave.com/download/)
 - [Evolution](https://help.gnome.org/users/evolution/stable/): `sudo apt-get install evolution`
   - _PopOS only integrates Gnome Calendar with Evolution if installed from apt-get_
+  - CalDAV Synology link: https://\*.synology.me:38443/caldav.php/USERNAME/eyeewj/
 - [FileZilla](https://filezilla-project.org/download.php?type=client)
   - Locally using flatpak
 - Firefox
+- Gnome Tweaks
 - [Lutris](https://lutris.net/downloads/)
+- [MegaSync](https://mega.nz/sync)
 - [Mulvad](https://mullvad.net/en/download/)
 - [NordVPN](https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm)
 - [Plex Media Player](https://knapsu.eu/plex/)
@@ -19,24 +22,30 @@
 - [Piper](https://github.com/libratbag/piper)
   - [Local Reference](../master/linux/Resources-Information.md)
 - [Proton Bridge](https://protonmail.com/bridge/install)
-  - [Bridge Setup](../master/linux/Proton-Bridge-Setup.md)
+  - [Bridge Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Proton-Bridge-Setup.md)
+  - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)_
 - [Proton VPN](https://protonvpn.com/support/linux-vpn-tool/)
 - qBittorrent
   - Locally using flatpak
 - Thunderbird
+  - Flathub or Deb
 - [Timeshift](https://github.com/teejee2008/timeshift)
 - Transmission
 - [Signal](https://signal.org/download/#)
   - Locally using flatpak
 - [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 - Steam
-  - Locally using flatpak
+  - Use DEB for supported
+  - Locally use flatpak if can't get running: https://flathub.org/apps/details/com.valvesoftware.Steam
 - Sublime Text
   - Locally using flatpak
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
+- [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
 - VSCode
+  - Use DEB for up to date
 - Yubico Authenticator
+  - Flatpak: https://flathub.org/apps/details/com.yubico.yubioath
 
 ---
 
@@ -48,10 +57,12 @@
 - Plex Media Player: `flatpak install https://knapsu.eu/data/plex/tv.plex.PlexMediaPlayer.flatpakref`
 - [Postman](https://flathub.org/apps/details/com.getpostman.Postman): `flatpak install flathub com.getpostman.Postman`
 - [Piper](https://flathub.org/apps/details/org.freedesktop.Piper): `flatpak install flathub org.freedesktop.Piper`
+- [ProtonMail Bridge](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)
 - [Sublime Text](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
 - [Steam](https://flathub.org/apps/details/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
 - [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
 - [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
+- [YubicoAuth](https://flathub.org/apps/details/com.yubico.yubioath)
 
 ---
 
@@ -96,7 +107,7 @@ If you're prompted to create desktop shortcuts, choose Yes.
 
 ## Yubico Authenticator
 
-Ubuntu 20.04 does not fully connect to the devices. Extra repositories need installing.
+Ubuntu 20.04-20.10 does not fully connect to the devices. Extra repositories need installing.
 
 ```
 $ sudo apt update && sudo apt install -y gnupg2 gnupg-agent scdaemon pcscd

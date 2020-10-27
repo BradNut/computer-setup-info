@@ -6,6 +6,9 @@
 - Curl: `sudo apt install curl`
 - Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
   - [Install instructions](../master/linux/Docker-Setup.md)
+- Gatsby CLI: `sudo npm install gatsby-cli -g`
+- Heroku CLI: `sudo snap install --classic heroku`
+- Sanity CLI: `sudo npm install @sanity/cli -g`
 
 ### [Linux Brew](https://docs.brew.sh/Homebrew-on-Linux)
 
@@ -20,6 +23,8 @@
 - `echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile`
 
 #### List of installed casks
+
+_NOTE: ZSH and plugins for Ubuntu should be manually installed and not from brew_
 
 - nodeJS: `brew install node`
 - postresql: `brew install postgresql`
@@ -59,7 +64,7 @@ $ git config --global.email "you@example.com"
 _Currently using zsh_
 
 - Install if not there
-  - Linux/Ubunut: `sudo apt install zsh`
+  - Linux/Ubuntu: `sudo apt install zsh`
   - OSX: `brew install zsh`
 
 #### Configuration
