@@ -23,7 +23,25 @@
 
 ### Troubleshooting
 
+#### Docs: https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc
+
 #### Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+
+_Follow these steps located [here](https://askubuntu.com/questions/776929/how-to-edit-my-etc-sysctl-conf-file)_
+Steps:
+
+1. You can add this line using nano or vim from terminal (ctrl+alt+t): `sudo nano /etc/sysctl.conf`
+
+   - Where you then scroll down and add the line by hand then press ctrl+x to end editing. You will be asked if you want to save, confirm that by pressing y and then once return to save.
+   - _Same way you can reverse your changes._
+
+2. You can add it as well this way: `echo "net.ipv4.icmp_echo_ignore_all=1" | sudo tee -a /etc/sysctl.conf`
+
+   - For reversing this refer to solution 1.
+
+---
+
+Info from VSCode docs:
 
 When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:
 
