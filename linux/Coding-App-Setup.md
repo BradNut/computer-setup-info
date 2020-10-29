@@ -30,7 +30,7 @@
 _Follow these steps located [here](https://askubuntu.com/questions/776929/how-to-edit-my-etc-sysctl-conf-file)_
 Steps:
 
-1. You can add this line using nano or vim from terminal (ctrl+alt+t): `sudo nano /etc/sysctl.conf`
+1. You can add this line using nano or vim from terminal (ctrl+alt+t): `sudo nano /etc/sysctl.conf` or `sudo vim /etc/sysctl.conf`
 
    - Where you then scroll down and add the line by hand then press ctrl+x to end editing. You will be asked if you want to save, confirm that by pressing y and then once return to save.
    - _Same way you can reverse your changes._
