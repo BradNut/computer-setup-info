@@ -6,6 +6,8 @@
 - [Bitwarden](https://bitwarden.com/#download)
   - Locally using flatpak
 - [Brave Browser](https://brave.com/download/)
+- Emoji Picker
+  - Deb from App Shop
 - [Evolution](https://help.gnome.org/users/evolution/stable/): `sudo apt-get install evolution`
   - _PopOS only integrates Gnome Calendar with Evolution if installed from apt-get_
   - CalDAV Synology link: https://\*.synology.me:38443/caldav.php/USERNAME/eyeewj/
