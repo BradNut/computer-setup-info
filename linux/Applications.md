@@ -14,6 +14,8 @@
 - [FileZilla](https://filezilla-project.org/download.php?type=client)
   - Locally using flatpak
 - Firefox
+- [FreeTube](https://freetubeapp.io/)
+  - Flatpak: https://flathub.org/apps/details/io.freetubeapp.FreeTube
 - Gnome Tweaks
 - [Lutris](https://lutris.net/downloads/)
 - [MegaSync](https://mega.nz/sync)
@@ -56,6 +58,7 @@
 - [Bitwarden](https://flathub.org/apps/details/com.bitwarden.desktop): `flatpak install flathub com.bitwarden.desktop`
 - [Evolution](https://flathub.org/apps/details/org.gnome.Evolution): `flatpak install flathub org.gnome.Evolution`
 - [FileZilla](https://flathub.org/apps/details/org.filezillaproject.Filezilla): `flatpak install flathub org.filezillaproject.Filezilla`
+- [FreeTube](https://flathub.org/apps/details/io.freetubeapp.FreeTube)
 - Plex Media Player: `flatpak install https://knapsu.eu/data/plex/tv.plex.PlexMediaPlayer.flatpakref`
 - [Postman](https://flathub.org/apps/details/com.getpostman.Postman): `flatpak install flathub com.getpostman.Postman`
 - [Piper](https://flathub.org/apps/details/org.freedesktop.Piper): `flatpak install flathub org.freedesktop.Piper`
