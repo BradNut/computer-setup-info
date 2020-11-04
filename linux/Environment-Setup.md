@@ -10,6 +10,11 @@
 - Heroku CLI: `sudo snap install --classic heroku`
 - Sanity CLI: `sudo npm install @sanity/cli -g`
 
+#### Useful System Packages
+
+- [TLDR Man Pages](https://tldr.sh/)
+- [Trash-CLI](https://www.npmjs.com/package/trash-cli)
+
 ### [Linux Brew](https://docs.brew.sh/Homebrew-on-Linux)
 
 - Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
