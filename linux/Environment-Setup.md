@@ -12,6 +12,8 @@
 
 #### Useful System Packages
 
+- [Neofetch](https://github.com/dylanaraps/neofetch)
+  - `sudo apt install neofetch`
 - [TLDR Man Pages](https://tldr.sh/)
 - [Trash-CLI](https://www.npmjs.com/package/trash-cli)
 
