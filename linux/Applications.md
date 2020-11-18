@@ -48,6 +48,7 @@
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
 - VSCode
   - Use DEB for up to date
+- WoeUSB
 - Yubico Authenticator
   - Flatpak: https://flathub.org/apps/details/com.yubico.yubioath
 
