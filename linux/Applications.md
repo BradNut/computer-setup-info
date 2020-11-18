@@ -2,6 +2,7 @@
 
 ## Software Applications
 
+- [Alva](https://meetalva.io/)
 - [Anydesk](https://anydesk.com/en/downloads/linux)
 - [Bitwarden](https://bitwarden.com/#download)
   - Locally using flatpak
