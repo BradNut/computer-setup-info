@@ -1,5 +1,31 @@
 # Linux Resources
 
+---
+
+## Dual Booting
+
+https://support.system76.com/articles/dual-booting/
+
+### Fixes
+
+#### Fix your clock
+
+Windows and Linux store their time in the BIOS differently, this will cause your clock to be desynchronized when you switch from one OS to the other.
+
+The easiest solution for it is to fix it in Linux, forcing it to work the same way as Windows. You can do this through the terminal:
+
+`timedatectl set-local-rtc 1 --adjust-system-clock`
+
+You can verify if the change has been successful, by running this command:
+
+`timedatectl`
+
+You should see RTC in local TZ: yes. If you need to revert it, just set it to 0:
+
+`timedatectl set-local-rtc 0 --adjust-system-clock`
+
+---
+
 ## Useful Packages
 
 - Gnome Tweaks: `sudo apt install gnome-tweaks`
