@@ -6,6 +6,7 @@
   - If error restart UI and/or check if installed: `sudo apt-get install gir1.2-gmenu-3.0` and `sudo apt-get install gnome-menus`
 - [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
+- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
 - [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
 - [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/)
 - [gTile](https://github.com/gTile)
