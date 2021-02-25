@@ -3,8 +3,8 @@
 ## Table of Contents
 
 1. [Direct APK](#direct-apk-downloads-for-android)
-2. [FDroid Applications](#fdroid-applications)
-3. [Direct APK](#google-play-store)
+2. [Google Play Store](#google-play-store)
+3. [FDroid Applications](#fdroid-applications)
 
 ---
 
