@@ -4,8 +4,8 @@
 
 - Configuration: [.vimrc](https://github.com/BradNut/dotfiles/blob/master/.vimrc)
 - Install:
-- Linux: `sudo apt install vim`
-- OSX: `brew install vim`
+  -- Linux: `sudo apt install vim`
+  -- OSX: `brew install vim`
 
 ### Things to look into for vim
 
@@ -17,8 +17,8 @@
 _Currently using zsh_
 
 - Install if not there
-  - Linux/Ubuntu: `sudo apt install zsh`
-  - OSX: `brew install zsh`
+  -- Linux/Ubuntu: `sudo apt install zsh`
+  -- OSX: `brew install zsh`
 
 ### Configuration
 
@@ -29,11 +29,11 @@ _Currently using zsh_
 #### Oh My Zsh Plugins
 
 - [Z](https://github.com/agkozak/zsh-z)
-  - Install: `git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z`
+  -- Install: `git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z`
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-  - Install: `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+  -- Install: `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-  - Install: `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+  -- Install: `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
 ## Bash
 
