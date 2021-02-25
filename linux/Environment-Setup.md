@@ -57,4 +57,4 @@ $ git config --global.email "you@example.com"
 
 ## Terminal
 
-- See details here: [Terminal Setup](../master/environment/Terminal.md)
+- See details here: [Terminal Setup](../environment/Terminal.md)

@@ -18,18 +18,27 @@ List of instructions, resources, steps for setting up a new computer
 
 ## Coding Setup
 
-### [Linux](../master/linux/Coding-App-Setup.md)
+### Apps
+
+#### [Linux](../master/linux/Coding-App-Setup.md)
 
 - [Sublime Text 3](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text-3)
 - [VSCode](../master/linux/Coding-App-Setup.md#coding-applications##vscode)
 
-### [OSX](../master/osx/Coding-App-Setup.md)
+#### [OSX](../master/osx/Coding-App-Setup.md)
 
 - [IntelliJ](../master/osx/Coding-App-Setup.md#coding-applications##intellij)
 - [iTerm](../master/osx/Coding-App-Setup.md#coding-applications##iterm)
 - [VSCode](../master/osx/Coding-App-Setup.md#coding-applications##vscode)
 
-## Configurations
+### [Terminal](../master/environment/Terminal.md)
+
+- [Vim](../master/environment/Terminal.md#terminal##vim)
+- [Zsh](../master/environment/Terminal.md#terminal##zsh)
+- [Bash](../master/environment/Terminal.md#terminal##bash)
+- [SSH](../master/environment/Terminal.md#terminal##ssh)
+
+## Software Configurations
 
 ### VPN Configurations
 
@@ -54,6 +63,8 @@ List of instructions, resources, steps for setting up a new computer
 - [Useful System Packages](../master/linux/Environment-Setup.md#environment-setup##useful-system-packages)
 - [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
 - [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
+- [Git](../master/linux/Environment-Setup.md#environment-setup##git)
+- [Terminal](../master/environment/Terminal.md)
 
 ### [Synology](../master/synology/Configuration-Environment-Setup.md)
 
