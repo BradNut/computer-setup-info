@@ -1,147 +1,152 @@
-# FDroid Applications for Android
+# Android Applications
 
-## Ad Blocker
+## Table of Contents
 
-- [Blokada](https://f-droid.org/en/packages/org.blokada.alarm/)
+1. [Direct APK](#direct-apk-downloads-for-android)
+2. [FDroid Applications](#fdroid-applications)
+3. [Direct APK](#google-play-store)
 
 ---
 
-## App Store
+## Direct APK Downloads for Android
+
+- [Mullvad VPN](https://mullvad.net/en/download/apk/2020.4-beta4/)
+- [ProtonMail](https://protonmail.com/download/MailAndroid/ProtonMail-Android.apk)
+- [Signal](https://updates.signal.org/android/Signal-website-universal-release-4.58.5.apk)
+
+---
+
+## Google Play Store
+
+- [AdControl-AD1](https://play.google.com/store/apps/details?id=com.anydesk.adcontrol.ad1)
+- [AnyDesk](https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid)
+- [Bandcamp](https://play.google.com/store/apps/details?id=com.bandcamp.android)
+- [Drive](https://play.google.com/store/apps/details?id=com.synology.dsdrive)
+- [DS file](https://play.google.com/store/apps/details?id=com.synology.DSfile)
+- [DS finder](https://play.google.com/store/apps/details?id=com.synology.DSfinder)
+- [DS get](https://play.google.com/store/apps/details?id=com.synology.DSdownload)
+- [DS note](https://play.google.com/store/apps/details?id=com.synology.dsnote)
+- [Fuelio](https://play.google.com/store/apps/details?id=com.kajda.fuelio)
+- [HERE WeGo](https://play.google.com/store/apps/details?id=com.here.app.maps)
+- [Magic Earth](https://play.google.com/store/apps/details?id=com.generalmagic.magicearth)
+- [Moments](https://play.google.com/store/apps/details?id=com.synology.moments)
+- [Plex](https://play.google.com/store/apps/details?id=com.plexapp.android)
+- [Plexamp](https://play.google.com/store/apps/details?id=tv.plex.labs.plexamp)
+- [ProtonVPN](https://play.google.com/store/apps/details?id=ch.protonvpn.android)
+- [Steam](https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community)
+- [Untappd](https://play.google.com/store/apps/details?id=com.untappdllc.app)
+- [YNAB](https://play.google.com/store/apps/details?id=com.youneedabudget.evergreen.app)
+
+---
+
+## FDroid Applications
+
+### Ad Blocker
+
+- [Blokada](https://f-droid.org/en/packages/org.blokada.alarm/)
+
+### App Store
 
 - [Aurora Droid](https://f-droid.org/en/packages/com.aurora.adroid/)
 - [Aurora Store](https://f-droid.org/en/packages/com.aurora.store/)
 - [F-Droid](https://f-droid.org/en/packages/org.fdroid.fdroid/)
 
----
-
-## Barcode Scanner
+### Barcode Scanner
 
 - [Barcode Scanner](https://f-droid.org/en/packages/com.google.zxing.client.android/)
 - [Binary Eye](https://f-droid.org/en/packages/de.markusfisch.android.binaryeye/)
 
----
-
-## Browser
+### Browser
 
 - [Bromite](https://www.bromite.org/fdroid)
 - [Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)
 
----
-
-## Camera
+### Camera
 
 - [Open Camera](https://f-droid.org/en/packages/net.sourceforge.opencamera/)
 
----
-
-## Calendar
+### Calendar
 
 - [Simple Calendar](https://f-droid.org/en/packages/com.simplemobiletools.calendar.pro/)
 
----
-
-## Car Reporting (Gas, Milage, Services)
+### Car Reporting (Gas, Milage, Services)
 
 - [Car Report](https://f-droid.org/en/packages/me.kuehle.carreport/)
 
----
-
-## Contacts
+### Contacts
 
 - [Simple Contacts](https://f-droid.org/en/packages/com.simplemobiletools.contacts.pro/)
 
----
+### Device Information
 
-## Device Information
-
-### Installed Apps Info (MD5, Package Name, Trackers, etc)
+#### Installed Apps Info (MD5, Package Name, Trackers, etc)
 
 - [Checkey](https://f-droid.org/en/packages/info.guardianproject.checkey/)
 - [Exodus Privacy](https://f-droid.org/en/packages/org.eu.exodus_privacy.exodusprivacy/)
 - [List My Apps](https://f-droid.org/en/packages/de.onyxbits.listmyapps/)
 
----
-
-## eReader
+### eReader
 
 - [KOReader](https://f-droid.org/en/packages/org.koreader.launcher/)
 
----
-
-## Fitness/Health
+### Fitness/Health
 
 - [Gadgetbridge](https://f-droid.org/en/packages/nodomain.freeyourgadget.gadgetbridge/)
 
----
-
-## File Manager
+### File Manager
 
 - [Ghost Commander](https://f-droid.org/en/packages/com.ghostsq.commander/)
   - SFTP Plugin: [Ghost Commander - SFTP plugin](https://f-droid.org/en/packages/com.ghostsq.commander.sftp/)
 - [Material Files](https://f-droid.org/en/packages/me.zhanghai.android.files/)
 
----
-
-## Gallery
+### Gallery
 
 - [Simple Gallery](https://f-droid.org/en/packages/com.simplemobiletools.gallery.pro/)
 
----
+### Games
 
-## Games
-
-### Adventure
+#### Adventure
 
 - [Shattered Pixel Dungeon](https://f-droid.org/en/packages/com.shatteredpixel.shatteredpixeldungeon/)
 
-### Strategy
+#### Strategy
 
 - [Checkers](https://f-droid.org/en/packages/org.secuso.privacyfriendlydame/)
 - [UnCiv](https://f-droid.org/en/packages/com.unciv.app/)
 
-### Word Games
+#### Word Games
 
 - [Lexica](https://f-droid.org/en/packages/com.serwylo.lexica/)
 
----
-
-## Gift Card Manager
+### Gift Card Manager
 
 - [Gift Card Guard](hhttps://f-droid.org/en/packages/protect.gift_card_guard/)
 - [Loyalty Card Keychain](https://f-droid.org/en/packages/protect.card_locker/)
 
----
+### Maps
 
-## Maps
-
-### Navigation
+#### Navigation
 
 - [OsmAnd~](https://f-droid.org/en/packages/net.osmand.plus/)
 
-### Help to improve the OpenStreetMap
+#### Help to improve the OpenStreetMap
 
 - [Street­Complete](https://f-droid.org/en/packages/de.westnordost.streetcomplete/)
 
----
-
-## Media Players
+### Media Players
 
 - [Vinyl Music Player](https://f-droid.org/en/packages/com.poupa.vinylmusicplayer/)
 - [VLC](https://f-droid.org/en/packages/org.videolan.vlc/)
 
----
+### News
 
-## News
-
-### RSS
+#### RSS
 
 - [Feeder](https://f-droid.org/en/packages/com.nononsenseapps.feeder/)
 
----
+### Note Taking
 
-## Note Taking
-
-### Free
+#### Free
 
 - [Editor](https://f-droid.org/en/packages/org.billthefarmer.editor/)
 - [Open Note Scanner](https://f-droid.org/en/packages/com.todobom.opennotescanner/)
@@ -150,133 +155,103 @@
 - [Shopping List](https://f-droid.org/en/packages/privacyfriendlyshoppinglist.secuso.org.privacyfriendlyshoppinglist/)
 - [Simple Draw](https://f-droid.org/en/packages/com.simplemobiletools.draw.pro/)
 
-### Subscription
+#### Subscription
 
 - [S. Notes](https://f-droid.org/en/packages/com.standardnotes/)
 
----
-
-## Keyboard
+### Keyboard
 
 - [AnySoftKeyboard](https://f-droid.org/en/packages/com.menny.android.anysoftkeyboard/)
 
----
-
-## Password Manager
+### Password Manager
 
 - [Bitwarden](https://mobileapp.bitwarden.com/fdroid/)
 
----
-
-## Podcast
+### Podcast
 
 - [AntennaPod](https://f-droid.org/en/packages/de.danoeh.antennapod/)
 
----
+### Programming
 
-## Programming
-
-### Database Viewer
+#### Database Viewer
 
 - [SQLiteViewer](https://f-droid.org/en/packages/com.orpheusdroid.sqliteviewer/)
 
----
+### Privacy Apps
 
-## Privacy Apps
-
-### Image Metadata Removal
+#### Image Metadata Removal
 
 - [Scrambled Exif](https://f-droid.org/en/packages/com.jarsilio.android.scrambledeggsif/)
 
-### Social Media Redirects
+#### Social Media Redirects
 
 - [UntrackMe](https://f-droid.org/en/packages/app.fedilab.nitterizeme/)
 
----
-
-## Tasks
+### Tasks
 
 - [Habits](https://f-droid.org/en/packages/org.isoron.uhabits/)
 - [OpenTasks](https://f-droid.org/en/packages/org.dmfs.tasks/)
 
----
-
-## Torrenting
+### Torrenting
 
 - [LibreTorrent](https://f-droid.org/en/packages/org.proninyaroslav.libretorrent/)
 
----
-
-## Two Factor Auth
+### Two Factor Auth
 
 - [andOTP](https://f-droid.org/en/packages/org.shadowice.flocke.andotp/)
 - [Yubico Authenticator](https://f-droid.org/en/packages/com.yubico.yubioath/)
 
----
+### Self Hosted
 
-## Self Hosted
-
-### Bookmarking (Requires instance to point to)
+#### Bookmarking (Requires instance to point to)
 
 - [wallabag](https://f-droid.org/en/packages/fr.gaulupeau.apps.InThePoche/)
 
-### Link Shortener (Requires instance to point to)
+#### Link Shortener (Requires instance to point to)
 
 - [Shaarlier](https://f-droid.org/en/packages/com.dimtion.shaarlier/)
 
-### Sync Software
+#### Sync Software
 
 - [Syncthing](https://f-droid.org/en/packages/com.nutomic.syncthingandroid/)
 
----
+### Social Media
 
-## Social Media
-
-### Mastodon
+#### Mastodon
 
 - [Fedilab](https://f-droid.org/en/packages/fr.gouv.etalab.mastodon)
 
-### Facebook
+#### Facebook
 
 - [Frost](hhttps://f-droid.org/en/packages/com.pitchedapps.frost/)
 
-### Reddit
+#### Reddit
 
 - [Slide](https://f-droid.org/en/packages/me.ccrama.redditslide/)
 
-### YouTube
+#### YouTube
 
 - [NewPipe](https://f-droid.org/en/packages/org.schabi.newpipe/)
 
----
-
-## Stock Tracker
+### Stock Tracker
 
 - [Stocks Widget](https://f-droid.org/en/packages/com.github.premnirmal.tickerwidget/)
 
----
+### Sync Software
 
-## Sync Software
-
-### CalDAV, CardDAV (Contacts, Calendars, etc)
+#### CalDAV, CardDAV (Contacts, Calendars, etc)
 
 - [DAVx⁵](https://f-droid.org/en/packages/at.bitfire.davdroid/)
 
----
-
-## Voice Recording
+### Voice Recording
 
 - [Voice Recorder](https://f-droid.org/en/packages/com.simplemobiletools.voicerecorder/)
 
----
-
-## VPN
+### VPN
 
 - [OpenVPN for Android](https://f-droid.org/en/packages/de.blinkt.openvpn/)
 - [WireGuard](https://f-droid.org/en/packages/com.wireguard.android/)
 
----
-
-## Wiki
+### Wiki
 
 - [Wikipedia](https://f-droid.org/en/packages/org.wikipedia/)

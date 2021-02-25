@@ -2,7 +2,6 @@
 
 ## Software Applications
 
-- [Alva](https://meetalva.io/)
 - [Anydesk](https://anydesk.com/en/downloads/linux)
 - [Bitwarden](https://bitwarden.com/#download)
   - Locally using flatpak
@@ -18,6 +17,7 @@
 - [FreeTube](https://freetubeapp.io/)
   - Flatpak: https://flathub.org/apps/details/io.freetubeapp.FreeTube
 - Gnome Tweaks
+- [HyperJS Terminal](https://hyper.is/#installation)
 - [Lutris](https://lutris.net/downloads/)
 - [MegaSync](https://mega.nz/sync)
 - [Mulvad](https://mullvad.net/en/download/)
@@ -58,6 +58,7 @@
 ## Flatpak Applications
 
 - [Bitwarden](https://flathub.org/apps/details/com.bitwarden.desktop): `flatpak install flathub com.bitwarden.desktop`
+- [Cawbird](https://flathub.org/apps/details/uk.co.ibboard.cawbird): `flatpak install flathub uk.co.ibboard.cawbird`
 - [Evolution](https://flathub.org/apps/details/org.gnome.Evolution): `flatpak install flathub org.gnome.Evolution`
 - [FileZilla](https://flathub.org/apps/details/org.filezillaproject.Filezilla): `flatpak install flathub org.filezillaproject.Filezilla`
 - [FreeTube](https://flathub.org/apps/details/io.freetubeapp.FreeTube)
@@ -68,6 +69,7 @@
 - [Sublime Text](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
 - [Steam](https://flathub.org/apps/details/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
 - [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
+- [Tootle](https://flathub.org/apps/details/com.github.bleakgrey.tootle): `flatpak install flathub com.github.bleakgrey.tootle`
 - [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
 - [YubicoAuth](https://flathub.org/apps/details/com.yubico.yubioath)
 

@@ -82,3 +82,18 @@ Icon=/home/bshellnu/Documents/Desktop Icons/YubicoAuthIcon.png
 ```
 
 - [Yubico Auth Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png)
+
+4. [Buckets](https://www.budgetwithbuckets.com/en/download.html)
+
+```
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/home/bshellnu/Buckets-0.57.5.AppImage
+Name=Buckets
+Icon=/home/bshellnu/Documents/Desktop Icons/BudgetBucketsIcon.png
+```
+
+- [Buckets Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/BudgetBucketsIcon.png)

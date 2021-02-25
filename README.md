@@ -4,37 +4,60 @@
 
 List of instructions, resources, steps for setting up a new computer
 
-## Android
+## Applications
 
-### [Direct APK Applications](../master/android/Direct-APK-Application.md)
+### [Android](../master/android/Applications.md)
 
-### [FDroid-Applications](../master/android/FDroid-Applications.md)
+### [Linux](../master/linux/Applications.md)
 
-### [Google-Applications](../master/android/Google-Applications.md)
+### [OSX](../master/osx/Applications.md)
 
-## Linux
+### [Synology](../master/synology/Applications.md)
 
-### [List of Applications](../master/linux/Applications.md)
+### [Windows](../master/windows/Applications.md)
 
-### [Coding Setup](../master/linux/Coding-App-Setup.md)
+## Coding Setup
 
-### [Desktop Setup](../master/linux/Desktop-Setup.md)
+### [Linux](../master/linux/Coding-App-Setup.md)
 
-### [Environment Setup](../master/linux/Environment-Setup.md)
+- [Sublime Text 3](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text-3)
+- [VSCode](../master/linux/Coding-App-Setup.md#coding-applications##vscode)
+
+### [OSX](../master/osx/Coding-App-Setup.md)
+
+- [IntelliJ](../master/osx/Coding-App-Setup.md#coding-applications##intellij)
+- [iTerm](../master/osx/Coding-App-Setup.md#coding-applications##iterm)
+- [VSCode](../master/osx/Coding-App-Setup.md#coding-applications##vscode)
+
+## Configurations
 
 ### VPN Configurations
 
-#### [NordVPN](../master/linux/NordVPN-Configuration.md)
+#### Linux
 
-#### [ProtonVPN](../master/linux/ProtonVPN-Configuration.md)
+- [NordVPN](../master/linux/NordVPN-Configuration.md)
+- [ProtonVPN](../master/linux/ProtonVPN-Configuration.md)
+
+## Desktop Setup
+
+### [Linux](../master/linux/Desktop-Setup.md)
+
+- [Gnome Extensions](../master/linux/Desktop-Setup.md#desktop-setup##gnome-extensions)
+
+- [Desktop Icon Creation](../master/linux/Desktop-Setup.md#desktop-setup##desktop-icon-creation)
+
+## Environment Setup
+
+### [Linux](../master/linux/Environment-Setup.md)
+
+- [Coding Packages](../master/linux/Environment-Setup.md#environment-setup##coding-packages)
+- [Useful System Packages](../master/linux/Environment-Setup.md#environment-setup##useful-system-packages)
+- [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
+- [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
+
+### [Synology](../master/synology/Configuration-Environment-Setup.md)
 
 ### [Useful Resources](../master/linux/Resources-Information.md)
-
-## OSX
-
-### [List of Applications](../master/osx/Applications.md)
-
-### [Coding App Setup](../master/osx/Coding-App-Setup.md)
 
 ## Self Hosting
 
@@ -44,14 +67,6 @@ List of instructions, resources, steps for setting up a new computer
 
 ## Synology
 
-### [Applications installed](../master/synology/Applications.md)
-
-### [Configuration & Environment Setup](../master/synology/Configuration-Environment-Setup.md)
-
 ### [Docker Setup](../master/synology/Docker-Setup.md)
 
 ### [Setup Media Automation](../master/synology/Advanced-Media-Setup.md)
-
-## Windows
-
-### [List of Applications](../master/windows/Applications.md)
