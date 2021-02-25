@@ -57,6 +57,8 @@ List of instructions, resources, steps for setting up a new computer
 
 ## Environment Setup
 
+### [Terminal](../master/environment/Terminal.md)
+
 ### [Linux](../master/linux/Environment-Setup.md)
 
 - [Coding Packages](../master/linux/Environment-Setup.md#environment-setup##coding-packages)
@@ -64,7 +66,6 @@ List of instructions, resources, steps for setting up a new computer
 - [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
 - [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
 - [Git](../master/linux/Environment-Setup.md#environment-setup##git)
-- [Terminal](../master/environment/Terminal.md)
 
 ### [Synology](../master/synology/Configuration-Environment-Setup.md)
 
