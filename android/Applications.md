@@ -8,6 +8,12 @@
 
 ---
 
+## OS Level
+
+- Non-Google Backup Solution: [SeedVault](https://github.com/seedvault-app/seedvault)
+
+---
+
 ## Direct APK Downloads for Android
 
 - [Mullvad VPN](https://mullvad.net/en/download/apk/2020.4-beta4/)
