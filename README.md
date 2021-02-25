@@ -16,22 +16,20 @@ List of instructions, resources, steps for setting up a new computer
 
 ### [Windows](../master/windows/Applications.md)
 
-## Coding Setup
+## Coding App Setup
 
-### Apps
-
-#### [Configs](../master/environment/Coding-App-Configs.md)
+### [Configs](../master/environment/Coding-App-Configs.md)
 
 - [HyperJS](../master/environment/Coding-App-Configs.md#coding-app-configs##hyperjs)
 - [Sublime Text](../master/environment/Coding-App-Configs.md#coding-app-configs##sublime-text)
 - [VSCode](../master/environment/Coding-App-Configs.md#coding-app-configs##vscode)
 
-#### [Linux](../master/linux/Coding-App-Setup.md)
+### [Linux](../master/linux/Coding-App-Setup.md)
 
 - [Sublime Text](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text)
 - [VSCode](../master/linux/Coding-App-Setup.md#coding-applications##vscode)
 
-#### [OSX](../master/osx/Coding-App-Setup.md)
+### [OSX](../master/osx/Coding-App-Setup.md)
 
 - [IntelliJ](../master/osx/Coding-App-Setup.md#coding-applications##intellij)
 - [iTerm](../master/osx/Coding-App-Setup.md#coding-applications##iterm)
@@ -44,6 +42,16 @@ List of instructions, resources, steps for setting up a new computer
 - [Zsh](../master/environment/Terminal.md#terminal##zsh)
 - [Bash](../master/environment/Terminal.md#terminal##bash)
 - [SSH](../master/environment/Terminal.md#terminal##ssh)
+
+### [Environment](../master/environment/Environment.md)
+
+### [Linux](../master/linux/Environment-Setup.md)
+
+- [Coding Packages](../master/linux/Environment-Setup.md#environment-setup##coding-packages)
+- [Useful System Packages](../master/linux/Environment-Setup.md#environment-setup##useful-system-packages)
+- [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
+- [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
+- [Git](../master/linux/Environment-Setup.md#environment-setup##git)
 
 ## Software Configurations
 
@@ -61,18 +69,6 @@ List of instructions, resources, steps for setting up a new computer
 - [Gnome Extensions](../master/linux/Desktop-Setup.md#desktop-setup##gnome-extensions)
 
 - [Desktop Icon Creation](../master/linux/Desktop-Setup.md#desktop-setup##desktop-icon-creation)
-
-## Environment Setup
-
-### [Terminal](../master/environment/Terminal.md)
-
-### [Linux](../master/linux/Environment-Setup.md)
-
-- [Coding Packages](../master/linux/Environment-Setup.md#environment-setup##coding-packages)
-- [Useful System Packages](../master/linux/Environment-Setup.md#environment-setup##useful-system-packages)
-- [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
-- [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
-- [Git](../master/linux/Environment-Setup.md#environment-setup##git)
 
 ### [Synology](../master/synology/Configuration-Environment-Setup.md)
 
