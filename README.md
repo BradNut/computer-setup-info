@@ -20,9 +20,15 @@ List of instructions, resources, steps for setting up a new computer
 
 ### Apps
 
+#### [Configs](../master/environment/Coding-App-Configs.md)
+
+- [HyperJS](../master/environment/Coding-App-Configs.md#coding-app-configs##hyperjs)
+- [Sublime Text](../master/environment/Coding-App-Configs.md#coding-app-configs##sublime-text)
+- [VSCode](../master/environment/Coding-App-Configs.md#coding-app-configs##vscode)
+
 #### [Linux](../master/linux/Coding-App-Setup.md)
 
-- [Sublime Text 3](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text-3)
+- [Sublime Text](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text)
 - [VSCode](../master/linux/Coding-App-Setup.md#coding-applications##vscode)
 
 #### [OSX](../master/osx/Coding-App-Setup.md)
@@ -33,6 +39,7 @@ List of instructions, resources, steps for setting up a new computer
 
 ### [Terminal](../master/environment/Terminal.md)
 
+- [HyperJS](../master/environment/Terminal.md#terminal##hyperjs)
 - [Vim](../master/environment/Terminal.md#terminal##vim)
 - [Zsh](../master/environment/Terminal.md#terminal##zsh)
 - [Bash](../master/environment/Terminal.md#terminal##bash)

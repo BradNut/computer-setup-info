@@ -1,5 +1,9 @@
 # Terminal
 
+## HyperJS
+
+### [Configuration](https://github.com/BradNut/dotfiles/blob/master/.hyper.js)
+
 ## Vim
 
 - Configuration: [.vimrc](https://github.com/BradNut/dotfiles/blob/master/.vimrc)
