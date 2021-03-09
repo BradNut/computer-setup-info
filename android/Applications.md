@@ -16,7 +16,7 @@
 
 ## Direct APK Downloads for Android
 
-- [Mullvad VPN](https://mullvad.net/en/download/apk/2020.4-beta4/)
+- [Grocy](https://github.com/patzly/grocy-android)
 - [ProtonMail](https://protonmail.com/download/MailAndroid/ProtonMail-Android.apk)
 - [Signal](https://updates.signal.org/android/Signal-website-universal-release-4.58.5.apk)
 
@@ -38,7 +38,6 @@
 - [Moments](https://play.google.com/store/apps/details?id=com.synology.moments)
 - [Plex](https://play.google.com/store/apps/details?id=com.plexapp.android)
 - [Plexamp](https://play.google.com/store/apps/details?id=tv.plex.labs.plexamp)
-- [ProtonVPN](https://play.google.com/store/apps/details?id=ch.protonvpn.android)
 - [Steam](https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community)
 - [Untappd](https://play.google.com/store/apps/details?id=com.untappdllc.app)
 - [YNAB](https://play.google.com/store/apps/details?id=com.youneedabudget.evergreen.app)
@@ -255,7 +254,9 @@
 
 ### VPN
 
+- [Mullvad VPN](https://f-droid.org/en/packages/net.mullvad.mullvadvpn/)
 - [OpenVPN for Android](https://f-droid.org/en/packages/de.blinkt.openvpn/)
+- [ProtonVPN](https://f-droid.org/en/packages/ch.protonvpn.android/)
 - [WireGuard](https://f-droid.org/en/packages/com.wireguard.android/)
 
 ### Wiki
