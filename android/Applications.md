@@ -55,6 +55,8 @@
 - [Aurora Droid](https://f-droid.org/en/packages/com.aurora.adroid/)
 - [Aurora Store](https://f-droid.org/en/packages/com.aurora.store/)
 - [F-Droid](https://f-droid.org/en/packages/org.fdroid.fdroid/)
+- [Foxy Droid](https://f-droid.org/en/packages/nya.kitsunyan.foxydroid/)
+- [IzzyOnDroid Repo](https://apt.izzysoft.de/fdroid/index/info)
 
 ### Barcode Scanner
 
@@ -64,6 +66,7 @@
 ### Browser
 
 - [Bromite](https://www.bromite.org/fdroid)
+ - Repo: https://www.bromite.org/fdroid
 - [Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)
 
 ### Camera
