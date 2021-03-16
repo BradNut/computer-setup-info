@@ -66,7 +66,7 @@
 ### Browser
 
 - [Bromite](https://www.bromite.org/fdroid)
- - Repo: https://www.bromite.org/fdroid
+  - Repo: https://www.bromite.org/fdroid
 - [Fennec F-Droid](https://f-droid.org/en/packages/org.mozilla.fennec_fdroid/)
 
 ### Camera
