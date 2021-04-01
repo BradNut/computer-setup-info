@@ -58,3 +58,32 @@ $ git config --global.email "you@example.com"
 ## Terminal
 
 - See details here: [Terminal Setup](../environment/Terminal.md)
+
+## Caddy Server
+
+Install: [Ubuntu/Debian/Raspbian](https://caddyserver.com/docs/install#debian-ubuntu-raspbian)
+
+```
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo apt-key add -
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee -a /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
+```
+
+### Running Caddyfiles Directly
+
+Disable the systemctl service: `sudo systemctl disable caddy`
+Otherwise error of address in use for `:2019`
+
+### If bind address in use error for port 443
+
+Looks here: https://superuser.com/questions/710253/allow-non-root-process-to-bind-to-port-80-and-443/892391#892391
+
+Option 1 which worked on PopOS: `sudo setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)`
+
+### Firewall
+
+Possibly need to allow port `:443` and `:80` in Linux firewall
+`sudo ufw allow 443/tcp`
+`sudo ufw allow 80/tcp`
