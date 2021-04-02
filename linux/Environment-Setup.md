@@ -71,6 +71,8 @@ sudo apt update
 sudo apt install caddy
 ```
 
+For trust/untrust certs install using `sudo apt install libss3-tools`
+
 ### Running Caddyfiles Directly
 
 Disable the systemctl service: `sudo systemctl disable caddy`
