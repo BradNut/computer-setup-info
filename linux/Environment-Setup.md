@@ -71,8 +71,6 @@ sudo apt update
 sudo apt install caddy
 ```
 
-For trust/untrust certs install using `sudo apt install libss3-tools`
-
 ### Running Caddyfiles Directly
 
 Disable the systemctl service: `sudo systemctl disable caddy`
@@ -92,8 +90,13 @@ Possibly need to allow port `:443` and `:80` in Linux firewall
 
 ### NET::ERR_CERT_AUTHORITY_INVALID or SEC_ERROR_UNKNOWN_ISSUER Browser Errors
 
-1. Run `caddy trust`
-2. If still does not work then untrust and re-trust:
+Pre-requisite for trust/untrust:
+
+1. Install Java (Might not be needed, using SDKMan): `sdk install java`
+2. Install certutil: `sudo apt install libss3-tools`
+
+3. Run `caddy trust`
+4. If still does not work then untrust and re-trust:
 
 ```
   caddy untrust && caddy trust
