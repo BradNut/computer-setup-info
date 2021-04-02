@@ -87,3 +87,16 @@ Option 1 which worked on PopOS: `sudo setcap CAP_NET_BIND_SERVICE=+eip $(which c
 Possibly need to allow port `:443` and `:80` in Linux firewall
 `sudo ufw allow 443/tcp`
 `sudo ufw allow 80/tcp`
+
+### NET::ERR_CERT_AUTHORITY_INVALID or SEC_ERROR_UNKNOWN_ISSUER Browser Errors
+
+1. Run `caddy trust`
+2. If still does not work then untrust and re-trust:
+
+```
+  caddy untrust && caddy trust
+```
+
+### Firefox Root Certs
+
+Enable the about:config property `security.enterprise_roots.enabled` to true.
