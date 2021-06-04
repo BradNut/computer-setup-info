@@ -13,7 +13,8 @@
   - CalDAV Synology link: https://\*.synology.me:38443/caldav.php/USERNAME/eyeewj/
 - [FileZilla](https://filezilla-project.org/download.php?type=client)
   - Locally using flatpak
-- Firefox
+- Firefox and dev variants
+  - Install via flatpak or for linux use: https://github.com/Linux-Is-Best/Firefox-automatic-install-for-Linux
 - [FreeTube](https://freetubeapp.io/)
   - Flatpak: https://flathub.org/apps/details/io.freetubeapp.FreeTube
 - Gnome Tweaks
@@ -44,6 +45,7 @@
   - Locally use flatpak if can't get running: https://flathub.org/apps/details/com.valvesoftware.Steam
 - Sublime Text
   - Locally using flatpak
+  - Or for more up to date releases download from https://www.sublimetext.com/download
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
