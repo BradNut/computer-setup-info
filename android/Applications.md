@@ -36,8 +36,10 @@
 - [HERE WeGo](https://play.google.com/store/apps/details?id=com.here.app.maps)
 - [Magic Earth](https://play.google.com/store/apps/details?id=com.generalmagic.magicearth)
 - [Moments](https://play.google.com/store/apps/details?id=com.synology.moments)
+- [Pi-hole Connect](https://play.google.com/store/apps/details?id=com.tien.piholeconnect)
 - [Plex](https://play.google.com/store/apps/details?id=com.plexapp.android)
 - [Plexamp](https://play.google.com/store/apps/details?id=tv.plex.labs.plexamp)
+- [Privacy](https://play.google.com/store/apps/details?id=com.privacy.pay)
 - [Steam](https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community)
 - [Untappd](https://play.google.com/store/apps/details?id=com.untappdllc.app)
 - [YNAB](https://play.google.com/store/apps/details?id=com.youneedabudget.evergreen.app)
@@ -75,6 +77,7 @@
 
 ### Calendar
 
+- [EteSync](https://f-droid.org/en/packages/com.etesync.syncadapter/)
 - [Simple Calendar](https://f-droid.org/en/packages/com.simplemobiletools.calendar.pro/)
 
 ### Car Reporting (Gas, Milage, Services)
@@ -83,6 +86,7 @@
 
 ### Contacts
 
+- [EteSync](https://f-droid.org/en/packages/com.etesync.syncadapter/)
 - [Simple Contacts](https://f-droid.org/en/packages/com.simplemobiletools.contacts.pro/)
 
 ### Device Information
@@ -90,8 +94,14 @@
 #### Installed Apps Info (MD5, Package Name, Trackers, etc)
 
 - [Checkey](https://f-droid.org/en/packages/info.guardianproject.checkey/)
+- [DiskUsage](https://f-droid.org/en/packages/com.google.android.diskusage/)
 - [Exodus Privacy](https://f-droid.org/en/packages/org.eu.exodus_privacy.exodusprivacy/)
 - [List My Apps](https://f-droid.org/en/packages/de.onyxbits.listmyapps/)
+
+### Email
+
+- [AnonAddy](https://f-droid.org/en/packages/host.stjin.anonaddy/)
+- [Tutanota](https://f-droid.org/en/packages/de.tutao.tutanota)
 
 ### eReader
 
@@ -99,6 +109,7 @@
 
 ### Fitness/Health
 
+- [FitoTrack](https://f-droid.org/en/packages/de.tadris.fitness/)
 - [Gadgetbridge](https://f-droid.org/en/packages/nodomain.freeyourgadget.gadgetbridge/)
 
 ### File Manager
@@ -119,7 +130,9 @@
 
 #### Strategy
 
+- [2048 Open Fun Game](https://f-droid.org/en/packages/org.andstatus.game2048/)
 - [Checkers](https://f-droid.org/en/packages/org.secuso.privacyfriendlydame/)
+- [Minesweeper - Antimine](https://f-droid.org/en/packages/dev.lucanlm.antimine/)
 - [UnCiv](https://f-droid.org/en/packages/com.unciv.app/)
 
 #### Word Games
@@ -170,14 +183,21 @@
 ### Keyboard
 
 - [AnySoftKeyboard](https://f-droid.org/en/packages/com.menny.android.anysoftkeyboard/)
+- [FlorisBoard](https://f-droid.org/en/packages/dev.patrickgold.florisboard/)
 
 ### Password Manager
 
 - [Bitwarden](https://mobileapp.bitwarden.com/fdroid/)
+- [Password Store](https://f-droid.org/en/packages/dev.msfjarvis.aps/)
 
 ### Podcast
 
 - [AntennaPod](https://f-droid.org/en/packages/de.danoeh.antennapod/)
+- [Podverse](https://f-droid.org/en/packages/com.podverse.fdroid/)
+
+### Port Scanner
+
+- [Port Authority](https://f-droid.org/en/packages/com.aaronjwood.portauthority/)
 
 ### Programming
 
@@ -225,7 +245,11 @@
 
 ### Social Media
 
-#### Mastodon
+#### [Matrix](https://matrix.org/)
+
+- [Element](https://f-droid.org/en/packages/im.vector.app/)
+
+#### [Mastodon](https://joinmastodon.org/)
 
 - [Fedilab](https://f-droid.org/en/packages/fr.gouv.etalab.mastodon)
 
@@ -233,9 +257,17 @@
 
 - [Frost](hhttps://f-droid.org/en/packages/com.pitchedapps.frost/)
 
+#### Instagram
+
+- [Barinsta](https://f-droid.org/en/packages/me.austinhuang.instagrabber/)
+
 #### Reddit
 
 - [Slide](https://f-droid.org/en/packages/me.ccrama.redditslide/)
+
+#### Twitter
+
+- [Tidere X](https://f-droid.org/en/packages/com.twidere.twiderex)
 
 #### YouTube
 

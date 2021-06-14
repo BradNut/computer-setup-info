@@ -4,7 +4,7 @@
 
 - [Anydesk](https://anydesk.com/en/downloads/linux)
 - [Bitwarden](https://bitwarden.com/#download)
-  - Locally using flatpak
+  - Or using flatpak
 - [Brave Browser](https://brave.com/download/)
 - Emoji Picker
   - Deb from App Shop
@@ -43,14 +43,12 @@
 - Steam
   - Use DEB for supported
   - Locally use flatpak if can't get running: https://flathub.org/apps/details/com.valvesoftware.Steam
-- Sublime Text
-  - Locally using flatpak
-  - Or for more up to date releases download from https://www.sublimetext.com/download
+- [Sublime Text](https://www.sublimetext.com/docs/linux_repositories.html#apt)
+  - Or using flatpak
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
-- VSCode
-  - Use DEB for up to date
+- [VSCode](https://code.visualstudio.com/Download)
 - WoeUSB
 - Yubico Authenticator
   - Flatpak: https://flathub.org/apps/details/com.yubico.yubioath
