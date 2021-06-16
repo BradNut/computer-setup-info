@@ -3,6 +3,7 @@
 ## Sublime Text
 
 - [Install](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
+  - Or apt for more up to date features
 - [Configuration](https://github.com/BradNut/dotfiles/blob/master/Preferences.sublime-settings)
 
 ### Package Control
