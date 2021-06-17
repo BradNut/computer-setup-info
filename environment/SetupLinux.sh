@@ -1,26 +1,3 @@
-# Setup Dell XPS 13 PopOS/Ubuntu
-
-## Install Dell Drivers
-
-```
-sudo sh -c 'cat > /etc/apt/sources.list.d/focal-dell.list << EOF
-deb http://dell.archive.canonical.com/updates/ focal-dell public
-# deb-src http://dell.archive.canonical.com/updates/ focal-dell public
-
-deb http://dell.archive.canonical.com/updates/ focal-oem public
-# deb-src http://dell.archive.canonical.com/updates/ focal-oem public
-
-deb http://dell.archive.canonical.com/updates/ focal-somerville public
-# deb-src http://dell.archive.canonical.com/updates/ focal-somerville public
-
-deb http://dell.archive.canonical.com/updates/ focal-somerville-melisa public
-# deb-src http://dell.archive.canonical.com/updates focal-somerville-melisa public
-EOF'
-```
-
-Clean setup of PopOS resources:
-
-```
 #!/bin/bash
 set -ex
 
@@ -238,6 +215,3 @@ code --install-extension RobbOwen.synthwave-vscode
 sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
 
 echo $'\n'$"Ready for REBOOT"
-```
-
-Reference bash script here: https://github.com/jules-ch/Ubuntu20-Setup-XPS13/blob/master/setup.sh

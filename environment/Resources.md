@@ -6,4 +6,4 @@
 
 ## GrapheneOS
 
-- Install: [Link](../master/linux/GrapheneOS-Install.md)
+- Install: [Link](../master/android/GrapheneOS-Install.md)
