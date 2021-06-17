@@ -52,8 +52,8 @@ Dotfiles and editor preferences: https://github.com/BradNut/dotfiles
 Edit `.gitconfig` with name and email
 
 ```
-$ git config --global.name "Your Name"
-$ git config --global.email "you@example.com"
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 ## Terminal
