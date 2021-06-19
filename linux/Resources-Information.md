@@ -70,6 +70,13 @@ Extra resources: https://support.system76.com/articles/battery/
 
 ---
 
+## Tweaks
+
+### PopOS Laptop
+
+- Trackpad Left/Right Click same unless set in Tweaks settings
+  - Keyboard and mouse -> Mouse Click Emulation -> Area
+
 ## Trackpad Gestures
 
 _Working on Dell XPS 13_
