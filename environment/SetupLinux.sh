@@ -146,70 +146,77 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
-# VSCode Extensions
 
-## Auto Complete
+# VS Codium
+## Install https://vscodium.com/#install
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/etc/apt/trusted.gpg.d/vscodium.gpg
+echo 'deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list.d/vscodium.list
+sudo apt update && sudo apt install codium
 
-code --install-extension formulahendry.auto-close-tag
-code --install-extension formulahendry.auto-rename-tag
+## VSCode Extensions
 
-## Debuggers
+### Auto Complete
 
-code --install-extension msjsdiag.debugger-for-chrome
+codium --install-extension formulahendry.auto-close-tag
+codium --install-extension formulahendry.auto-rename-tag
 
-## Formaters
+### Debuggers
 
-code --install-extension aaron-bond.better-comments
-code --install-extension tombonnike.vscode-status-bar-format-toggle
-code --install-extension esbenp.prettier-vscode
+codium --install-extension msjsdiag.debugger-for-chrome
 
-## Icons
+### Formaters
 
-code --install-extension vscode-icons-team.vscode-icons
+codium --install-extension aaron-bond.better-comments
+codium --install-extension tombonnike.vscode-status-bar-format-toggle
+codium --install-extension esbenp.prettier-vscode
 
-## Linters
+### Icons
 
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension dbaeumer.vscode-eslint
+codium --install-extension vscode-icons-team.vscode-icons
 
-## Other
+### Linters
 
-code --install-extension CoenraadS.bracket-pair-colorizer-2
-code --install-extension naumovs.color-highlight
-code --install-extension donjayamanne.githistory
-code --install-extension wix.vscode-import-cost
-code --install-extension Orta.vscode-jest
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension techer.open-in-browser
-code --install-extension christian-kohler.path-intellisense
-code --install-extension 2gua.rainbow-brackets
-code --install-extension siegebell.scope-info
-code --install-extension ardenivanov.svelte-intellisense
+codium --install-extension streetsidesoftware.code-spell-checker
+codium --install-extension dbaeumer.vscode-eslint
 
-## Programming Languages
+### Other
 
-code --install-extension PeterJausovec.vscode-docker
-code --install-extension mikestead.dotenv
-code --install-extension Prisma.vscode-graphql
-code --install-extension Prisma.prisma
-code --install-extension mechatroner.rainbow-csv
-code --install-extension mrmlnc.vscode-scss
-code --install-extension svelte.svelte-vscode
-code --install-extension jpoissonnier.vscode-styled-components
-code --install-extension redhat.vscode-yaml
+codium --install-extension CoenraadS.bracket-pair-colorizer-2
+codium --install-extension naumovs.color-highlight
+codium --install-extension donjayamanne.githistory
+codium --install-extension wix.vscode-import-cost
+codium --install-extension Orta.vscode-jest
+codium --install-extension christian-kohler.npm-intellisense
+codium --install-extension techer.open-in-browser
+codium --install-extension christian-kohler.path-intellisense
+codium --install-extension 2gua.rainbow-brackets
+codium --install-extension siegebell.scope-info
+codium --install-extension ardenivanov.svelte-intellisense
 
-## Snippets
+### Programming Languages
 
-code --install-extension dsznajder.es7-react-js-snippets
-code --install-extension kumar-harsh.graphql-for-vscode
-code --install-extension fivethree.vscode-svelte-snippets
+codium --install-extension PeterJausovec.vscode-docker
+codium --install-extension mikestead.dotenv
+codium --install-extension Prisma.vscode-graphql
+codium --install-extension Prisma.prisma
+codium --install-extension mechatroner.rainbow-csv
+codium --install-extension mrmlnc.vscode-scss
+codium --install-extension svelte.svelte-vscode
+codium --install-extension jpoissonnier.vscode-styled-components
+codium --install-extension redhat.vscode-yaml
 
-## Themes
+### Snippets
 
-code --install-extension teabyii.ayu
-code --install-extension wesbos.theme-cobalt2
-code --install-extension Loader be5invis.vscode-custom-css
-code --install-extension RobbOwen.synthwave-vscode
+codium --install-extension dsznajder.es7-react-js-snippets
+codium --install-extension kumar-harsh.graphql-for-vscode
+codium --install-extension fivethree.vscode-svelte-snippets
+
+### Themes
+
+codium --install-extension teabyii.ayu
+codium --install-extension wesbos.theme-cobalt2
+codium --install-extension Loader be5invis.vscode-custom-css
+codium --install-extension RobbOwen.synthwave-vscode
 
 # Gotta reboot now:
 sudo apt update -qq && sudo apt upgrade -y && sudo apt autoremove -y
