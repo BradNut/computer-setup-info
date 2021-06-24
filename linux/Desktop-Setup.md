@@ -37,7 +37,23 @@ MimeType=x-scheme-handler/xxx;text/html;
 
 ### Entries Currently Using
 
-1. [Plexamp](https://plexamp.com/#downloads)
+1. [Bitwarden](https://vault.bitwarden.com/download/?app=desktop&platform=linux)
+
+```
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.26.5
+Type=Application
+Terminal=false
+Exec=/home/bshellnu/Bitwarden-1.26.5-x86_64.AppImage
+Name=Bitwarden
+Icon=/home/bshellnu/Documents/Desktop Icons/Bitwarden.png
+MimeType=x-scheme-handler/bitwarden;text/html;
+```
+
+- [Bitwarden Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/Bitwarden.png)
+
+2. [Plexamp](https://plexamp.com/#downloads)
 
 ```
 [Desktop Entry]
