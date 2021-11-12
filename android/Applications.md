@@ -5,7 +5,7 @@
 1. [Direct APK](#direct-apk-downloads-for-android)
 2. [Google Play Store](#google-play-store)
 3. [FDroid Applications](#fdroid-applications)
-
+4. [Manual Repositories](#manual-repositories)
 ---
 
 ## OS Level
@@ -42,7 +42,6 @@
 - [Privacy](https://play.google.com/store/apps/details?id=com.privacy.pay)
 - [Steam](https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community)
 - [Untappd](https://play.google.com/store/apps/details?id=com.untappdllc.app)
-- [YNAB](https://play.google.com/store/apps/details?id=com.youneedabudget.evergreen.app)
 
 ---
 
@@ -73,6 +72,7 @@
 
 ### Camera
 
+- [GrapheneOS Camera](https://github.com/GrapheneOS/platform_external_Camera)
 - [Open Camera](https://f-droid.org/en/packages/net.sourceforge.opencamera/)
 
 ### Calendar
@@ -297,3 +297,11 @@
 ### Wiki
 
 - [Wikipedia](https://f-droid.org/en/packages/org.wikipedia/)
+
+---
+
+## Manual Repositories
+
+- [Bitwarden](https://mobileapp.bitwarden.com/fdroid/)
+- [Bromite](https://www.bromite.org/fdroid)
+- [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/info)
