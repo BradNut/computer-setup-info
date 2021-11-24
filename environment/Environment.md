@@ -6,6 +6,9 @@
 - Curl: `sudo apt install curl`
 - Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
   - [Install instructions](../master/linux/Docker-Setup.md)
+- [Node Version Manager](https://github.com/nvm-sh/nvm#set-default-node-version)
+  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
+  - Use `.nvmrc` from [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
 - Gatsby CLI: `sudo npm install gatsby-cli -g`
 - Heroku CLI: `sudo snap install --classic heroku`
 - Vim: `sudo apt install vim`
@@ -28,14 +31,16 @@
 
 - `test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)`
 - `test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)`
-- If using bash: `test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile`
+- If using bash: `test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.bash_profile`
 - `echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile`
 
 #### List of installed casks
 
 _NOTE: ZSH and plugins for Ubuntu should be manually installed and not from brew_
 
-- nodeJS: `brew install node`
+_NodeJS: Use Node Version Manager_
+
+- NodeJS: *Use Node Version Manager instead*
 - postresql: `brew install postgresql`
 - sshpass: `brew install hudochenkov/sshpass/sshpass`
 - tmux: `brew install tmux`

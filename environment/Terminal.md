@@ -29,6 +29,7 @@ _Currently using zsh_
 - [.zshrc](https://github.com/BradNut/dotfiles/blob/master/.zshrc)
 - [Oh My Zsh](https://ohmyzsh.sh)
   - Install: `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+- [.nvmrc](https://github.com/BradNut/dotfiles/blob/master/.zshrc) - Node Version Manager config file
 
 #### Oh My Zsh Plugins
 
