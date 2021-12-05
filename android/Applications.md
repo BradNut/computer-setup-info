@@ -263,6 +263,7 @@
 
 #### Reddit
 
+- [Infinity for Reddit](https://f-droid.org/en/packages/ml.docilealligator.infinityforreddit/)
 - [Slide](https://f-droid.org/en/packages/me.ccrama.redditslide/)
 
 #### Twitter
