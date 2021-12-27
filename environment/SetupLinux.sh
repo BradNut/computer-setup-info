@@ -1,7 +1,12 @@
 #!/bin/bash
 set -ex
 
-# Add dell drivers for focal fossa
+# Ensure repositories are enabled
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo add-apt-repository restricted
+
+# Add dell drivers for focal fossa XPS 13
 
 sudo sh -c 'cat > /etc/apt/sources.list.d/focal-dell.list << EOF
 deb http://dell.archive.canonical.com/updates/ focal-dell public
@@ -9,9 +14,15 @@ deb http://dell.archive.canonical.com/updates/ focal-dell public
 
 deb http://dell.archive.canonical.com/updates/ focal-oem public
 # deb-src http://dell.archive.canonical.com/updates/ focal-oem public
+
+deb http://dell.archive.canonical.com/updates/ focal-somerville public
+# deb-src http://dell.archive.canonical.com/updates/ focal-somerville public
+
+deb http://dell.archive.canonical.com/updates/ focal-somerville-melisa public
+# deb-src http://dell.archive.canonical.com/updates focal-somerville-melisa public
 EOF'
 
-sudo apt update -q
+sudo apt update -qq
 
 # Install general utilities
 sudo apt install git curl xclip htop openssh-server sshfs vim neofetch file gnome-tweaks
@@ -137,7 +148,7 @@ flatpak install flathub com.bitwarden.desktop
 flatpak install flathub org.filezillaproject.Filezilla
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub org.qbittorrent.qBittorrent
-flatpak install flathub org.standardnotes.standardnotes
+# flatpak install flathub org.standardnotes.standardnotes
 
 # Yubico
 flatpak install flathub com.yubico.yubioath

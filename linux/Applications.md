@@ -83,6 +83,11 @@
 
 ### App Image Instructions
 
+[App Image Launcher](https://github.com/TheAssassin/AppImageLauncher) - Used to automatically link for execution
+- Installation: https://github.com/TheAssassin/AppImageLauncher/wiki/Install-on-Ubuntu-or-Debian
+
+OR Manual Install
+
 Linux AppImage Instructions:
 
 An AppImage is a self-contained instance of the application. Upon download, please move this file to a more permanent location on your system. You will need to keep this file for as long as you intend to use Standard Notes.
