@@ -21,7 +21,7 @@
 - [HyperJS Terminal](https://hyper.is/#installation)
 - [Lutris](https://lutris.net/downloads/)
 - [MegaSync](https://mega.nz/sync)
-- [Mulvad](https://mullvad.net/en/download/)
+- [Mullvad](https://mullvad.net/en/download/)
 - [NordVPN](https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm)
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman
@@ -36,7 +36,6 @@
 - Thunderbird
   - Flathub or Deb
 - [Timeshift](https://github.com/teejee2008/timeshift)
-- Transmission
 - [Signal](https://signal.org/download/#)
   - Locally using flatpak
 - [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
