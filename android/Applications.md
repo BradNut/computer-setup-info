@@ -56,7 +56,7 @@
 - [Aurora Droid](https://f-droid.org/en/packages/com.aurora.adroid/)
 - [Aurora Store](https://f-droid.org/en/packages/com.aurora.store/)
 - [F-Droid](https://f-droid.org/en/packages/org.fdroid.fdroid/)
-- [Foxy Droid](https://f-droid.org/en/packages/nya.kitsunyan.foxydroid/)
+- [Droid-ify](https://f-droid.org/en/packages/com.looker.droidify/)
 - [IzzyOnDroid Repo](https://apt.izzysoft.de/fdroid/index/info)
 
 ### Barcode Scanner
@@ -184,6 +184,7 @@
 
 - [AnySoftKeyboard](https://f-droid.org/en/packages/com.menny.android.anysoftkeyboard/)
 - [FlorisBoard](https://f-droid.org/en/packages/dev.patrickgold.florisboard/)
+- [OpenBoard](https://f-droid.org/en/packages/org.dslul.openboard.inputmethod.latin/)
 
 ### Password Manager
 
