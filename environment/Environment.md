@@ -9,8 +9,11 @@
 - [Node Version Manager](https://github.com/nvm-sh/nvm#set-default-node-version)
   - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
   - Use `.nvmrc` from [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
+  - Useful install LTS: `nvm install --lts`
 - Gatsby CLI: `sudo npm install gatsby-cli -g`
 - Heroku CLI: `sudo snap install --classic heroku`
+- [PNPM](https://pnpm.io/installation)
+  - NPM Install: `npm install -g pnpm`
 - Vim: `sudo apt install vim`
 - Sanity CLI: `sudo npm install @sanity/cli -g`
 

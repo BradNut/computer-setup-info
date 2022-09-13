@@ -3,9 +3,14 @@
 ## Software Applications
 
 - [Anydesk](https://anydesk.com/en/downloads/linux)
+- [App Image Launcher](https://github.com/TheAssassin/AppImageLauncher)
 - [Bitwarden](https://bitwarden.com/#download)
   - Or using flatpak
 - [Brave Browser](https://brave.com/download/)
+- Cheese - Picture app
+- Cryptomator
+- DBeaver
+  - Flatpak
 - Emoji Picker
   - Deb from App Shop
 - [Evolution](https://help.gnome.org/users/evolution/stable/): `sudo apt-get install evolution`
@@ -32,7 +37,9 @@
   - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)_
 - [Proton VPN](https://protonvpn.com/support/linux-vpn-tool/)
 - qBittorrent
-  - Locally using flatpak
+  - Locally using Flatpak
+  - Themes:
+    - https://github.com/maboroshin/qBittorrentDarktheme
 - Thunderbird
   - Flathub or Deb
 - [Timeshift](https://github.com/teejee2008/timeshift)
@@ -48,8 +55,12 @@
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
 - [VSCode](https://code.visualstudio.com/Download)
+- Web
+  - Flatpak
+  - Browser to test WebKit like functionality
 - WoeUSB
 - Yubico Authenticator
+  - App Image works
   - Flatpak: https://flathub.org/apps/details/com.yubico.yubioath
 
 ---
@@ -58,6 +69,7 @@
 
 - [Bitwarden](https://flathub.org/apps/details/com.bitwarden.desktop): `flatpak install flathub com.bitwarden.desktop`
 - [Cawbird](https://flathub.org/apps/details/uk.co.ibboard.cawbird): `flatpak install flathub uk.co.ibboard.cawbird`
+- [DBeaver](https://flathub.org/apps/details/io.dbeaver.DBeaverCommunity): `flatpak install flathub io.dbeaver.DBeaverCommunity`
 - [Evolution](https://flathub.org/apps/details/org.gnome.Evolution): `flatpak install flathub org.gnome.Evolution`
 - [FileZilla](https://flathub.org/apps/details/org.filezillaproject.Filezilla): `flatpak install flathub org.filezillaproject.Filezilla`
 - [FreeTube](https://flathub.org/apps/details/io.freetubeapp.FreeTube)
@@ -70,6 +82,7 @@
 - [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
 - [Tootle](https://flathub.org/apps/details/com.github.bleakgrey.tootle): `flatpak install flathub com.github.bleakgrey.tootle`
 - [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
+- [Web](https://flathub.org/apps/details/org.gnome.Epiphany): `flatpak install flathub org.gnome.Epiphany`
 - [YubicoAuth](https://flathub.org/apps/details/com.yubico.yubioath)
 
 ---
