@@ -4,6 +4,12 @@
 
 ### [Configuration](https://github.com/BradNut/dotfiles/blob/master/.hyper.js)
 
+## Custom Prompt
+
+- [Starship](https://starship.rs/)
+  - Preset [Nerd Font Symbols Preset](https://starship.rs/presets/nerd-font.html)
+  - [Nerd Font](https://www.nerdfonts.com/) used: Fira Code Nerd Font
+
 ## Vim
 
 - Configuration: [.vimrc](https://github.com/BradNut/dotfiles/blob/master/.vimrc)

@@ -5,12 +5,15 @@
 ### Fonts
 
 - Fira Code Retina
+- JetBrains Mono with Ligatures
 
 ### Plugins
 
 - [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
 - [Kotlin](https://plugins.jetbrains.com/plugin/6954-kotlin)
 - [Lombok](https://plugins.jetbrains.com/plugin/6317-lombok)
+- [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)
+  - Using Material Darker
 - [One Dark Theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
 - [Prettier](https://plugins.jetbrains.com/plugin/10456-prettier)
 - [Save Actions](https://plugins.jetbrains.com/plugin/7642-save-actions)
@@ -47,6 +50,10 @@
 - [Gutter Color](https://packagecontrol.io/packages/Gutter%20Color)
 - [HTML-CSS-JS Prettify](https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify)
 - [Rainbow Brackets](https://github.com/absop/RainbowBrackets)
+
+## Terminal
+
+- [Starship](https://starship.rs/)
 
 ## VSCode
 
