@@ -2,19 +2,34 @@
 
 ## HyperJS
 
-## [Configuration](https://github.com/BradNut/dotfiles/blob/master/.hyper.js)
+- [Configuration](https://github.com/BradNut/dotfiles/blob/master/.hyper.js)
 
 ## Sublime Text
 
-### [Configuration](https://github.com/BradNut/dotfiles/blob/master/Preferences.sublime-settings)
-
-### [Packages](https://github.com/BradNut/dotfiles/blob/master/sublime-text-extensions-i-use.md)
+- [Configuration](https://github.com/BradNut/dotfiles/blob/master/Preferences.sublime-settings)
+- [Packages](https://github.com/BradNut/dotfiles/blob/master/sublime-text-extensions-i-use.md)
 
 ## VSCode
 
 - Configuration: [settings.js](https://github.com/BradNut/dotfiles/blob/master/settings.json)
 - Packages: https://github.com/BradNut/dotfiles/blob/master/vs-code-extensions-i-use.md
-- Install Shell Command: Install ‘code’ command in PATH
+- Install Shell Command: Install `code` command in PATH
+
+## IntelliJ
+
+### Plugins
+
+- [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
+- [Kotlin](https://plugins.jetbrains.com/plugin/6954-kotlin)
+- [Lombok](https://plugins.jetbrains.com/plugin/6317-lombok)
+- [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)
+  - Using Material Darker
+- [One Dark Theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
+- [Prettier](https://plugins.jetbrains.com/plugin/10456-prettier)
+- [Save Actions](https://plugins.jetbrains.com/plugin/7642-save-actions)
+- [Sonar Lint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+- [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)
+- [Visual Studio Code Dark Plus Theme](https://plugins.jetbrains.com/plugin/12255-visual-studio-code-dark-plus-theme)
 
 ### Troubleshooting
 

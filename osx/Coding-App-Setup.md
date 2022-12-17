@@ -18,6 +18,7 @@
 - [Prettier](https://plugins.jetbrains.com/plugin/10456-prettier)
 - [Save Actions](https://plugins.jetbrains.com/plugin/7642-save-actions)
 - [Sonar Lint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+- [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)
 - [Visual Studio Code Dark Plus Theme](https://plugins.jetbrains.com/plugin/12255-visual-studio-code-dark-plus-theme)
 
 ## iTerm2
