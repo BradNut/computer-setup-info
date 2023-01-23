@@ -14,11 +14,11 @@
 - Postman
 - Proton Bridge
 - [Rectangle](https://rectangleapp.com/)
-- Transmission
 - Signal
 - Standard Notes
 - Steam
 - Sublime Text
 - Synology Drive
+- Transmission
 - VSCodium / VSCode
 - Yubico Authenticator
