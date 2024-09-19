@@ -19,17 +19,7 @@
 
 ### Plugins
 
-- [GitToolBox](https://plugins.jetbrains.com/plugin/7499-gittoolbox)
-- [Kotlin](https://plugins.jetbrains.com/plugin/6954-kotlin)
-- [Lombok](https://plugins.jetbrains.com/plugin/6317-lombok)
-- [Material Theme UI](https://plugins.jetbrains.com/plugin/8006-material-theme-ui)
-  - Using Material Darker
-- [One Dark Theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
-- [Prettier](https://plugins.jetbrains.com/plugin/10456-prettier)
-- [Save Actions](https://plugins.jetbrains.com/plugin/7642-save-actions)
-- [Sonar Lint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
-- [Svelte](https://plugins.jetbrains.com/plugin/12375-svelte)
-- [Visual Studio Code Dark Plus Theme](https://plugins.jetbrains.com/plugin/12255-visual-studio-code-dark-plus-theme)
+See dotfiles: [IntelliJ Plugins](https://github.com/BradNut/dotfiles/blob/master/intellij-plugins.md)
 
 ### Troubleshooting
 

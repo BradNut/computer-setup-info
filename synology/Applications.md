@@ -5,7 +5,6 @@
 - Synology Calendar
 - Synology Drive Server
 - [Syncthing](https://synocommunity.com/package/syncthing)
-- Node.js v12
 - Hyper Backup
 - Docker
 - Moments

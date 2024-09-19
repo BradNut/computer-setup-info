@@ -6,8 +6,6 @@ tl;dr: A step-by-step guide to setting up Sonarr, Radarr, Sabnzbd, and Transmiss
 
 A guide covering a basic setup using Plex, Download Station, and ShowRSS is also available.
 
-​
-
 Full Description: This setup will install and configure Transmission using OpenVPN, Sabnzbd, Sonarr, and Radarr in Docker. It will also cover optionally setting up a proxy server for easy access to these apps.
 
 The steps in this guide are based off pieces of many different sources and guides, hopefully updated and all combined to provide a step-by-step guide.

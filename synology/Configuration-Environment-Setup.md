@@ -1,6 +1,6 @@
 # Configuration Setup
 
-## How to Setup and Configure a Synology NAS
+## How to Set up and Configure a Synology NAS
 
 - https://www.youtube.com/playlist?list=PLVvGujxCZRD6H6rlpMfaNMmFpmZJ1wYwo
 

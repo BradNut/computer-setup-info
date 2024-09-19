@@ -46,72 +46,74 @@ curl -s "https://get.sdkman.io" | bash
 
 # Install ZSH
 sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Install zimfw
+echo "Check if zimfw is installed"
+if [ -d "$HOME/.zim" ]; then
+  echo "zimfw is already installed"
+else
+  echo "Installing zimfw"
+  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+fi
 
 # Install Linux Brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-# Add Homebrew to your PATH in /home/bshellnu/.profile:
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/bshellnu/.profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# Run `brew help` to get started
-sudo apt-get install build-essential
-brew install gcc
+echo "Check if brew is installed"
+if which brew >/dev/nul; then
+  echo "brew is already installed"
+else
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  # Add Homebrew to your PATH in /home/bshellnu/.profile:
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/bshellnu/.profile
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+  echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+  brew install gcc
+fi
 
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+# Install NVM
+echo "Check if nvm is installed"
+if [ -d "$HOME/.nvm" ]; then
+  echo "nvm is already installed"
+else
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+fi
 
-# Install Casks
-brew install node
-brew install postgresql
-brew install hudochenkov/sshpass/sshpass
+# Install Node Versions
+if command -v nvm >/dev/null; then
+  echo "Installing LTS Node Version"
+  nvm install --lts
+  nvm use --lts
+fi
+
+source ~/.zshrc
 
 # Install NPM Utilities
 npm install -g npm-check-updates
 npm install -g tldr
-npm install --global trash-cli
-
-# Install Battery Life Improvements https://support.system76.com/articles/battery/
-sudo apt install tlp tlp-rdw --no-install-recommends
-
-# Install trackpad gestures
-mkdir trackpad-gestures
-cd trackpad-gestures
-sudo gpasswd -a $USER input
-sudo apt-get install libinput-tools xdotool
-git clone https://github.com/bulletmark/libinput-gestures.git
-cd libinput-gestures
-sudo make install
-sudo ./libinput-gestures-setup install
-libinput-gestures-setup autostart
-libinput-gestures-setup start
-cd ..
-
-## Install UI tool
-flatpak install flathub com.gitlab.cunidev.Gestures
+npm install -g trash-cli
 
 # Docker
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+echo "Checking if docker is installed"
+if command -v docker >/dev/null; then
+  echo "Docker is already installed"
+else
+  # Add Docker's official GPG key:
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# CLIs
-npm install gatsby-cli -g
-# sudo apt install snapd
-# sudo snap install --classic heroku
-npm install @sanity/cli -g
-
-# Install fonts
-sudo apt install fonts-firacode fonts-open-sans -y -q
+  # Add the repository to Apt sources:
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+fi
 
 # Install Applications
 
@@ -121,34 +123,36 @@ sudo apt install fonts-firacode fonts-open-sans -y -q
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 ## Browser
-sudo apt install apt-transport-https curl
+sudo apt install curl
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 sudo apt install brave-browser
 
-## Chat
-sudo flatpak install discord -y
-
 ## Multimedia
-sudo apt install -y gimp
 flatpak install flathub com.plexamp.Plexamp
 
 ## Mail
 sudo apt-get install evolution
 
 ## Social
-flatpak install flathub uk.co.ibboard.cawbird
-flatpak install flathub com.github.bleakgrey.tootle
-flatpak install flathub org.signal.Signal
+### Signal
+# 1. Install our official public software signing key:
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+
+# 2. Add our repository to your list of repositories:
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+  sudo tee /etc/apt/sources.list.d/signal-xenial.list
+
+# 3. Update your package database and install Signal:
+sudo apt update && sudo apt install signal-desktop
 
 ## Others
 flatpak install flathub com.anydesk.Anydesk
 flatpak install flathub com.bitwarden.desktop
 flatpak install flathub org.filezillaproject.Filezilla
-flatpak install flathub com.getpostman.Postman
 flatpak install flathub org.qbittorrent.qBittorrent
-# flatpak install flathub org.standardnotes.standardnotes
 
 # Yubico
 flatpak install flathub com.yubico.yubioath

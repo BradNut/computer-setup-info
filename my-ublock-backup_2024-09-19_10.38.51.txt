@@ -1,0 +1,63 @@
+{
+  "timeStamp": 1726767531108,
+  "version": "1.59.0",
+  "userSettings": {
+    "uiTheme": "dark",
+    "externalLists": "https://abp.oisd.nl/\nhttps://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt\nhttps://o0.pages.dev/Lite/adblock.txt\nhttps://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt\nhttps://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt\nhttps://www.i-dont-care-about-cookies.eu/abp/",
+    "importedLists": [
+      "https://abp.oisd.nl/",
+      "https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt",
+      "https://o0.pages.dev/Lite/adblock.txt",
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt",
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+      "https://www.i-dont-care-about-cookies.eu/abp/"
+    ],
+    "popupPanelSections": 15
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-quick-fixes",
+    "ublock-unbreak",
+    "easylist",
+    "easyprivacy",
+    "urlhaus-1",
+    "plowe-0",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+    "https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt",
+    "https://o0.pages.dev/Lite/adblock.txt",
+    "https://www.i-dont-care-about-cookies.eu/abp/"
+  ],
+  "hiddenSettings": {},
+  "whitelist": [
+    "about-scheme",
+    "chrome-extension-scheme",
+    "chrome-scheme",
+    "dashboard.webengage.com",
+    "e.customeriomail.com",
+    "edge-scheme",
+    "greenbrierdistillery.com",
+    "lb.service01.email-allstate.com",
+    "localhost",
+    "moz-extension-scheme",
+    "opera-scheme",
+    "sentry.io",
+    "shellnut.sentry.io",
+    "vercel.com",
+    "vivaldi-scheme",
+    "watersportworld.co.nz",
+    "www.discover.com",
+    "www.paddlequeenstown.co.nz",
+    "www.realnz.com",
+    "www.synchrony.com",
+    "www.target.com",
+    "wyciwyg-scheme"
+  ],
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
+  "userFilters": "! 2022-10-13 https://stackoverflow.com\nstackoverflow.com##.js-consent-banner.r16.l16.b16.bar-lg.fc-white.bg-black-750.sm\\:p16.p32.sm\\:w-auto.ws4.z-nav-fixed.ps-fixed.ff-sans\n\n! 2022-11-09 https://www.yelp.com\n||accounts.google.com/gsi/iframe/select?client_id=699691895711-vm2k8egb327hq3l0a7crsj0o2o9len61.apps.googleusercontent.com&auto_select=true&ux_mode=popup&ui_mode=card&as=qCtgh%2FlpwWoLf1Cpc1B2pA&is_itp=true&channel_id=24d8a22e019652b553f2040ae40bf24f74c78c94a218ccd8aee24072a4b4b27b&origin=https%3A%2F%2Fwww.yelp.com$subdocument\n||accounts.google.com/gsi/iframe/select?client_id=699691895711-vm2k8egb327hq3l0a7crsj0o2o9len61.apps.googleusercontent.com&auto_select=true&ux_mode=popup&ui_mode=card&as=BSF9xmUdq9C8OIEKaTeM8w&is_itp=true&channel_id=671b08452dd06d1b2012c5f67bf9435495b8e5900eea30a637c81e5aef1dd89d&origin=https%3A%2F%2Fwww.yelp.com$subdocument\n||accounts.google.com/gsi/iframe/select?client_id=699691895711-vm2k8egb327hq3l0a7crsj0o2o9len61.apps.googleusercontent.com&auto_select=true&ux_mode=popup&ui_mode=card&as=BBvB9s5bF5AErJSi7Hmawg&is_itp=true&channel_id=f1369b46da8ac22e4c3ab4386a24864c11c5911081acf8eec01164f63db38287&origin=https%3A%2F%2Fwww.yelp.com$subdocument\n||accounts.google.com/gsi/iframe\n\n! 2023-10-13 https://www.prisma.io\nwww.prisma.io##.ot-sdk-container > .ot-sdk-row\n\n! 2024-02-29 http://192.168.1.104:9500\n192.168.1.104##.th-highcontrast\\:text-white.th-highcontrast\\:font-medium.th-highcontrast\\:bg-black.th-highcontrast\\:border-white.th-highcontrast\\:border-solid.th-highcontrast\\:border.th-dark\\:bg-black.th-dark\\:border-\\[\\#343434\\].text-white.font-medium.bg-\\[\\#023959\\].border-blue-9.border-solid.border.hover\\:underline.pr-2.py-2.gap-1.justify-center.items-center.w-full.flex\n"
+}
