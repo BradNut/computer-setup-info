@@ -23,7 +23,6 @@
 - [FreeTube](https://freetubeapp.io/)
   - Flatpak: https://flathub.org/apps/details/io.freetubeapp.FreeTube
 - Gnome Tweaks
-- [HyperJS Terminal](https://hyper.is/#installation)
 - [Lutris](https://lutris.net/downloads/)
 - [MegaSync](https://mega.nz/sync)
 - [Mullvad](https://mullvad.net/en/download/)
@@ -53,6 +52,7 @@
   - Or using flatpak
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
+- [Tabby Terminal](https://github.com/Eugeny/tabby)
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
 - [VSCode](https://code.visualstudio.com/Download)
 - Web
