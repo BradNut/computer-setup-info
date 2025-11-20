@@ -1,9 +1,5 @@
 # Coding App Configs
 
-## HyperJS
-
-- [Configuration](https://github.com/BradNut/dotfiles/blob/master/.hyper.js)
-
 ## Sublime Text
 
 - [Configuration](https://github.com/BradNut/dotfiles/blob/master/Preferences.sublime-settings)
