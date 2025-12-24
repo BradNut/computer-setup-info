@@ -55,6 +55,9 @@ else
   curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 fi
 
+# Install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
 # Install starship.rs
 curl -sS https://starship.rs/install.sh | sh
 
