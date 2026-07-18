@@ -18,6 +18,7 @@ Use a setup plan for the entry point you are configuring. Each plan orders manua
 
 - [Linux applications](linux/Applications.md)
 - [Linux terminal](environment/Terminal.md)
+- [Linux environment](environment/Environment.md)
 - [Linux desktop](linux/Desktop-Setup.md)
 - [Coding application configuration](environment/Coding-App-Configs.md)
 - [macOS applications](osx/Applications.md)

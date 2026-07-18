@@ -7,7 +7,6 @@
 - Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
   - [Install instructions](Docker-Setup.md)
 - Gatsby CLI: `sudo npm install gatsby-cli -g`
-- Heroku CLI: `sudo snap install --classic heroku`
 - Vim: `sudo apt install vim`
 - Sanity CLI: `sudo npm install @sanity/cli -g`
 

@@ -28,7 +28,7 @@ You should see RTC in local TZ: yes. If you need to revert it, just set it to 0:
 
 ## Useful Packages
 
-- Gnome Tweaks: `sudo apt install gnome-tweaks`
+- NTFS support: `sudo apt install ntfs-3g`
 - Fonts Fira Code: `sudo apt install fonts-firacode`
 - Git: `sudo apt install git`
 - Curl: `sudo apt install curl`
@@ -38,18 +38,12 @@ You should see RTC in local TZ: yes. If you need to revert it, just set it to 0:
 
 ## Useful Shortcuts
 
-- Enter a command: Alt+F2
-- Restart UI: Type "r" and enter
-
----
-
-## GUI Setup
-
-Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click menu
-
-- Fix is that Gnome Shell is on "Default"
-- Install Gnome Tweaks: `sudo apt install gnome-tweaks`
-- Select "Appearance" and change Shell to "Yaru-dark" or whatever you want
+- Open launcher: Super (Windows) key, or Super+/
+- Open app library: Super+A
+- Open workspace overview: Super+W
+- Switch windows: Alt+Tab / Alt+Shift+Tab
+- Move/resize focus: Super+Arrows
+- Move windows: Super+Shift+Arrows
 
 ---
 
@@ -60,94 +54,46 @@ Ubuntu 20.04 Gnome dark mode work for all except do not disturb or right click m
 
 ---
 
-## Laptop Power Saver
-
-### TLP
-
-Documentation: https://linrunner.de/tlp/index.html
-Installation: https://linrunner.de/tlp/installation/index.html
-Extra resources: https://support.system76.com/articles/battery/
-
----
-
-## Tweaks
-
-### PopOS Laptop
-
-- Trackpad Left/Right Click same unless set in Tweaks settings
-  - Keyboard and mouse -> Mouse Click Emulation -> Area
-
-## Trackpad Gestures
-
-_Working on Dell XPS 13_
-
-Following Medium article: [Mac-like Gestures on Ubuntu 20.04 Dell XPS 15](https://medium.com/@kaigo/mac-like-gestures-on-ubuntu-20-04-dell-xps-15-7ea6e3be7f76)
-
-Add your user to the input group:
-`sudo gpasswd -a $USER input`
-
-Install dependencies:
-`sudo apt-get install libinput-tools xdotool`
-
-Install libinput gestures:
-`git clone https://github.com/bulletmark/libinput-gestures.git`
-`cd libinput-gestures`
-`sudo make install`
-`sudo ./libinput-gestures-setup install`
-
-Start the software and allow it to run at startup.
-`libinput-gestures-setup autostart`
-`libinput-gestures-setup start`
-
-Next install a UI tool to make adding and editing gestures easier.
-`git clone https://gitlab.com/cunidev/gestures`
-`cd gestures`
-`sudo python3 setup.py install`
-
-Open the new program called _‘gestures’_ from your activities menu.
-
-These are the gestures you will need to emulate a mac-like experience.
-
-Configuration file in dotfiles: [Gestures.conf](https://github.com/BradNut/dotfiles/blob/master/Linux%20Settings/Gesture%20Settings/Gestures.conf)
-
-- 3-finger swipe up
-  - xdotool key super
-- 3-finger swipe down
-  - xdotool key 'alt+asciitilde'
-- 3-finger swipe right
-  - xdotool key 'ctrl+alt+Left'
-- 3-finger swipe left
-  - xdotool key 'ctrl+alt+Right'
-- 3-finger pinch out
-  - xdotool key 'ctrl+plus'
-- 3-finger ping in
-  - xdotool key 'ctrl+minus'
-- 4-finger swipe left
-  - xdotool key 'alt+Left'
-- 4-finger swipe right
-  - xdotool key 'alt+Right'
-
-Next you may notice the workspaces are ontop of each other instead of side-by-side like MacOS. To fix this we will need to install a gnome extension named workspace matrix available [here](https://extensions.gnome.org/extension/1485/workspace-matrix/).
-
-Now restart your system and you should be able to move workspaces, left and right using the three finger gesture or _ctrl+alt + left or right arrows_.
-
----
-
 ## Internal Hard Drives
 
-- [Auto-mounting on boot](https://www.liberiangeek.net/2012/04/auto-mount-windows-ntfs-partitions-in-ubuntu-12-04-precise-pangolin/)
+Internal drives may not auto-mount in COSMIC. For persistent mounts, use `/etc/fstab`:
+
+1. Find the partition UUID:
+
+   ```bash
+   lsblk -f
+   ```
+
+2. Create a mount point:
+
+   ```bash
+   sudo mkdir -p /mnt/<name>
+   ```
+
+3. Add a line to `/etc/fstab` (use `ntfs-3g` for NTFS partitions):
+
+   ```fstab
+   UUID=<uuid> /mnt/<name> ntfs-3g defaults,uid=$USER,gid=$USER,umask=022 0 0
+   ```
+
+4. Test the mount:
+
+   ```bash
+   sudo mount -a
+   ```
+
+For NTFS dirty-flag or mounting issues, see [COSMIC Files issue #889](https://github.com/pop-os/cosmic-files/issues/889).
 
 ---
 
 ## Gaming
 
-## Lutris
+### Lutris
 
-- https://www.linuxuprising.com/2018/09/how-to-use-lutris-to-play-windows-games.html
+Install Lutris from the COSMIC Store, as a [Flatpak](https://lutris.net/downloads), or via the [official Lutris instructions](https://lutris.net/downloads).
 
 ### Emulation
 
-#### PS2
+Use current Flatpak releases or the COSMIC Store instead of old Lutris runner threads. For example:
 
-- https://forums.lutris.net/t/citra-and-pcsx2-runners-problem/8297
-- https://forums.lutris.net/t/where-do-i-put-ps2-bios/4874
+- PS2: [PCSX2](https://pcsx2.net/downloads/)

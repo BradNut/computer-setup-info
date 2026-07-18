@@ -2,96 +2,89 @@
 
 ## Software Applications
 
-- [Anydesk](https://anydesk.com/en/downloads/linux)
 - [App Image Launcher](https://github.com/TheAssassin/AppImageLauncher)
 - [Bitwarden](https://bitwarden.com/#download)
-  - Or using flatpak
 - [Brave Browser](https://brave.com/download/)
-- Cheese - Picture app
 - Cryptomator
 - DBeaver
-  - Flatpak
-- Emoji Picker
-  - Deb from App Shop
-- [Evolution](https://help.gnome.org/users/evolution/stable/): `sudo apt-get install evolution`
+- [Evolution](https://help.gnome.org/evolution/): `sudo apt-get install evolution`
   - _PopOS only integrates Gnome Calendar with Evolution if installed from apt-get_
   - CalDAV Synology link: https://\*.synology.me:38443/caldav.php/USERNAME/eyeewj/
 - [FileZilla](https://filezilla-project.org/download.php?type=client)
-  - Locally using flatpak
 - Firefox and dev variants
-  - Install via flatpak or for linux use: https://github.com/Linux-Is-Best/Firefox-automatic-install-for-Linux
-- [FreeTube](https://freetubeapp.io/)
-  - Flatpak: https://flathub.org/apps/details/io.freetubeapp.FreeTube
-- Gnome Tweaks
-- [Lutris](https://lutris.net/downloads/)
-- [MegaSync](https://mega.nz/sync)
-- [Mullvad](https://mullvad.net/en/download/)
-- [NordVPN](https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Elementary-OS-and-Linux-Mint.htm)
-- [Plex Media Player](https://knapsu.eu/plex/)
-- Postman
+  - Install for linux use: https://www.mozilla.org/firefox/linux/
+- [Grayjay](https://grayjay.app/)
+- [MegaSync](https://mega.io/desktop)
+- [Plex HTPC](https://flathub.org/en/apps/tv.plex.PlexHTPC)
+- [Bruno](https://www.usebruno.com/)
 - [Piper](https://github.com/libratbag/piper)
   - [Local Reference](Resources-Information.md)
-- [Proton Bridge](https://protonmail.com/bridge/install)
+- [Proton Bridge](https://proton.me/mail/bridge)
   - [Bridge Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Proton-Bridge-Setup.md)
-  - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)_
-- [Proton VPN](https://protonvpn.com/support/linux-vpn-tool/)
+  - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/en/apps/ch.protonmail.protonmail-bridge)_
+- [Proton VPN](https://protonvpn.com/support/linux-vpn-setup)
+- [Proton Pass](https://proton.me/pass): Download the .deb from the [Linux setup guide](https://proton.me/support/set-up-proton-pass-linux)
+- Proton Pass CLI: `curl -fsSL https://proton.me/download/pass-cli/install.sh | bash`
 - qBittorrent
-  - Locally using Flatpak
-  - Themes:
-    - https://github.com/maboroshin/qBittorrentDarktheme
 - Thunderbird
-  - Flathub or Deb
-- [Timeshift](https://github.com/teejee2008/timeshift)
-- [Signal](https://signal.org/download/#)
-  - Locally using flatpak
-- [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
+- [Signal](https://signal.org/download/)
+- [Standard Notes](https://standardnotes.com/download/linux)
 - Steam
   - Use DEB for supported
-  - Locally use flatpak if can't get running: https://flathub.org/apps/details/com.valvesoftware.Steam
 - [Sublime Text](https://www.sublimetext.com/docs/linux_repositories.html#apt)
-  - Or using flatpak
 - [Synology Drive](https://www.synology.com/en-us/support/download/DS918+#utilities)
 - [Synology Note Station](https://www.synology.com/en-us/support/download/DS918+#utilities)
-- [Tabby Terminal](https://github.com/Eugeny/tabby)
 - [VLC](https://www.videolan.org/vlc/download-ubuntu.html)
-- [VSCode](https://code.visualstudio.com/Download)
-- Web
-  - Flatpak
+- [Epiphany](https://flathub.org/en/apps/org.gnome.Epiphany)
   - Browser to test WebKit like functionality
-- WoeUSB
 - Yubico Authenticator
   - App Image works
-  - Flatpak: https://flathub.org/apps/details/com.yubico.yubioath
 
 ---
 
 ## Flatpak Applications
 
-- [Bitwarden](https://flathub.org/apps/details/com.bitwarden.desktop): `flatpak install flathub com.bitwarden.desktop`
-- [Cawbird](https://flathub.org/apps/details/uk.co.ibboard.cawbird): `flatpak install flathub uk.co.ibboard.cawbird`
-- [DBeaver](https://flathub.org/apps/details/io.dbeaver.DBeaverCommunity): `flatpak install flathub io.dbeaver.DBeaverCommunity`
-- [Evolution](https://flathub.org/apps/details/org.gnome.Evolution): `flatpak install flathub org.gnome.Evolution`
-- [FileZilla](https://flathub.org/apps/details/org.filezillaproject.Filezilla): `flatpak install flathub org.filezillaproject.Filezilla`
-- [FreeTube](https://flathub.org/apps/details/io.freetubeapp.FreeTube)
-- Plex Media Player: `flatpak install https://knapsu.eu/data/plex/tv.plex.PlexMediaPlayer.flatpakref`
-- [Postman](https://flathub.org/apps/details/com.getpostman.Postman): `flatpak install flathub com.getpostman.Postman`
-- [Piper](https://flathub.org/apps/details/org.freedesktop.Piper): `flatpak install flathub org.freedesktop.Piper`
-- [ProtonMail Bridge](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)
-- [Sublime Text](https://flathub.org/apps/details/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
-- [Steam](https://flathub.org/apps/details/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
-- [qBittorrent](https://flathub.org/apps/details/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
-- [Tootle](https://flathub.org/apps/details/com.github.bleakgrey.tootle): `flatpak install flathub com.github.bleakgrey.tootle`
-- [Transmission](https://flathub.org/apps/details/com.transmissionbt.Transmission): `flatpak install flathub com.transmissionbt.Transmission`
-- [Web](https://flathub.org/apps/details/org.gnome.Epiphany): `flatpak install flathub org.gnome.Epiphany`
-- [YubicoAuth](https://flathub.org/apps/details/com.yubico.yubioath)
+- [Bitwarden](https://flathub.org/en/apps/com.bitwarden.desktop): `flatpak install flathub com.bitwarden.desktop`
+- [DBeaver](https://flathub.org/en/apps/io.dbeaver.DBeaverCommunity): `flatpak install flathub io.dbeaver.DBeaverCommunity`
+- [Evolution](https://flathub.org/en/apps/org.gnome.Evolution): `flatpak install flathub org.gnome.Evolution`
+- [FileZilla](https://flathub.org/en/apps/org.filezillaproject.Filezilla): `flatpak install flathub org.filezillaproject.Filezilla`
+- Plex HTPC: `flatpak install flathub tv.plex.PlexHTPC`
+- [Bruno](https://flathub.org/en/apps/com.usebruno.Bruno): `flatpak install flathub com.usebruno.Bruno`
+- [Piper](https://flathub.org/en/apps/org.freedesktop.Piper): `flatpak install flathub org.freedesktop.Piper`
+- [ProtonMail Bridge](https://flathub.org/en/apps/ch.protonmail.protonmail-bridge)
+- [Sublime Text](https://flathub.org/en/apps/com.sublimetext.three): `flatpak install flathub com.sublimetext.three`
+- [Steam](https://flathub.org/en/apps/com.valvesoftware.Steam): `flatpak install flathub com.valvesoftware.Steam`
+- [qBittorrent](https://flathub.org/en/apps/org.qbittorrent.qBittorrent): `flatpak install flathub org.qbittorrent.qBittorrent`
+- [Thunderbird](https://flathub.org/en/apps/org.mozilla.Thunderbird): `flatpak install flathub org.mozilla.Thunderbird`
+- [Epiphany](https://flathub.org/en/apps/org.gnome.Epiphany): `flatpak install flathub org.gnome.Epiphany`
+- [YubicoAuth](https://flathub.org/en/apps/com.yubico.yubioath): `flatpak install flathub com.yubico.yubioath`
+- [Grayjay](https://grayjay.app/): `flatpak install flathub app.grayjay.Grayjay`
 
 ---
 
 ## App Image Applications
 
 - [Plexamp](https://plexamp.com/#downloads)
-- [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
-- [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
+- [Standard Notes](https://standardnotes.com/download/linux)
+- [Yubico Authenticator](https://www.yubico.com/products/yubico-authenticator/)
+
+### App Image Launcher install
+
+[App Image Launcher](https://github.com/TheAssassin/AppImageLauncher) automatically integrates AppImages into the desktop menu and launcher.
+
+**Recommended install (PPA):**
+
+```bash
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
+```
+
+Or download the latest `.deb` from the [GitHub releases](https://github.com/TheAssassin/AppImageLauncher/releases).
+
+**Using App Image Launcher:**
+
+After installing, double-click any `.AppImage` and choose *Integrate and run* when prompted. You can also right-click an AppImage and select *Integrate and run*.
 
 ### App Image Instructions
 

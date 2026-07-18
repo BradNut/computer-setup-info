@@ -1,33 +1,15 @@
-# Docker Setup on Linux (Ubuntu)
+# Docker Setup on Linux
 
-Docker Docs Install Instructions: https://docs.docker.com/engine/install/ubuntu/#prerequisites
+Docker is now installed automatically by `environment/SetupLinux.sh` as part of the Linux setup plan. The provisioning adapter configures the official Docker apt repository and installs:
 
-- Works for Ubuntu before 20.04
-- If on 20.04 use below instructions in conjunction with the docs _until a 20.04 version is released_.
+- `docker-ce`
+- `docker-ce-cli`
+- `docker-buildx-plugin`
+- `docker-compose-plugin`
+- `containerd.io`
 
-## Ubuntu 20.04
+For details, see the catalog entry [`catalog/linux-docker.md`](../catalog/linux-docker.md).
 
-Specifically the add-apt-repository command in the docs does not work because 20.04 focal release is not available.
-Follow these instructions: https://askubuntu.com/questions/1230189/how-to-install-docker-community-on-ubuntu-20-04-lts
-Instead of:
+## Verification
 
-```
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-```
-
-use
-
-```
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   bionic \
-   stable"
-```
-
-### Removing incorrect apt-repository
-
-Use `sudo add-apt-repository -r` to remove:
-`sudo add-apt-repository -r "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+Run `docker --version` to confirm the installation. Group membership and daemon access are manual follow-up steps if needed.

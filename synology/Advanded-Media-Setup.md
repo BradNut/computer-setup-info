@@ -1,5 +1,8 @@
 # Advanced Setup Guide
 
+> **2026 status update:** This guide was written in 2019 and is now primarily a historical reference. Since then Synology has renamed Docker to **Container Manager** (DSM 7.2+), removed `Video Station` (DSM 7.2.2), shifted HEVC/HEIC media processing to client devices, and archived the Haugene `transmission-openvpn` image. Sonarr/Radarr have also released newer major versions (v4/v5). Use the steps below as a conceptual starting point, but verify current Container Manager, Plex, Sonarr, Radarr, SABnzbd, and qBittorrent/Transmission documentation before applying them.
+
+
 _Note: Haven't been able to get everything working but documenting_
 
 tl;dr: A step-by-step guide to setting up Sonarr, Radarr, Sabnzbd, and Transmission in Docker on a Synology NAS. Last Updated: Dec 13, 2019

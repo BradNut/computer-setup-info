@@ -1,15 +1,26 @@
 # Synology Apps
 
+> **2026 update:** The current DSM release line is DSM 7.2 / 7.3. Docker has been renamed **Container Manager** in DSM 7.2+, `Video Station` was removed in DSM 7.2.2, and legacy apps such as Moments have been replaced by **Synology Photos**. Note Station is also approaching end-of-life. Newer product lines include BeeStation for personal cloud and ActiveProtect for business backup.
+
 ## Software Applications
+
+Current first-party applications and services:
 
 - Synology Calendar
 - Synology Drive Server
-- [Syncthing](https://synocommunity.com/package/syncthing)
+- Synology Photos (replaces Moments)
+- Synology Contacts / CardDAV / CalDAV
+- Synology Office (documents, spreadsheets, slides)
+- Note Station (legacy; use Synology Office / Drive for notes going forward)
 - Hyper Backup
-- Docker
-- Moments
-- Note Station
-- CardDAV Server
+- Active Backup for Business
+- Container Manager (formerly Docker in DSM 7.2+)
+- Virtual Machine Manager
+- Synology Hybrid Share
+- Surveillance Station
+- Media Server (DLNA)
+- Plex Media Server (third-party package)
+- [Syncthing](https://synocommunity.com/package/syncthing) (SynoCommunity)
 
 ## Synocommunity
 
@@ -26,7 +37,7 @@ Log into your NAS as administrator and go to Main Menu → Package Center → Se
 
 #### Step 2
 
-In the Package Sources tab, click Add, type SynoCommunity as Name and http://packages.synocommunity.com/ as Location and then press OK to validate.
+In the Package Sources tab, click Add, type SynoCommunity as Name and https://packages.synocommunity.com/ as Location and then press OK to validate.
 
 #### Step 3
 

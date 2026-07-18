@@ -28,6 +28,7 @@ sudo apt install --yes \
   git \
   gnupg \
   gnupg-agent \
+  jq \
   htop \
   lsb-release \
   openssh-server \
@@ -159,6 +160,19 @@ Suites: apt/stable/
 Signed-By: /etc/apt/keyrings/sublimehq-pub.asc
 EOF
 
+# MEGAsync
+meganz_key=$(mktemp)
+download_file 'https://mega.nz/keys/MEGA_signing.key' "${meganz_key}"
+gpg --batch --yes --dearmor < "${meganz_key}" | sudo tee /etc/apt/keyrings/meganz-archive-keyring.gpg >/dev/null
+rm --force "${meganz_key}"
+printf 'Types: deb\nURIs: https://mega.nz/linux/repo/xUbuntu_%s/\nSuites: ./\nSigned-By: /etc/apt/keyrings/meganz-archive-keyring.gpg\n' "${VERSION_ID}" | sudo tee /etc/apt/sources.list.d/megaio.sources >/dev/null
+
+# Proton VPN
+protonvpn_release_deb=$(mktemp --suffix=.deb)
+download_file 'https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb' "${protonvpn_release_deb}"
+sudo dpkg -i "${protonvpn_release_deb}"
+rm --force "${protonvpn_release_deb}"
+
 sudo apt update
 sudo apt install --yes \
   brave-browser \
@@ -170,7 +184,26 @@ sudo apt install --yes \
   evolution \
   mullvad-browser \
   signal-desktop \
-  sublime-text
+  sublime-text \
+  megasync \
+  proton-vpn-gnome-desktop
+
+# Proton Pass (desktop app)
+proton_pass_json=$(curl -fsSL https://proton.me/download/PassDesktop/linux/x64/version.json)
+proton_pass_url=$(printf '%s' "${proton_pass_json}" | jq -r '.Releases[0].File[] | select(.Url | endswith(".deb")) | .Url')
+proton_pass_sha512=$(printf '%s' "${proton_pass_json}" | jq -r '.Releases[0].File[] | select(.Url | endswith(".deb")) | .Sha512CheckSum')
+proton_pass_deb=$(mktemp --suffix=.deb)
+download_file "${proton_pass_url}" "${proton_pass_deb}"
+printf '%s  %s\n' "${proton_pass_sha512}" "${proton_pass_deb}" | sha512sum --check -
+sudo apt install --yes "${proton_pass_deb}"
+
+# Proton Pass CLI
+run_installer bash https://proton.me/download/pass-cli/install.sh
+
+# ProtonMail Bridge
+protonmail_bridge_deb=$(mktemp --suffix=.deb)
+download_file 'https://proton.me/download/bridge/protonmail-bridge_3.22.0-1_amd64.deb' "${protonmail_bridge_deb}"
+sudo apt install --yes "${protonmail_bridge_deb}"
 
 sudo flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install --system --noninteractive --or-update flathub \
@@ -205,4 +238,5 @@ sudo flatpak install --system --noninteractive --or-update flathub \
   org.shotcut.Shotcut \
   org.standardnotes.standardnotes \
   org.videolan.VLC \
-  tv.plex.PlexDesktop
+  tv.plex.PlexDesktop \
+  com.synology.SynologyDrive

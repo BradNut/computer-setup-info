@@ -1,39 +1,30 @@
 # Desktop Setup
 
-## Gnome Extensions
+## Custom Application Launchers on Pop!_OS COSMIC
 
-- [Arc Menu](https://extensions.gnome.org/extension/3628/arcmenu/)
-  - If error restart UI and/or check if installed: `sudo apt-get install gir1.2-gmenu-3.0` and `sudo apt-get install gnome-menus`
-- [Blyr](https://extensions.gnome.org/extension/1251/blyr/)
-- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
-- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
-- [Dash to Dock](https://micheleg.github.io/dash-to-dock/)
-- [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/)
-- [gTile](https://github.com/gTile)
-- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
-- [Panel OSD](https://extensions.gnome.org/extension/708/panel-osd/)
-- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
-- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
-- [Workspace Matrix](https://extensions.gnome.org/extension/1485/workspace-matrix/)
+Pop!_OS COSMIC does not use GNOME Extensions. It uses standard `.desktop` files in `~/.local/share/applications/` to populate the App Library and Dock.
 
-## Desktop Icon Creation
+Create a `~/.local/share/applications/AppName.desktop` file and make it executable:
 
-_Entry should exist in ~/.local/share/applications/_
-_Entry should be AppName.desktop_
+```sh
+chmod +x ~/.local/share/applications/AppName.desktop
+```
+
+_Entry should exist in `~/.local/share/applications/`_
+_Entry should be `AppName.desktop`_
 
 ### Example Entry
 
 ```
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.0
 Type=Application
 Terminal=false
-Exec=~/{IMAGE_NAME}.AppImage
+Exec=/path/to/{IMAGE_NAME}.AppImage
 Name={DESKTOP_NAME}
-Icon={IMAGE_LOCATION}
-MimeType=x-scheme-handler/xxx;text/html;
+Icon={ICON_LOCATION}
 ```
+
+For `.desktop` files shipped by an installed `.deb` package, use the package's binary and icon name instead of a full path (for example, `Exec=buckets` and `Icon=buckets`).
 
 ### Entries Currently Using
 
@@ -41,8 +32,6 @@ MimeType=x-scheme-handler/xxx;text/html;
 
 ```
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.26.5
 Type=Application
 Terminal=false
 Exec=/home/bshellnu/Bitwarden-1.26.5-x86_64.AppImage
@@ -57,24 +46,19 @@ MimeType=x-scheme-handler/bitwarden;text/html;
 
 ```
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.0
 Type=Application
 Terminal=false
 Exec=/home/bshellnu/Plexamp-3.0.2.AppImage --disable-seccomp-filter-sandbox
 Name=Plexamp
 Icon=/home/bshellnu/Documents/Desktop Icons/plexamp.png
-MimeType=x-scheme-handler/xxx;text/html;
 ```
 
 - [Plexamp Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png)
 
-2. [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
+3. [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 
 ```
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.0
 Type=Application
 Terminal=false
 Exec=/home/bshellnu/Standard-Notes-3.3.5.AppImage
@@ -84,12 +68,10 @@ Icon=/home/bshellnu/Documents/Desktop Icons/StandardNotesIcon.png
 
 - [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png)
 
-3. [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
+4. [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
 
 ```
 [Desktop Entry]
-Encoding=UTF-8
-Version=1.0
 Type=Application
 Terminal=false
 Exec=/home/bshellnu/yubioath-desktop-5.0.1-linux.AppImage
@@ -99,17 +81,6 @@ Icon=/home/bshellnu/Documents/Desktop Icons/YubicoAuthIcon.png
 
 - [Yubico Auth Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png)
 
-4. [Buckets](https://www.budgetwithbuckets.com/en/download.html)
+5. [Buckets](https://www.budgetwithbuckets.com/en/download.html)
 
-```
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-Terminal=false
-Exec=/home/bshellnu/Buckets-0.57.5.AppImage
-Name=Buckets
-Icon=/home/bshellnu/Documents/Desktop Icons/BudgetBucketsIcon.png
-```
-
-- [Buckets Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/BudgetBucketsIcon.png)
+Buckets is now installed from the `.deb` package, which provides its own `.desktop` file. No manual entry is needed; it will appear in the COSMIC App Library as `buckets`.
