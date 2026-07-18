@@ -167,7 +167,7 @@
 
 ### Two Factor Auth
 
-- [andOTP](https://f-droid.org/en/packages/org.shadowice.flocke.andotp/)
+- [Aegis Authenticator](https://f-droid.org/en/packages/com.beemdevelopment.aegis/)
 - [Yubico Authenticator](https://f-droid.org/en/packages/com.yubico.yubioath/)
 
 ### Self Hosted
