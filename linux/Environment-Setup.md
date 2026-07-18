@@ -5,7 +5,7 @@
 - Git: `sudo apt install git`
 - Curl: `sudo apt install curl`
 - Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
-  - [Install instructions](../master/linux/Docker-Setup.md)
+  - [Install instructions](Docker-Setup.md)
 - Gatsby CLI: `sudo npm install gatsby-cli -g`
 - Heroku CLI: `sudo snap install --classic heroku`
 - Vim: `sudo apt install vim`

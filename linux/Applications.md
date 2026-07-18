@@ -30,7 +30,7 @@
 - [Plex Media Player](https://knapsu.eu/plex/)
 - Postman
 - [Piper](https://github.com/libratbag/piper)
-  - [Local Reference](../master/linux/Resources-Information.md)
+  - [Local Reference](Resources-Information.md)
 - [Proton Bridge](https://protonmail.com/bridge/install)
   - [Bridge Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Proton-Bridge-Setup.md)
   - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/apps/details/ch.protonmail.protonmail-bridge)_

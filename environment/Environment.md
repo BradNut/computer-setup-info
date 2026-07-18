@@ -5,10 +5,10 @@
 - Git: `sudo apt install git`
 - Curl: `sudo apt install curl`
 - Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
-  - [Install instructions](../master/linux/Docker-Setup.md)
+  - [Install instructions](../linux/Docker-Setup.md)
 - [Node Version Manager](https://github.com/nvm-sh/nvm#set-default-node-version)
   - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
-  - Use `.nvmrc` from [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
+  - Use `.nvmrc` from [Dotfiles](../linux/Environment-Setup.md#dotfiles)
   - Useful install LTS: `nvm install --lts`
 - Gatsby CLI: `sudo npm install gatsby-cli -g`
 - Heroku CLI: `sudo snap install --classic heroku`

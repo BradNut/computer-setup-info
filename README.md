@@ -1,87 +1,35 @@
 # Computer Setup Information
 
-## Catalog of Computer resources
+## Setup catalog
 
-List of instructions, resources, steps for setting up a new computer
+Use a setup plan for the entry point you are configuring. Each plan orders manual, automated, and hybrid work. Reusable resources live in the [catalog](catalog/README.md); items that need a keep, archive, or removal decision are in the [obsolescence review queue](review/obsolete-candidates.md).
 
-## Applications
+## Setup plans
 
-### [Android](../master/android/Applications.md)
+- [Linux](plans/linux.md) — automated base provisioning plus manual configuration.
+- [macOS](plans/osx.md) — manual application and development-environment setup.
+- [Android](plans/android.md) — manual source and privacy decisions.
+- [Windows](plans/windows.md) — manual application and device setup.
+- [Synology](plans/synology.md) — manual NAS and container configuration.
+- [Printers and scanners](plans/printers.md) — device-specific driver setup.
+- [Self-hosting](plans/self-hosting.md) — workload selection and verification.
 
-### [Linux](../master/linux/Applications.md)
+## Direct guides
 
-### [OSX](../master/osx/Applications.md)
+- [Linux applications](linux/Applications.md)
+- [Linux terminal](environment/Terminal.md)
+- [Linux desktop](linux/Desktop-Setup.md)
+- [Coding application configuration](environment/Coding-App-Configs.md)
+- [macOS applications](osx/Applications.md)
+- [Android applications](android/Applications.md)
+- [Windows applications](windows/Applications.md)
+- [Synology applications](synology/Applications.md)
+- [Printer and scanner drivers](printers/README.md)
 
-### [Synology](../master/synology/Applications.md)
+## Validation
 
-### [Windows](../master/windows/Applications.md)
+Run the read-only documentation checks before committing documentation changes:
 
-## Coding App Setup
-
-### [Configs](../master/environment/Coding-App-Configs.md)
-
-- [HyperJS](../master/environment/Coding-App-Configs.md#coding-app-configs##hyperjs)
-- [Sublime Text](../master/environment/Coding-App-Configs.md#coding-app-configs##sublime-text)
-- [VSCode](../master/environment/Coding-App-Configs.md#coding-app-configs##vscode)
-
-### [Linux](../master/linux/Coding-App-Setup.md)
-
-- [Sublime Text](../master/linux/Coding-App-Setup.md#coding-applications##sublime-text)
-- [VSCode](../master/linux/Coding-App-Setup.md#coding-applications##vscode)
-
-### [OSX](../master/osx/Coding-App-Setup.md)
-
-- [IntelliJ](../master/osx/Coding-App-Setup.md#coding-applications##intellij)
-- [iTerm](../master/osx/Coding-App-Setup.md#coding-applications##iterm)
-- [VSCode](../master/osx/Coding-App-Setup.md#coding-applications##vscode)
-
-### [Terminal](../master/environment/Terminal.md)
-
-- [HyperJS](../master/environment/Terminal.md#terminal##hyperjs)
-- [Vim](../master/environment/Terminal.md#terminal##vim)
-- [Zsh](../master/environment/Terminal.md#terminal##zsh)
-- [Bash](../master/environment/Terminal.md#terminal##bash)
-- [SSH](../master/environment/Terminal.md#terminal##ssh)
-
-### [Environment](../master/environment/Environment.md)
-
-### [Linux](../master/linux/Environment-Setup.md)
-
-- [Coding Packages](../master/linux/Environment-Setup.md#environment-setup##coding-packages)
-- [Useful System Packages](../master/linux/Environment-Setup.md#environment-setup##useful-system-packages)
-- [Linux Brew](../master/linux/Environment-Setup.md#environment-setup##linux-brew)
-- [Dotfiles](../master/linux/Environment-Setup.md#environment-setup##dot-files)
-- [Git](../master/linux/Environment-Setup.md#environment-setup##git)
-
-## Software Configurations
-
-### VPN Configurations
-
-#### Linux
-
-- [NordVPN](../master/linux/NordVPN-Configuration.md)
-- [ProtonVPN](../master/linux/ProtonVPN-Configuration.md)
-
-## Desktop Setup
-
-### [Linux](../master/linux/Desktop-Setup.md)
-
-- [Gnome Extensions](../master/linux/Desktop-Setup.md#desktop-setup##gnome-extensions)
-
-- [Desktop Icon Creation](../master/linux/Desktop-Setup.md#desktop-setup##desktop-icon-creation)
-
-### [Synology](../master/synology/Configuration-Environment-Setup.md)
-
-### [Useful Resources](../master/linux/Resources-Information.md)
-
-## Self Hosting
-
-### [Haugene Synology](../master/self-hosting/Huagene-Synology.md)
-
-### [Resources](../master/self-hosting/Resources.md)
-
-## Synology
-
-### [Docker Setup](../master/synology/Docker-Setup.md)
-
-### [Setup Media Automation](../master/synology/Advanced-Media-Setup.md)
+```bash
+python3 scripts/validate-docs.py
+```

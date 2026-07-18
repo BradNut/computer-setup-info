@@ -2,8 +2,8 @@
 
 ## Linux
 
-- Apps, GUI, Laptop specific items: [Link](../master/linux/Resources-Information.md)
+- Apps, GUI, Laptop specific items: [Linux resources](../linux/Resources-Information.md)
 
 ## GrapheneOS
 
-- Install: [Link](../master/android/GrapheneOS-Install.md)
+- Review the [Android setup plan](../plans/android.md) before choosing a device setup path.
