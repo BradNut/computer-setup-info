@@ -15,8 +15,23 @@ ISO_DATE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}")
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 
 
-def front_matter(path: Path) -> dict[str, str]:
-    lines = path.read_text(encoding="utf-8").splitlines()
+def read_text(path: Path, errors: list[str]) -> str | None:
+    try:
+        return path.read_text(encoding="utf-8")
+    except (UnicodeDecodeError, OSError) as exc:
+        errors.append(f"{path.relative_to(ROOT)}: unable to read file: {exc}")
+        return None
+
+
+def resolve_within_root(relative: str) -> Path | None:
+    target = (ROOT / relative).resolve()
+    if not target.is_relative_to(ROOT):
+        return None
+    return target
+
+
+def parse_front_matter(text: str) -> dict[str, str]:
+    lines = text.splitlines()
     if not lines or lines[0] != "---":
         return {}
     try:
@@ -44,7 +59,10 @@ def validate_resource_metadata(path: Path, metadata: dict[str, str], errors: lis
         errors.append(f"{path.relative_to(ROOT)}: current resource needs an ISO verified_on date")
     if metadata["status"] == "reference" and metadata["verified_on"] != "pending":
         errors.append(f"{path.relative_to(ROOT)}: reference resource needs verified_on: pending")
-    if not (ROOT / metadata["source_docs"]).exists():
+    source = resolve_within_root(metadata["source_docs"])
+    if source is None:
+        errors.append(f"{path.relative_to(ROOT)}: source_docs escapes repository root: {metadata['source_docs']}")
+    elif not source.exists():
         errors.append(f"{path.relative_to(ROOT)}: missing source document: {metadata['source_docs']}")
     return True
 
@@ -55,7 +73,11 @@ def validate_resource_adapter(path: Path, metadata: dict[str, str], errors: list
     adapter = metadata.get("provisioning_adapter")
     if not adapter:
         errors.append(f"{path.relative_to(ROOT)}: automated resource needs provisioning_adapter")
-    elif not (ROOT / adapter).exists():
+        return
+    resolved = resolve_within_root(adapter)
+    if resolved is None:
+        errors.append(f"{path.relative_to(ROOT)}: provisioning_adapter escapes repository root: {adapter}")
+    elif not resolved.exists():
         errors.append(f"{path.relative_to(ROOT)}: missing provisioning adapter: {adapter}")
 
 
@@ -64,7 +86,10 @@ def validate_resources(errors: list[str]) -> set[str]:
     for path in sorted((ROOT / "catalog").glob("*.md")):
         if path.name == "README.md":
             continue
-        metadata = front_matter(path)
+        text = read_text(path, errors)
+        if text is None:
+            continue
+        metadata = parse_front_matter(text)
         if not validate_resource_metadata(path, metadata, errors):
             continue
         resource_id = metadata["id"]
@@ -92,8 +117,11 @@ def validate_plans(resource_ids: set[str], errors: list[str]) -> None:
     for path in sorted((ROOT / "plans").glob("*.md")):
         if path.name == "README.md":
             continue
-        validate_plan_metadata(path, front_matter(path), errors)
-        for resource_id in re.findall(r"`([a-z0-9-]+)`", path.read_text(encoding="utf-8")):
+        text = read_text(path, errors)
+        if text is None:
+            continue
+        validate_plan_metadata(path, parse_front_matter(text), errors)
+        for resource_id in re.findall(r"`([a-z0-9-]+)`", text):
             if resource_id.startswith(("linux-", "android-", "osx-", "synology-", "windows-", "printers-", "self-hosting-")) and resource_id not in resource_ids:
                 errors.append(f"{path.relative_to(ROOT)}: unknown resource id: {resource_id}")
 
@@ -102,7 +130,9 @@ def validate_links(errors: list[str]) -> None:
     for path in ROOT.rglob("*.md"):
         if any(part in {".git", "reference"} for part in path.parts):
             continue
-        text = path.read_text(encoding="utf-8")
+        text = read_text(path, errors)
+        if text is None:
+            continue
         for destination in LINK_PATTERN.findall(text):
             destination = destination.split("#", 1)[0].strip()
             if not destination or "://" in destination or destination.startswith(("mailto:", "#")):
