@@ -1,65 +1,26 @@
 # Environment Setup
 
-This guide covers the core development environment for Linux (Ubuntu/Debian-based). For platform-specific details, see the [Linux environment notes](../linux/Environment-Setup.md) or [Terminal setup](./Terminal.md).
+This guide summarizes the core Linux development environment. The canonical automated installer is [SetupLinux.sh](./SetupLinux.sh); run it on a fresh Ubuntu/Pop!_OS machine and then finish the manual steps below.
 
-## Coding Packages
+For platform-specific notes see [Linux Environment Setup](../linux/Environment-Setup.md) and [Terminal Setup](./Terminal.md).
 
-- Git: `sudo apt install git`
-- Curl: `sudo apt install curl`
-- Docker: [Ubuntu Install](https://docs.docker.com/engine/install/ubuntu/#prerequisites)
-  - [Install instructions](../linux/Docker-Setup.md)
-- [Node Version Manager](https://github.com/nvm-sh/nvm#set-default-node-version)
-  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
-  - Use `.nvmrc` from the [dotfiles repo](https://github.com/BradNut/dotfiles/blob/master/.nvmrc)
-  - Useful install LTS: `nvm install --lts`
-- Gatsby CLI: `sudo npm install gatsby-cli -g`
-- Heroku CLI: `sudo snap install --classic heroku`
-- [PNPM](https://pnpm.io/installation)
-  - NPM Install: `npm install -g pnpm`
-- Vim: `sudo apt install vim`
-- Sanity CLI: `sudo npm install @sanity/cli -g`
+## What the automated setup installs
 
-## Useful System Packages
-
-- [Neofetch](https://github.com/dylanaraps/neofetch)
-  - `sudo apt install neofetch`
-- [NPM Check Updates](https://www.npmjs.com/package/npm-check-updates): `npm install -g npm-check-updates`
-- [TLDR Man Pages](https://tldr.sh/): `sudo apt install tldr` or `npm install -g tldr`
-- [Trash-CLI](https://www.npmjs.com/package/trash-cli): `npm install -g trash-cli`
-
-## [Linux Brew](https://docs.brew.sh/Homebrew-on-Linux)
-
-- Install: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- Run for Debian or Ubuntu: `sudo apt-get install build-essential curl file git`
-
-### Adding Homebrew to your PATH and bash shell (if applicable)
-
-- `test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)`
-- `test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)`
-- If using bash: `test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.bash_profile`
-- `echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile`
-
-### List of installed formulae
-
-_NOTE: ZSH and plugins for Ubuntu should be manually installed and not from brew_
-
-_NodeJS: Use Node Version Manager_
-
-- NodeJS: *Use Node Version Manager instead*
-- postgresql: `brew install postgresql`
-- sshpass: `brew install hudochenkov/sshpass/sshpass`
-- tmux: `brew install tmux`
-- zsh: `brew install zsh`
-- zsh-autosuggestions: `brew install zsh-autosuggestions`
-- zsh-syntax-highlighting: `brew install zsh-syntax-highlighting`
+- Base apt packages such as `build-essential`, `git`, `curl`, `vim`, `zsh`, `jq`, `htop`, and `openssh-server`
+- Shell customizations: [zimfw](https://github.com/zsh-users/zimfw), [zoxide](https://github.com/ajeetdsouza/zoxide), and [Starship](https://starship.rs/)
+- Node via [nvm](https://github.com/nvm-sh/nvm) (LTS), [pnpm](https://pnpm.io/installation), plus `npm-check-updates`, `tldr`, and `trash-cli`
+- [Docker Engine and Compose plugins](https://docs.docker.com/engine/install/ubuntu/) — see [Docker Setup](../linux/Docker-Setup.md)
+- [Homebrew on Linux](https://docs.brew.sh/Homebrew-on-Linux) (used for `gcc` and other formulae)
+- Third-party repositories: Brave, Mullvad, Signal, Sublime Text, MEGAsync, Proton VPN, Proton Pass, and ProtonMail Bridge
+- Flatpak apps from Flathub
 
 ## Dotfiles
 
-Dotfiles and editor preferences: https://github.com/BradNut/dotfiles
+Editor preferences and shell dotfiles live in <https://github.com/BradNut/dotfiles>.
 
 ## Git
 
-Edit `.gitconfig` with name and email
+Configure your Git identity after installation:
 
 ```sh
 $ git config --global user.name "Your Name"
@@ -68,4 +29,4 @@ $ git config --global user.email "you@example.com"
 
 ## Terminal
 
-- See details here: [Terminal Setup](./Terminal.md)
+See [Terminal Setup](./Terminal.md) for shell, prompt, SSH, and related configuration.
