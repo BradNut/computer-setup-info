@@ -77,9 +77,58 @@ While 524,288 is the maximum number of files that can be watched, if you're in a
 
 ## Zed
 
-- Install: `flatpak install flathub dev.zed.Zed`
-- Config path (Flatpak): `~/.var/app/dev.zed.Zed/config/zed/settings.json`
+- Install (native, preferred): `curl -f https://zed.dev/install.sh | sh`
+- Install (Flatpak, legacy): `flatpak install flathub dev.zed.Zed`
+- Config path (native): `~/.config/zed/settings.json`
+- Config path (Flatpak, legacy): `~/.var/app/dev.zed.Zed/config/zed/settings.json`
+- Extensions/data path (native): `~/.local/share/zed/extensions`
 - For local AI setup, see [Local AI Model Setup for Zed](../environment/Local-AI-Model-Setup.md)
+
+### Migrating from Flatpak to native install
+
+Flatpak sandboxes `$HOME`, so the Flatpak build's real config and data live under
+`~/.var/app/dev.zed.Zed/...`, not the plain `~/.config/zed` / `~/.local/share/zed`
+paths the native build uses. Copying just `settings.json` is not enough —
+installed extensions live in `~/.var/app/dev.zed.Zed/data/zed/extensions/installed/`
+and won't carry over automatically. To migrate:
+
+1. Copy `settings.json` and any custom `themes/` from
+   `~/.var/app/dev.zed.Zed/config/zed/` to `~/.config/zed/`.
+2. Add an `auto_install_extensions` block to `settings.json` (see below) so Zed
+   re-fetches your extensions from the registry on next launch — this is safer
+   than copying compiled `.wasm` extensions directly, since those are built
+   against a specific Zed extension-API version.
+3. Zed has no built-in account-based settings/extension sync (as of Aug 2026);
+   `auto_install_extensions` plus this repo is the workaround.
+
+### Extensions in use
+
+- `catppuccin` (theme)
+- `material-icon-theme` (icon theme)
+- `dracula` (theme)
+- `macos-classic` (theme)
+- `svelte`
+- `svelte-mcp`
+- `html`
+
+### Theme settings
+
+- Theme: `Catppuccin Macchiato`
+- Icon theme: `Material Icon Theme`
+
+`settings.json` snippet to auto-install the above on a fresh machine:
+
+```json
+"auto_install_extensions": {
+  "html": true,
+  "svelte": true,
+  "svelte-mcp": true,
+  "catppuccin": true,
+  "material-icon-theme": true,
+  "dracula": true,
+  "macos-classic": true
+}
+```
 
 ## IntelliJ
 
