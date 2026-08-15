@@ -29,5 +29,12 @@ Start here, choose a primary [Setup Plan](plans/README.md), then follow that pla
 Run the read-only documentation checks before committing documentation changes:
 
 ```bash
-python3 scripts/validate-docs.py
+python3 scripts/validate_docs.py
+```
+
+The validator requires Python 3.9 or newer and takes an optional `--root` for checking a copy of the repo. Its own
+test suite runs with:
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_*.py'
 ```

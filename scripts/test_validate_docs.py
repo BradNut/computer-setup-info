@@ -1,33 +1,31 @@
+"""Tests for the documentation validator in `validate_docs.py`."""
+
 from __future__ import annotations
 
-import importlib.util
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
-MODULE_PATH = Path(__file__).with_name("validate-docs.py")
-SPEC = importlib.util.spec_from_file_location("validate_docs", MODULE_PATH)
-validate_docs = importlib.util.module_from_spec(SPEC)
-assert SPEC.loader is not None
-SPEC.loader.exec_module(validate_docs)
+import validate_docs
 
 
-class ValidateDocsNavigationContractTests(unittest.TestCase):
+class ValidateDocsTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp_dir = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp_dir.name)
-        self.original_root = validate_docs.ROOT
-        validate_docs.ROOT = self.root
+        temp_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(temp_dir.cleanup)
+        self.root = Path(temp_dir.name).resolve()
         self._write_repo()
-
-    def tearDown(self) -> None:
-        validate_docs.ROOT = self.original_root
-        self.temp_dir.cleanup()
 
     def _write(self, relative_path: str, content: str) -> None:
         path = self.root / relative_path
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
+
+    def _append(self, relative_path: str, content: str) -> None:
+        path = self.root / relative_path
+        self._write(relative_path, path.read_text(encoding="utf-8") + content)
 
     def _write_repo(self) -> None:
         self._write(
@@ -162,15 +160,23 @@ class ValidateDocsNavigationContractTests(unittest.TestCase):
         self._write("linux/source.md", "# Source\n")
         self._write("windows/Applications.md", "# Windows apps\n")
 
-    def _run_validation(self) -> list[str]:
-        return validate_docs.collect_errors()
+    def _run_validation(self, root: Path | None = None) -> list[str]:
+        return validate_docs.collect_errors(root or self.root)
 
     def test_validation_passes_for_valid_role_navigation(self) -> None:
         self.assertEqual(self._run_validation(), [])
 
+    def test_validation_passes_through_a_symlinked_root(self) -> None:
+        link_parent = tempfile.TemporaryDirectory()
+        self.addCleanup(link_parent.cleanup)
+        link = Path(link_parent.name) / "repo"
+        link.symlink_to(self.root, target_is_directory=True)
+
+        self.assertEqual(self._run_validation(link), [])
+
     def test_validation_rejects_missing_required_navigation_link(self) -> None:
-        readme = self.root / "README.md"
-        readme.write_text(
+        self._write(
+            "README.md",
             "# Root\n\n"
             "- [Setup Plans](plans/README.md)\n"
             "- [Linux](plans/linux.md)\n"
@@ -178,7 +184,6 @@ class ValidateDocsNavigationContractTests(unittest.TestCase):
             "- [Resource Catalog](catalog/README.md)\n"
             "- [Inventory Exports](exports/README.md)\n"
             "- [Reference](reference/README.md)\n",
-            encoding="utf-8",
         )
 
         errors = self._run_validation()
@@ -186,19 +191,15 @@ class ValidateDocsNavigationContractTests(unittest.TestCase):
         self.assertIn("README.md: missing required navigation link: plans/android.md", errors)
 
     def test_validation_rejects_windows_link_in_active_navigation(self) -> None:
-        readme = self.root / "README.md"
-        readme.write_text(
-            readme.read_text(encoding="utf-8") + "- [Windows](plans/windows.md)\n",
-            encoding="utf-8",
-        )
+        self._append("README.md", "- [Windows](plans/windows.md)\n")
 
         errors = self._run_validation()
 
         self.assertIn("README.md: forbidden Windows link in active navigation: plans/windows.md", errors)
 
     def test_navigation_examples_in_code_fences_do_not_satisfy_contract(self) -> None:
-        readme = self.root / "README.md"
-        readme.write_text(
+        self._write(
+            "README.md",
             "# Root\n\n"
             "- [Setup Plans](plans/README.md)\n"
             "- [Linux](plans/linux.md)\n"
@@ -209,7 +210,6 @@ class ValidateDocsNavigationContractTests(unittest.TestCase):
             "```md\n"
             "- [Android](plans/android.md)\n"
             "```\n",
-            encoding="utf-8",
         )
 
         errors = self._run_validation()
@@ -217,15 +217,48 @@ class ValidateDocsNavigationContractTests(unittest.TestCase):
         self.assertIn("README.md: missing required navigation link: plans/android.md", errors)
 
     def test_reference_links_are_validated(self) -> None:
-        reference = self.root / "reference/README.md"
-        reference.write_text(
-            reference.read_text(encoding="utf-8") + "- [Missing](../reference/missing.md)\n",
-            encoding="utf-8",
-        )
+        self._append("reference/README.md", "- [Missing](../reference/missing.md)\n")
 
         errors = self._run_validation()
 
         self.assertIn("reference/README.md: broken local link: ../reference/missing.md", errors)
+
+    def test_titled_and_angle_bracket_links_are_resolved(self) -> None:
+        self._append(
+            "reference/README.md",
+            '- [Titled](../linux/source.md "Source doc")\n- [Angled](<../linux/source.md>)\n',
+        )
+
+        self.assertEqual(self._run_validation(), [])
+
+    def test_links_inside_tilde_fences_are_ignored(self) -> None:
+        self._append("reference/README.md", "~~~md\n- [Missing](./missing.md)\n~~~\n")
+
+        self.assertEqual(self._run_validation(), [])
+
+    def test_ignored_directories_are_not_scanned(self) -> None:
+        self._write("node_modules/pkg/README.md", "- [Missing](./missing.md)\n")
+
+        self.assertEqual(self._run_validation(), [])
+
+
+class ValidateDocsCliTests(unittest.TestCase):
+    def test_main_reports_failures_on_stderr(self) -> None:
+        stdout, stderr = io.StringIO(), io.StringIO()
+        with tempfile.TemporaryDirectory() as temp_dir, redirect_stdout(stdout), redirect_stderr(stderr):
+            exit_code = validate_docs.main(["--root", temp_dir])
+
+        self.assertEqual(exit_code, 1)
+        self.assertEqual(stdout.getvalue(), "")
+        self.assertIn("missing required navigation surface", stderr.getvalue())
+
+    def test_main_passes_for_the_repository(self) -> None:
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            exit_code = validate_docs.main([])
+
+        self.assertEqual(exit_code, 0)
+        self.assertIn("Documentation validation passed.", stdout.getvalue())
 
 
 if __name__ == "__main__":
