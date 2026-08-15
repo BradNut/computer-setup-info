@@ -13,3 +13,5 @@ Use exports to compare actual machine or device state against the intended `Inve
 ## Navigation
 
 Start from the root [README](../README.md), then choose an active [Setup Plan](../plans/README.md). Each active plan should link to its latest curated export.
+
+Reference-only or historical material belongs in [Reference material](../reference/README.md), not in the active export path.

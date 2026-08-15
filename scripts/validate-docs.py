@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_RESOURCE_FIELDS = {"id", "title", "entry_points", "execution_mode", "status", "supported", "verified_on", "source_docs"}
@@ -13,6 +13,70 @@ VALID_EXECUTION_MODES = {"manual", "automated", "hybrid"}
 VALID_STATUSES = {"current", "reference"}
 ISO_DATE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}")
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+FENCED_CODE_BLOCK_PATTERN = re.compile(r"```.*?```", re.DOTALL)
+ROLE_NAVIGATION_REQUIREMENTS = {
+    "README.md": {
+        "plans/README.md",
+        "plans/linux.md",
+        "plans/macos.md",
+        "plans/android.md",
+        "catalog/README.md",
+        "exports/README.md",
+        "reference/README.md",
+    },
+    "plans/README.md": {
+        "plans/linux.md",
+        "plans/macos.md",
+        "plans/android.md",
+        "catalog/README.md",
+        "exports/README.md",
+        "reference/README.md",
+    },
+    "catalog/README.md": {
+        "plans/README.md",
+        "exports/README.md",
+        "reference/README.md",
+    },
+    "exports/README.md": {
+        "README.md",
+        "plans/README.md",
+        "catalog/README.md",
+        "reference/README.md",
+    },
+    "reference/README.md": {
+        "README.md",
+        "plans/README.md",
+        "catalog/README.md",
+        "exports/README.md",
+    },
+    "plans/linux.md": {
+        "catalog/README.md",
+        "exports/linux/README.md",
+        "reference/README.md",
+    },
+    "plans/macos.md": {
+        "catalog/README.md",
+        "exports/macos/README.md",
+        "reference/README.md",
+    },
+    "plans/android.md": {
+        "catalog/README.md",
+        "exports/android/README.md",
+        "reference/README.md",
+    },
+    "exports/linux/README.md": {
+        "plans/linux.md",
+        "catalog/README.md",
+    },
+    "exports/macos/README.md": {
+        "plans/macos.md",
+        "catalog/README.md",
+    },
+    "exports/android/README.md": {
+        "plans/android.md",
+        "catalog/README.md",
+    },
+}
 
 
 def read_text(path: Path, errors: list[str]) -> str | None:
@@ -44,6 +108,35 @@ def parse_front_matter(text: str) -> dict[str, str]:
             key, value = line.split(":", 1)
             metadata[key.strip()] = value.strip()
     return metadata
+
+
+def strip_fenced_code_blocks(text: str) -> str:
+    return FENCED_CODE_BLOCK_PATTERN.sub("", text)
+
+
+def iter_local_link_targets(path: Path, text: str) -> list[tuple[str, Path]]:
+    targets: list[tuple[str, Path]] = []
+    for destination in LINK_PATTERN.findall(strip_fenced_code_blocks(text)):
+        destination = destination.split("#", 1)[0].strip()
+        if not destination or "://" in destination or destination.startswith(("mailto:", "#")):
+            continue
+        targets.append((destination, (path.parent / destination).resolve()))
+    return targets
+
+
+def extract_local_links(path: Path, text: str) -> set[str]:
+    links: set[str] = set()
+    for _, target in iter_local_link_targets(path, text):
+        if target.is_relative_to(ROOT):
+            links.add(target.relative_to(ROOT).as_posix())
+    return links
+
+
+def is_windows_navigation_target(relative_path: str) -> bool:
+    path = PurePosixPath(relative_path)
+    lowered_parts = [part.lower() for part in path.parts]
+    lowered_name = path.name.lower()
+    return "windows" in lowered_parts or "windows" in lowered_name
 
 
 def validate_resource_metadata(path: Path, metadata: dict[str, str], errors: list[str]) -> bool:
@@ -120,33 +213,52 @@ def validate_plans(resource_ids: set[str], errors: list[str]) -> None:
         text = read_text(path, errors)
         if text is None:
             continue
-        validate_plan_metadata(path, parse_front_matter(text), errors)
+        metadata = parse_front_matter(text)
+        validate_plan_metadata(path, metadata, errors)
         for resource_id in re.findall(r"`([a-z0-9-]+)`", text):
             if resource_id.startswith(("linux-", "android-", "osx-", "synology-", "windows-", "printers-", "self-hosting-")) and resource_id not in resource_ids:
                 errors.append(f"{path.relative_to(ROOT)}: unknown resource id: {resource_id}")
 
 
-def validate_links(errors: list[str]) -> None:
-    for path in ROOT.rglob("*.md"):
-        if any(part in {".git", "reference"} for part in path.parts):
+def validate_navigation_contract(errors: list[str]) -> None:
+    for relative_path, required_links in ROLE_NAVIGATION_REQUIREMENTS.items():
+        path = ROOT / relative_path
+        if not path.exists():
+            errors.append(f"{relative_path}: missing required navigation surface")
             continue
         text = read_text(path, errors)
         if text is None:
             continue
-        for destination in LINK_PATTERN.findall(text):
-            destination = destination.split("#", 1)[0].strip()
-            if not destination or "://" in destination or destination.startswith(("mailto:", "#")):
-                continue
-            target = (path.parent / destination).resolve()
+        links = extract_local_links(path, text)
+        for required_link in sorted(required_links - links):
+            errors.append(f"{relative_path}: missing required navigation link: {required_link}")
+        for forbidden_link in sorted(link for link in links if is_windows_navigation_target(link)):
+            errors.append(f"{relative_path}: forbidden Windows link in active navigation: {forbidden_link}")
+
+
+def validate_links(errors: list[str]) -> None:
+    for path in ROOT.rglob("*.md"):
+        if ".git" in path.parts:
+            continue
+        text = read_text(path, errors)
+        if text is None:
+            continue
+        for destination, target in iter_local_link_targets(path, text):
             if not target.exists():
                 errors.append(f"{path.relative_to(ROOT)}: broken local link: {destination}")
 
 
-def main() -> int:
+def collect_errors() -> list[str]:
     errors: list[str] = []
     resource_ids = validate_resources(errors)
     validate_plans(resource_ids, errors)
+    validate_navigation_contract(errors)
     validate_links(errors)
+    return errors
+
+
+def main() -> int:
+    errors = collect_errors()
     if errors:
         print("Documentation validation failed:")
         print("\n".join(f"- {error}" for error in errors))
