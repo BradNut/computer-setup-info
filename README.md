@@ -1,31 +1,28 @@
 # Computer Setup Information
 
-## Setup catalog
+This repository is organized around a role-based setup path.
 
-Use a setup plan for the entry point you are configuring. Each plan orders manual, automated, and hybrid work. Reusable resources live in the [catalog](catalog/README.md); items that need a keep, archive, or removal decision are in the [obsolescence review queue](review/obsolete-candidates.md).
+Start here, choose a primary [Setup Plan](plans/README.md), then follow that plan into the relevant [Resource Catalog](catalog/README.md) material and curated [Inventory Export](exports/README.md) snapshots. Historical material belongs in [reference](reference/README.md), not in the active setup path.
 
-## Setup plans
+## Primary setup plans
 
 - [Linux](plans/linux.md) — automated base provisioning plus manual configuration.
-- [macOS](plans/osx.md) — manual application and development-environment setup.
+- [macOS](plans/macos.md) — manual application and development-environment setup.
 - [Android](plans/android.md) — manual source and privacy decisions.
-- [Windows](plans/windows.md) — manual application and device setup.
-- [Synology](plans/synology.md) — manual NAS and container configuration.
-- [Printers and scanners](plans/printers.md) — device-specific driver setup.
-- [Self-hosting](plans/self-hosting.md) — workload selection and verification.
 
-## Direct guides
+## Role directories
 
-- [Linux applications](linux/Applications.md)
-- [Linux terminal](environment/Terminal.md)
-- [Linux environment](environment/Environment.md)
-- [Linux desktop](linux/Desktop-Setup.md)
-- [Coding application configuration](environment/Coding-App-Configs.md)
-- [macOS applications](osx/Applications.md)
-- [Android applications](android/Applications.md)
-- [Windows applications](windows/Applications.md)
-- [Synology applications](synology/Applications.md)
-- [Printer and scanner drivers](printers/README.md)
+- [Setup Plans](plans/README.md) — ordered human-facing routes for each active entry point.
+- [Resource Catalog](catalog/README.md) — reusable setup resources and inventory records.
+- [Inventory Exports](exports/README.md) — curated snapshots of actual machine and device state.
+- [Reference material](reference/README.md) — historical or contextual guides that are not part of the active setup path.
+
+## Other setup areas
+
+- [Synology](plans/synology.md)
+- [Printers and scanners](plans/printers.md)
+- [Self-hosting](plans/self-hosting.md)
+- [Obsolescence review queue](review/obsolete-candidates.md)
 
 ## Validation
 

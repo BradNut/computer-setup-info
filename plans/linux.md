@@ -10,6 +10,8 @@ provisioning_adapter: ../environment/SetupLinux.sh
 
 # Linux Setup Plan
 
+Use this as the active Linux setup route. Supporting `Resource Catalog` material lives in [catalog](../catalog/README.md), curated Linux exports live in [exports/linux](../exports/linux/README.md), and historical material belongs in [reference](../reference/README.md).
+
 ## 1. Base system — automated
 
 Run the Linux provisioning adapter to apply `linux-base-system`, `linux-terminal-tooling`, `linux-homebrew`, `linux-docker`, `linux-desktop-applications`, and `linux-flatpak-applications`.

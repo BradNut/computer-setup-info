@@ -1,6 +1,16 @@
 # Resource Catalog
 
-Each file in this directory is one reusable setup resource. Its YAML front matter is the resource interface; its body is the human guidance.
+The `Resource Catalog` is the reusable layer of the repository. Active [Setup Plans](../plans/README.md) point here for canonical setup resources and `Inventory Record` material.
+
+## Role in the active setup path
+
+Use a `Setup Plan` as the starting point for active Linux, macOS, and Android setup work. From there, follow links into the catalog for reusable guidance and structured records.
+
+## Related directories
+
+- [Setup Plans](../plans/README.md)
+- [Inventory Exports](../exports/README.md)
+- [Reference material](../reference/README.md)
 
 ## Required metadata
 

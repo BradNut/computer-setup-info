@@ -2,12 +2,16 @@
 id: android-setup-plan
 title: Android setup plan
 entry_point: android
-status: reference
-supported: Android application sources await re-verification
-verified_on: pending
+status: current
+supported: Android primary setup route
+verified_on: 2026-08-15
 ---
 
 # Android Setup Plan
+
+Use this as the active Android setup route. Supporting `Resource Catalog` material lives in [catalog](../catalog/README.md), curated Android exports live in [exports/android](../exports/android/README.md), and historical material belongs in [reference](../reference/README.md).
+
+Some links below still point to legacy source documents and will move behind canonical catalog records in later migration slices.
 
 ## 1. Choose application sources — manual
 

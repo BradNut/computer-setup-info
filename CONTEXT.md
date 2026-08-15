@@ -2,15 +2,37 @@
 
 ## Entry Point
 
-A platform, device, or environment a person sets up through this repository, such as Linux, macOS, Synology, a printer, Android, Windows, or self-hosting.
+A platform, device, or environment a person sets up through this repository, such as Linux, macOS, Android, Synology, a printer, or self-hosting.
 
 ## Setup Plan
 
 The ordered route for configuring one Entry Point. It includes manual, automated, and hybrid steps in the order they must occur.
+_Avoid_: Master checklist, platform notes
 
-## Resource
+## Resource Catalog
 
-An independently installable or configurable item used by one or more Setup Plans. A Resource has human guidance and structured metadata.
+A collection of reusable setup records that Setup Plans point to.
+_Avoid_: App list, random notes
+
+## Inventory Record
+
+The canonical record for one installable or configurable thing you intentionally keep track of, such as an application, package group, or setup resource. Inventory Records are grouped into Resource Catalogs and carry structured metadata plus short human guidance.
+_Avoid_: Blob, freeform list item
+
+## Application Source
+
+The authority from which an Android application is obtained, such as Play Store via Aurora, F-Droid, or Accrescent.
+_Avoid_: Repo, store, source of truth
+
+## Install Channel
+
+The delivery mechanism used to install an Inventory Record on a specific platform, such as apt, Flatpak, Homebrew, direct `.deb`, AppImage, App Store, or manual download.
+_Avoid_: Just source
+
+## Inventory Export
+
+A machine-generated snapshot of what is currently installed on a device or host, used to compare actual state against curated Inventory Records.
+_Avoid_: Backup, canonical inventory
 
 ## Execution Mode
 
