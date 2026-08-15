@@ -6,6 +6,21 @@ The `Resource Catalog` is the reusable layer of the repository. Active [Setup Pl
 
 Use a `Setup Plan` as the starting point for active Linux, macOS, and Android setup work. From there, follow links into the catalog for reusable guidance and structured records.
 
+## Shared desktop records
+
+Use these shared records before platform-specific follow-up when working through the Linux or macOS `Setup Plan`.
+
+- [Shared desktop software inventory](./shared-desktop-software.md)
+- [Shared coding environment preferences](./shared-coding-environment-preferences.md)
+- [Shared terminal preferences](./shared-terminal-preferences.md)
+- [Shared browser and extension choices](./shared-browser-and-extension-choices.md)
+- [Shared account and privacy decisions](./shared-account-and-privacy-decisions.md)
+
+## Platform-specific records
+
+- Linux automation and install-channel records stay in the Linux catalog entries such as `linux-base-system`, `linux-terminal-tooling`, `linux-desktop-applications`, and `linux-flatpak-applications`.
+- macOS-specific application follow-up currently lives in [macOS application catalog](./macos-application-catalog.md) until the dedicated macOS migration slice lands.
+
 ## Related directories
 
 - [Setup Plans](../plans/README.md)

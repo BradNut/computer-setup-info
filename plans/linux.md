@@ -20,14 +20,17 @@ Run the Linux provisioning adapter to apply `linux-base-system`, `linux-terminal
 bash environment/SetupLinux.sh
 ```
 
-## 2. Configuration — manual
+## 2. Shared desktop configuration — manual
 
-- Apply [terminal and shell preferences](../environment/Terminal.md).
-- Configure [coding applications](../environment/Coding-App-Configs.md).
+- Apply [shared terminal preferences](../catalog/shared-terminal-preferences.md).
+- Apply [shared coding environment preferences](../catalog/shared-coding-environment-preferences.md).
+- Review [shared desktop software inventory](../catalog/shared-desktop-software.md) for applications not fully covered by automated Linux records.
+- Review [shared browser and extension choices](../catalog/shared-browser-and-extension-choices.md).
+- Review [shared account and privacy decisions](../catalog/shared-account-and-privacy-decisions.md).
+
+## 3. Linux-specific follow-up — manual
+
 - Review [desktop setup](../linux/Desktop-Setup.md).
-
-## 3. Optional or device-specific work — manual
-
 - Review [Linux resources](../linux/Resources-Information.md).
 - Review [Proton Bridge](../linux/Proton-Bridge-Setup.md) and [Proton VPN](../linux/ProtonVPN-Configuration.md) before use.
 - Decide on every candidate in the [obsolescence review queue](../review/obsolete-candidates.md) before relying on it.
