@@ -17,13 +17,6 @@ Start here, choose a primary [Setup Plan](plans/README.md), then follow that pla
 - [Inventory Exports](exports/README.md) — curated snapshots of actual machine and device state.
 - [Reference material](reference/README.md) — historical or contextual guides that are not part of the active setup path.
 
-## Other setup areas
-
-- [Synology](plans/synology.md)
-- [Printers and scanners](plans/printers.md)
-- [Self-hosting](plans/self-hosting.md)
-- [Obsolescence review queue](review/obsolete-candidates.md)
-
 ## Validation
 
 Run the read-only documentation checks before committing documentation changes:

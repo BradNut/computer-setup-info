@@ -124,7 +124,7 @@ class ValidateDocsTests(unittest.TestCase):
             "supported: Windows\n"
             "verified_on: pending\n"
             "---\n\n"
-            "- [Windows Applications](../windows/Applications.md)\n",
+            "- [Windows Applications](../reference/windows/Applications.md)\n",
         )
         self._write(
             "exports/linux/README.md",
@@ -158,7 +158,7 @@ class ValidateDocsTests(unittest.TestCase):
             "---\n",
         )
         self._write("linux/source.md", "# Source\n")
-        self._write("windows/Applications.md", "# Windows apps\n")
+        self._write("reference/windows/Applications.md", "# Windows apps\n")
 
     def _run_validation(self, root: Path | None = None) -> list[str]:
         return validate_docs.collect_errors(root or self.root)
