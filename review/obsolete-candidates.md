@@ -9,5 +9,5 @@ Items here require an explicit decision before they are kept current, archived a
 | `linux/ProtonVPN-Configuration.md` | Uses the legacy Python CLI and `pip3`; repeats initialization guidance | Re-verify against current Proton VPN guidance before retaining | Pending |
 | `synology/Advanded-Media-Setup.md` | Declares a 2019 update date and refers to legacy Synology Docker UI, image tags, and system commands | Archive as reference unless re-validated section by section | Pending |
 | `self-hosting/Haugene-Synology.md` | Depends on old Synology Docker behavior and a manual TUN script | Re-verify the supported image and Synology Container Manager workflow | Pending |
-| `android/Applications.md` | Contains stale app sources and malformed `hhttps` links | Re-validate sources and repair accepted entries | Pending |
+| `reference/android/Applications.md` | Legacy Android app list preserved for history; canonical catalog and export now active | Migrated content to `catalog/android-application-catalog.md` and `exports/android/primary-device.md` | Migrated |
 | `README.md` legacy routes | Uses `../master/` paths and targets removed or misspelled files | Replace with the setup-plan interface | Addressed by this migration |

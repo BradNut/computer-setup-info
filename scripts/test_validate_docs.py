@@ -261,5 +261,42 @@ class ValidateDocsCliTests(unittest.TestCase):
         self.assertIn("Documentation validation passed.", stdout.getvalue())
 
 
+class AndroidMigrationTests(unittest.TestCase):
+    def _read(self, relative_path: str) -> str:
+        path = validate_docs.DEFAULT_ROOT / relative_path
+        self.assertTrue(path.exists(), f"{relative_path} does not exist")
+        return path.read_text(encoding="utf-8")
+
+    def _front_matter(self, relative_path: str) -> dict[str, str]:
+        return validate_docs.parse_front_matter(self._read(relative_path))
+
+    def test_android_plan_links_to_canonical_application_catalog(self) -> None:
+        text = self._read("plans/android.md")
+        self.assertIn("[Android application catalog](../catalog/android-application-catalog.md)", text)
+
+    def test_android_plan_links_to_inventory_export(self) -> None:
+        text = self._read("plans/android.md")
+        self.assertIn("[Primary device export](../exports/android/primary-device.md)", text)
+
+    def test_android_plan_does_not_reference_legacy_applications(self) -> None:
+        text = self._read("plans/android.md")
+        self.assertNotIn("../android/Applications.md", text)
+
+    def test_android_export_index_links_to_primary_device(self) -> None:
+        text = self._read("exports/android/README.md")
+        self.assertIn("[Primary device](./primary-device.md)", text)
+
+    def test_android_catalog_is_current(self) -> None:
+        metadata = self._front_matter("catalog/android-application-catalog.md")
+        self.assertEqual(metadata.get("status"), "current")
+        self.assertRegex(metadata.get("verified_on", ""), r"\d{4}-\d{2}-\d{2}")
+
+    def test_legacy_android_applications_moved_to_reference(self) -> None:
+        legacy_path = validate_docs.DEFAULT_ROOT / "android" / "Applications.md"
+        reference_path = validate_docs.DEFAULT_ROOT / "reference" / "android" / "Applications.md"
+        self.assertFalse(legacy_path.exists(), "legacy android/Applications.md should no longer exist")
+        self.assertTrue(reference_path.exists(), "reference/android/Applications.md should exist")
+
+
 if __name__ == "__main__":
     unittest.main()
