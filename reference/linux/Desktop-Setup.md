@@ -40,7 +40,7 @@ Icon=/home/bshellnu/Documents/Desktop Icons/Bitwarden.png
 MimeType=x-scheme-handler/bitwarden;text/html;
 ```
 
-- [Bitwarden Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/Bitwarden.png)
+- [Bitwarden Icon](https://github.com/BradNut/computer-setup-info/blob/master/reference/linux/images/desktop-images/Bitwarden.png)
 
 2. [Plexamp](https://plexamp.com/#downloads)
 
@@ -53,7 +53,7 @@ Name=Plexamp
 Icon=/home/bshellnu/Documents/Desktop Icons/plexamp.png
 ```
 
-- [Plexamp Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/plexamp.png)
+- [Plexamp Icon](https://github.com/BradNut/computer-setup-info/blob/master/reference/linux/images/desktop-images/plexamp.png)
 
 3. [Standard Notes](https://standardnotes.org/extensions?downloaded=linux)
 
@@ -66,7 +66,7 @@ Name=Standard Notes
 Icon=/home/bshellnu/Documents/Desktop Icons/StandardNotesIcon.png
 ```
 
-- [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/StandardNotesIcon.png)
+- [Standard Notes Icon](https://github.com/BradNut/computer-setup-info/blob/master/reference/linux/images/desktop-images/StandardNotesIcon.png)
 
 4. [Yubico Authenticator](https://www.yubico.com/products/services-software/download/yubico-authenticator/#download_here)
 
@@ -79,7 +79,7 @@ Name=Yubico Authenticator
 Icon=/home/bshellnu/Documents/Desktop Icons/YubicoAuthIcon.png
 ```
 
-- [Yubico Auth Icon](https://github.com/BradNut/computer-setup-info/blob/master/linux/images/desktop-images/YubicoAuthIcon.png)
+- [Yubico Auth Icon](https://github.com/BradNut/computer-setup-info/blob/master/reference/linux/images/desktop-images/YubicoAuthIcon.png)
 
 5. [Buckets](https://www.budgetwithbuckets.com/en/download.html)
 

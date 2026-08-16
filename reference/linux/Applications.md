@@ -20,7 +20,7 @@
 - [Piper](https://github.com/libratbag/piper)
   - [Local Reference](Resources-Information.md)
 - [Proton Bridge](https://proton.me/mail/bridge)
-  - [Bridge Setup](https://github.com/BradNut/computer-setup-info/blob/master/linux/Proton-Bridge-Setup.md)
+  - [Bridge Setup](https://github.com/BradNut/computer-setup-info/blob/master/reference/linux/Proton-Bridge-Setup.md)
   - _If bridge DEB file fails try installing from [Flathub](https://flathub.org/en/apps/ch.protonmail.protonmail-bridge)_
 - [Proton VPN](https://protonvpn.com/support/linux-vpn-setup)
 - [Proton Pass](https://proton.me/pass): Download the .deb from the [Linux setup guide](https://proton.me/support/set-up-proton-pass-linux)

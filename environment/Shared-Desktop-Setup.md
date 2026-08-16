@@ -6,8 +6,8 @@ These source notes capture where the shared Linux and macOS desktop guidance cam
 
 - [Coding App Configs](./Coding-App-Configs.md)
 - [Terminal](./Terminal.md)
-- [Linux Applications](../linux/Applications.md)
-- [Linux Coding App Setup](../linux/Coding-App-Setup.md)
+- [Linux Applications](../reference/linux/Applications.md)
+- [Linux Coding App Setup](../reference/linux/Coding-App-Setup.md)
 - [macOS Applications](../reference/macos/Applications.md)
 
 ## Shared concerns promoted into the catalog

@@ -298,5 +298,33 @@ class AndroidMigrationTests(unittest.TestCase):
         self.assertTrue(reference_path.exists(), "reference/android/Applications.md should exist")
 
 
+class LinuxMigrationTests(unittest.TestCase):
+    def _read(self, relative_path: str) -> str:
+        path = validate_docs.DEFAULT_ROOT / relative_path
+        self.assertTrue(path.exists(), f"{relative_path} does not exist")
+        return path.read_text(encoding="utf-8")
+
+    def test_linux_plan_links_to_inventory_export(self) -> None:
+        text = self._read("plans/linux.md")
+        self.assertIn("[Primary machine export](../exports/linux/primary-machine.md)", text)
+
+    def test_linux_plan_does_not_reference_legacy_navigation_roots(self) -> None:
+        text = self._read("plans/linux.md")
+        self.assertNotIn("../linux/", text)
+        self.assertNotIn("./linux/", text)
+
+    def test_linux_export_index_links_to_primary_machine(self) -> None:
+        text = self._read("exports/linux/README.md")
+        self.assertIn("[Primary machine](./primary-machine.md)", text)
+
+    def test_legacy_linux_files_moved_to_reference(self) -> None:
+        legacy_dir = validate_docs.DEFAULT_ROOT / "linux"
+        reference_dir = validate_docs.DEFAULT_ROOT / "reference" / "linux"
+        self.assertFalse(legacy_dir.exists(), "legacy linux/ directory should no longer exist")
+        self.assertTrue(reference_dir.exists(), "reference/linux/ directory should exist")
+        self.assertTrue((reference_dir / "Applications.md").exists())
+        self.assertTrue((reference_dir / "Desktop-Setup.md").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

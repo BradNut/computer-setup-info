@@ -2,7 +2,7 @@
 
 ## Linux
 
-- Apps, GUI, Laptop specific items: [Linux resources](../linux/Resources-Information.md)
+- Apps, GUI, Laptop specific items: [Linux resources](../reference/linux/Resources-Information.md)
 
 ## GrapheneOS
 

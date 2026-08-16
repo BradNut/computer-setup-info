@@ -1,11 +1,11 @@
 # Coding Applications
 
-For editor configuration links, see [Coding App Configs](../environment/Coding-App-Configs.md).
+For editor configuration links, see [Coding App Configs](../../environment/Coding-App-Configs.md).
 
 ## Sublime Text
 
 - Install from Flathub: `flatpak install flathub com.sublimetext.three`
-- Or use the apt repository configured in [SetupLinux.sh](../environment/SetupLinux.sh)
+- Or use the apt repository configured in [SetupLinux.sh](../../environment/SetupLinux.sh)
 - [Configuration](https://github.com/BradNut/dotfiles/blob/master/Preferences.sublime-settings)
 
 ### Package Control
@@ -82,7 +82,7 @@ While 524,288 is the maximum number of files that can be watched, if you're in a
 - Config path (native): `~/.config/zed/settings.json`
 - Config path (Flatpak, legacy): `~/.var/app/dev.zed.Zed/config/zed/settings.json`
 - Extensions/data path (native): `~/.local/share/zed/extensions`
-- For local AI setup, see [Local AI Model Setup for Zed](../environment/Local-AI-Model-Setup.md)
+- For local AI setup, see [Local AI Model Setup for Zed](../../environment/Local-AI-Model-Setup.md)
 
 ### Migrating from Flatpak to native install
 

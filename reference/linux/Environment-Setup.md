@@ -57,7 +57,7 @@ git config --global user.email johndoe@example.com
 
 ## Terminal
 
-- See details here: [Terminal Setup](../environment/Terminal.md)
+- See details here: [Terminal Setup](../../environment/Terminal.md)
 
 ## Caddy Server
 

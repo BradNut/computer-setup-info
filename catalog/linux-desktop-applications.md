@@ -7,7 +7,7 @@ provisioning_adapter: environment/SetupLinux.sh
 status: current
 supported: Ubuntu and Pop!_OS
 verified_on: 2026-07-17
-source_docs: linux/Applications.md
+source_docs: reference/linux/Applications.md
 ---
 
 Install Brave, Docker packages, Evolution, Mullvad Browser, Signal, and Sublime Text from configured apt repositories.

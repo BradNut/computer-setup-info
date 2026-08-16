@@ -28,12 +28,19 @@ bash environment/SetupLinux.sh
 - Review [shared browser and extension choices](../catalog/shared-browser-and-extension-choices.md).
 - Review [shared account and privacy decisions](../catalog/shared-account-and-privacy-decisions.md).
 
-## 3. Linux-specific follow-up — manual
+## 3. Reconcile against the latest export — manual
 
-- Review [desktop setup](../linux/Desktop-Setup.md).
-- Review [Linux resources](../linux/Resources-Information.md).
-- Review [Proton Bridge](../linux/Proton-Bridge-Setup.md) and [Proton VPN](../linux/ProtonVPN-Configuration.md) before use.
-- Decide on every candidate in the [obsolescence review queue](../review/obsolete-candidates.md) before relying on it.
+Compare the resulting system state against the latest curated [Primary machine export](../exports/linux/primary-machine.md) before considering the setup complete.
+
+## 4. Historical Linux-specific follow-up — reference only
+
+Legacy platform notes are preserved under [reference/linux](../reference/linux/) for research. Do not rely on them as an active navigation root.
+
+- [Desktop setup](../reference/linux/Desktop-Setup.md)
+- [Linux resources](../reference/linux/Resources-Information.md)
+- [Proton Bridge](../reference/linux/Proton-Bridge-Setup.md)
+- [Proton VPN](../reference/linux/ProtonVPN-Configuration.md)
+- [Obsolescence review queue](../review/obsolete-candidates.md)
 
 ## Verification
 

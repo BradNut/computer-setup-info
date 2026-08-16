@@ -8,7 +8,7 @@ Docker is now installed automatically by `environment/SetupLinux.sh` as part of 
 - `docker-compose-plugin`
 - `containerd.io`
 
-For details, see the catalog entry [`catalog/linux-docker.md`](../catalog/linux-docker.md).
+For details, see the catalog entry [`catalog/linux-docker.md`](../../catalog/linux-docker.md).
 
 ## Verification
 
