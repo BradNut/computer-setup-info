@@ -28,7 +28,7 @@ Use this `Inventory Record` as the canonical shared application list for Linux a
 ## Platform-specific follow-up
 
 - Use [Linux apt desktop applications](./linux-desktop-applications.md) and [Linux Flatpak application set](./linux-flatpak-applications.md) for Linux install channels.
-- Use [macOS application catalog](./macos-application-catalog.md) for macOS application notes pending the dedicated macOS migration slice.
+- Use [macOS application catalog](./macos-application-catalog.md) for macOS-specific install channels and macOS-only follow-up applications.
 
 ## Related records
 

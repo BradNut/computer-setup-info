@@ -25,7 +25,7 @@ VALID_STATUSES = {"current", "reference"}
 RESOURCE_ID_PREFIXES = (
     "linux-",
     "android-",
-    "osx-",
+    "macos-",
     "synology-",
     "windows-",
     "printers-",

@@ -19,7 +19,7 @@ Use these shared records before platform-specific follow-up when working through
 ## Platform-specific records
 
 - Linux automation and install-channel records stay in the Linux catalog entries such as `linux-base-system`, `linux-terminal-tooling`, `linux-desktop-applications`, and `linux-flatpak-applications`.
-- macOS-specific application follow-up currently lives in [macOS application catalog](./macos-application-catalog.md) until the dedicated macOS migration slice lands.
+- macOS-specific application follow-up and macOS install-channel decisions live in the canonical [macOS application catalog](./macos-application-catalog.md).
 
 ## Related directories
 
