@@ -9,6 +9,7 @@ This curated `Inventory Export` captures the current Ubuntu/Pop!_OS desktop rebu
 - Curated on: `2026-08-15`
 - Source records:
   - [Linux Setup Plan](../../plans/linux.md)
+  - [Linux application catalog](../../catalog/linux-application-catalog.md)
   - [Linux base system](../../catalog/linux-base-system.md)
   - [Linux terminal tooling](../../catalog/linux-terminal-tooling.md)
   - [Linux Homebrew](../../catalog/linux-homebrew.md)

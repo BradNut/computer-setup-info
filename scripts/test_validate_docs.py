@@ -304,6 +304,9 @@ class LinuxMigrationTests(unittest.TestCase):
         self.assertTrue(path.exists(), f"{relative_path} does not exist")
         return path.read_text(encoding="utf-8")
 
+    def _front_matter(self, relative_path: str) -> dict[str, str]:
+        return validate_docs.parse_front_matter(self._read(relative_path))
+
     def test_linux_plan_links_to_inventory_export(self) -> None:
         text = self._read("plans/linux.md")
         self.assertIn("[Primary machine export](../exports/linux/primary-machine.md)", text)
@@ -316,6 +319,15 @@ class LinuxMigrationTests(unittest.TestCase):
     def test_linux_export_index_links_to_primary_machine(self) -> None:
         text = self._read("exports/linux/README.md")
         self.assertIn("[Primary machine](./primary-machine.md)", text)
+
+    def test_linux_plan_links_to_canonical_application_catalog(self) -> None:
+        text = self._read("plans/linux.md")
+        self.assertIn("[Linux application catalog](../catalog/linux-application-catalog.md)", text)
+
+    def test_linux_application_catalog_is_current(self) -> None:
+        metadata = self._front_matter("catalog/linux-application-catalog.md")
+        self.assertEqual(metadata.get("status"), "current")
+        self.assertRegex(metadata.get("verified_on", ""), r"\d{4}-\d{2}-\d{2}")
 
     def test_legacy_linux_files_moved_to_reference(self) -> None:
         legacy_dir = validate_docs.DEFAULT_ROOT / "linux"

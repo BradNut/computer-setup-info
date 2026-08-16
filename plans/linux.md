@@ -28,11 +28,15 @@ bash environment/SetupLinux.sh
 - Review [shared browser and extension choices](../catalog/shared-browser-and-extension-choices.md).
 - Review [shared account and privacy decisions](../catalog/shared-account-and-privacy-decisions.md).
 
-## 3. Reconcile against the latest export — manual
+## 3. Choose and verify application install channels — manual
+
+Review the canonical [Linux application catalog](../catalog/linux-application-catalog.md) for the install-channel mapping of every shared and Linux-specific application, then compare the chosen set against the latest curated export.
+
+## 4. Reconcile against the latest export — manual
 
 Compare the resulting system state against the latest curated [Primary machine export](../exports/linux/primary-machine.md) before considering the setup complete.
 
-## 4. Historical Linux-specific follow-up — reference only
+## 5. Historical Linux-specific follow-up — reference only
 
 Legacy platform notes are preserved under [reference/linux](../reference/linux/) for research. Do not rely on them as an active navigation root.
 
