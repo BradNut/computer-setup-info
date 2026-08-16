@@ -338,5 +338,20 @@ class LinuxMigrationTests(unittest.TestCase):
         self.assertTrue((reference_dir / "Desktop-Setup.md").exists())
 
 
+class LegacyPlatformRetirementTests(unittest.TestCase):
+    def test_legacy_platform_directories_moved_to_reference(self) -> None:
+        root = validate_docs.DEFAULT_ROOT
+        for legacy_dir in ("windows", "synology", "self-hosting", "printers"):
+            with self.subTest(legacy_dir=legacy_dir):
+                self.assertFalse(
+                    (root / legacy_dir).exists(),
+                    f"legacy {legacy_dir}/ directory should no longer exist at repo root",
+                )
+                self.assertTrue(
+                    (root / "reference" / legacy_dir).exists(),
+                    f"reference/{legacy_dir}/ directory should exist",
+                )
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -11,11 +11,11 @@ verified_on: pending
 
 ## 1. Base NAS configuration — manual
 
-Apply `synology-base-configuration` using [configuration guidance](../synology/Configuration-Environment-Setup.md). Confirm account, group, and security decisions for this NAS.
+Apply `synology-base-configuration` using [configuration guidance](../reference/synology/Configuration-Environment-Setup.md). Confirm account, group, and security decisions for this NAS.
 
 ## 2. Packages and containers — manual
 
-Review `synology-application-catalog` in [Synology applications](../synology/Applications.md). Use [Docker setup](../synology/Docker-Setup.md) only after reviewing its pending status in the [review queue](../review/obsolete-candidates.md).
+Review `synology-application-catalog` in [Synology applications](../reference/synology/Applications.md). Use [Docker setup](../reference/synology/Docker-Setup.md) only after reviewing its pending status in the [review queue](../review/obsolete-candidates.md).
 
 ## 3. Media automation — reference pending review
 

@@ -11,7 +11,7 @@ verified_on: pending
 
 ## 1. Applications — manual
 
-Review `windows-application-catalog` in [Windows applications](../windows/Applications.md). Install only selected applications from their official sources.
+Review `windows-application-catalog` in [Windows applications](../reference/windows/Applications.md). Install only selected applications from their official sources.
 
 ## 2. Device utilities — manual
 

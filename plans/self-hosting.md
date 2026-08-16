@@ -11,7 +11,7 @@ verified_on: pending
 
 ## 1. Choose a workload — manual
 
-Review `self-hosting-resource-catalog` in [self-hosting resources](../self-hosting/Resources.md).
+Review `self-hosting-resource-catalog` in [self-hosting resources](../reference/self-hosting/Resources.md).
 
 ## 2. Synology Transmission — reference pending review
 

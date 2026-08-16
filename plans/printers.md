@@ -15,7 +15,7 @@ Confirm the exact model before downloading a driver.
 
 ## 2. Install vendor driver — manual
 
-Apply `printer-scanner-drivers` using [printer and scanner guidance](../printers/README.md).
+Apply `printer-scanner-drivers` using [printer and scanner guidance](../reference/printers/README.md).
 
 ## Verification
 

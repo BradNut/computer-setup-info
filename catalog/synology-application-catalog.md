@@ -6,7 +6,7 @@ execution_mode: manual
 status: reference
 supported: Synology package sources await re-verification
 verified_on: pending
-source_docs: synology/Applications.md
+source_docs: reference/synology/Applications.md
 ---
 
 Use the Synology setup plan to select NAS packages. Validate the package source and current DSM compatibility before installation.
