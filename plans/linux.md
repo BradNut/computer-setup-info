@@ -36,7 +36,14 @@ Review the canonical [Linux application catalog](../catalog/linux-application-ca
 
 Compare the resulting system state against the latest curated [Primary machine export](../exports/linux/primary-machine.md) before considering the setup complete.
 
-## 5. Historical Linux-specific follow-up — reference only
+## 5. Device-specific hardware — manual
+
+Only for a matching Dell XPS. These need driver and PAM work that the base provisioning does not cover.
+
+- [Fingerprint reader](../catalog/linux-dell-xps-fingerprint-reader.md)
+- [Webcam (XPS 13 9350)](../catalog/linux-dell-xps-13-9350-webcam.md)
+
+## 6. Historical Linux-specific follow-up — reference only
 
 Legacy platform notes are preserved under [reference/linux](../reference/linux/) for research. Do not rely on them as an active navigation root.
 

@@ -21,6 +21,13 @@ Use these shared records before platform-specific follow-up when working through
 - Linux automation and install-channel records stay in the Linux catalog entries such as `linux-base-system`, `linux-terminal-tooling`, `linux-desktop-applications`, and `linux-flatpak-applications`.
 - macOS-specific application follow-up and macOS install-channel decisions live in the canonical [macOS application catalog](./macos-application-catalog.md).
 
+## Device-specific hardware records
+
+Manual runbooks for hardware that needs extra work on Linux. Follow them from the Linux `Setup Plan` when setting up a matching device.
+
+- [Dell XPS fingerprint reader](./linux-dell-xps-fingerprint-reader.md)
+- [Dell XPS 13 9350 webcam](./linux-dell-xps-13-9350-webcam.md)
+
 ## Related directories
 
 - [Setup Plans](../plans/README.md)
