@@ -28,7 +28,7 @@ OV02C10 -> IPU7 kernel driver -> libcamera 0.7 (/usr/local, software ISP)
 | App | Status | How |
 |---|---|---|
 | GNOME Snapshot (Flatpak) | Works, upright | PipeWire libcamera plugin (steps 1-3) |
-| Cosmic camera app (Flatpak) | Works, but upside down | Bundled libcamera, app rotates twice. Issue #719 |
+| Cosmic camera app (Flatpak 1.3.7) | Works, but upside down | Bundled libcamera, app rotates twice. Issue #719, fixed by PR #729 (not yet released; verified with a local build) |
 | Zoom (deb) | Works | Bridge, choose "XPS Camera" (step 5, auto-started by the launcher) |
 | Signal Desktop (deb) | Untested, probably works | Start bridge by hand, choose "XPS Camera" |
 | Browsers (Firefox/Chrome) | Untested | Use PipeWire camera if enabled, else need the bridge |
@@ -42,7 +42,7 @@ Quick health check (run in order, stop at the first failure):
 
 ## Symptoms (before the fix)
 - No usable camera: `/dev/video0..31` exist, but they are raw IPU7 nodes. Apps show black or nothing.
-- After the libcamera fix: the Cosmic camera app showed the image upside down.
+- After the libcamera fix: the Cosmic camera app showed the image upside down (fixed by PR #729, see Known issue).
 - Zoom showed a black preview.
 
 ## Root cause
@@ -147,7 +147,31 @@ In Zoom, choose **XPS Camera** (not "ipu7") under Settings, Video & effects.
 ## Known issue: Cosmic camera app is upside down
 - The Cosmic camera app (`io.github.cosmic_utils.camera` 1.3.7) uses its own bundled libcamera 0.7.2. It reads the sensor's `Rotation = 180` and rotates the preview and photos itself, on top of libcamera's own correction.
 - Reported as https://github.com/cosmic-utils/cosmic-ext-camera/issues/719.
-- Workaround: use GNOME Snapshot, which is correct.
+- Fix: PR https://github.com/cosmic-utils/cosmic-ext-camera/pull/729 makes the app request the sensor's native orientation from libcamera, so libcamera stops flipping and the app's own 180° is the only rotation. Verified 2026-10-18 with a local build: preview, photo (EXIF Orientation 3) and video (`rotate-180` tag) were all upright. Result posted on the issue.
+- Workaround until a release includes the fix: use GNOME Snapshot, which is correct.
+
+### Building PR #729 locally (native, no Flatpak needed)
+Verified on 2026-10-18. The Flatpak Camera does not need to be uninstalled. This test setup (clone, libcamera v0.7.2 prefix, rustup, launcher) was removed afterwards; the plan is to wait for the Flatpak update that includes PR #729. The recipe below is only needed to retest.
+- apt: `libdav1d-dev libinput-dev libseat-dev nasm libgstreamer-plugins-bad1.0-dev` (plus the deps in the repo README).
+- Rust via rustup in `~/.cargo` (the repo's `rust-toolchain.toml` pins 1.98.0).
+- Build libcamera **v0.7.2** into a private prefix. The `libcamera-sys` 0.7.0 crate needs `libcamera::Span`, so it does not compile against the git-master libcamera in `/usr/local`. Use a worktree of the tag: `git -C ~/build/libcamera-src worktree add ../libcamera-0.7.2-src v0.7.2`, then:
+```
+cd ~/build/libcamera-0.7.2-src
+PATH=/usr/bin:$PATH meson setup ../libcamera-0.7.2-build --prefix=$HOME/build/libcamera-0.7.2-prefix \
+  -Dpipelines=simple,uvcvideo -Dipas=simple -Dgstreamer=disabled -Dcam=enabled -Dqcam=disabled \
+  -Dtest=false -Ddocumentation=disabled -Dbuildtype=release
+ninja -C ../libcamera-0.7.2-build install
+```
+  (In v0.7.2 the IPA option is `simple`, not `softisp`.)
+- Build the app: `gh pr checkout 729` in a clone of cosmic-ext-camera, then
+```
+export PKG_CONFIG_PATH=$HOME/build/libcamera-0.7.2-prefix/lib/x86_64-linux-gnu/pkgconfig
+export BINDGEN_EXTRA_CLANG_ARGS="--gcc-install-dir=/usr/lib/gcc/x86_64-linux-gnu/13"
+cargo build --release
+```
+  `BINDGEN_EXTRA_CLANG_ARGS` is needed because clang picks GCC 14, which has no libstdc++ headers installed.
+- Run with `~/build/run-camera-pr729.sh` (sets `LD_LIBRARY_PATH` to the v0.7.2 prefix). CLI: `camera list`, `camera photo -o FILE`, `camera video -d SECS -o FILE`.
+- Gotchas: `cargo test` did not compile (37 libcosmic widget-trait errors, unrelated). The app stores native pixels plus an orientation tag, so ffmpeg (which ignores the GStreamer MP4 tag) shows video frames upside down. Use a tag-aware viewer or rotate by 180° to judge.
 
 ## Maintenance and gotchas
 - **`apt upgrade` of `pipewire-libcamera`** overwrites the patched plugin. Camera in PipeWire apps (Snapshot, browsers) stops working. Redo step 3. The original plugin is saved as `libspa-libcamera.so.orig`.
