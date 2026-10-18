@@ -49,6 +49,8 @@ source_docs: linux/Source.md
 ---
 ```
 
-`source_docs` is a path relative to the repository root. Automated resources add `provisioning_adapter`, also relative to the repository root.
+`source_docs` and `provisioning_adapter` are paths relative to the repository root, in both `Inventory Record` and `Setup Plan` front matter. Each `entry_points` value must name an `Entry Point` that has a Setup Plan.
+
+Flatpak IDs installed by the Linux provisioning adapter must each have a `Flatpak` row in the [Linux application catalog](./linux-application-catalog.md) and appear in the [Linux primary machine export](../exports/linux/primary-machine.md). Catalog rows for Flatpaks the adapter does not install are allowed.
 
 Use `manual`, `automated`, or `hybrid` for `execution_mode`. Automated resources also declare a platform-specific `provisioning_adapter`. `status: current` requires an ISO `verified_on` date; use `status: reference` and `verified_on: pending` for material awaiting re-verification. Do not make destructive changes from this catalog without a confirmed setup plan.
