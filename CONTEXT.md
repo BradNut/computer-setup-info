@@ -4,6 +4,8 @@
 
 A platform, device, or environment a person sets up through this repository, such as Linux, macOS, Android, Synology, a printer, or self-hosting.
 
+Each Entry Point has exactly one Setup Plan at `plans/<entry-point>.md`. The plan's `status` decides whether the Entry Point is **active** (`current`) or **retired** (`reference`). Active Entry Points get role navigation, a curated Inventory Export, and links to current Inventory Records; retired Entry Points must not be linked from active navigation.
+
 ## Setup Plan
 
 The ordered route for configuring one Entry Point. It includes manual, automated, and hybrid steps in the order they must occur.

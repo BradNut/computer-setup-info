@@ -11,7 +11,53 @@ from pathlib import Path
 import validate_docs
 
 
-class ValidateDocsTests(unittest.TestCase):
+def plan(entry_point: str, status: str = "current", extra_metadata: str = "", body: str = "") -> str:
+    verified_on = "2026-08-15" if status == "current" else "pending"
+    return (
+        "---\n"
+        f"id: {entry_point}-setup-plan\n"
+        f"title: {entry_point} setup plan\n"
+        f"entry_point: {entry_point}\n"
+        f"status: {status}\n"
+        f"supported: {entry_point}\n"
+        f"verified_on: {verified_on}\n"
+        f"{extra_metadata}"
+        "---\n\n"
+        f"{body}"
+    )
+
+
+def record(record_id: str, entry_points: str, status: str = "current", extra_metadata: str = "", body: str = "") -> str:
+    verified_on = "2026-08-15" if status == "current" else "pending"
+    return (
+        "---\n"
+        f"id: {record_id}\n"
+        f"title: {record_id}\n"
+        f"entry_points: {entry_points}\n"
+        "execution_mode: manual\n"
+        f"status: {status}\n"
+        "supported: Linux\n"
+        f"verified_on: {verified_on}\n"
+        "source_docs: reference/linux/source.md\n"
+        f"{extra_metadata}"
+        "---\n\n"
+        f"{body}"
+    )
+
+
+LINUX_PLAN_BODY = (
+    "Apply `linux-application-catalog`.\n\n"
+    "- [Catalog](../catalog/README.md)\n"
+    "- [Linux apps](../catalog/linux-application-catalog.md)\n"
+    "- [Exports](../exports/linux/README.md)\n"
+    "- [Primary machine export](../exports/linux/primary-machine.md)\n"
+    "- [Reference](../reference/README.md)\n"
+)
+
+
+class ValidatorFixture(unittest.TestCase):
+    """A minimal valid repository: Linux is an active Entry Point, Windows is retired."""
+
     def setUp(self) -> None:
         temp_dir = tempfile.TemporaryDirectory()
         self.addCleanup(temp_dir.cleanup)
@@ -27,14 +73,21 @@ class ValidateDocsTests(unittest.TestCase):
         path = self.root / relative_path
         self._write(relative_path, path.read_text(encoding="utf-8") + content)
 
+    def _replace(self, relative_path: str, old: str, new: str) -> None:
+        path = self.root / relative_path
+        text = path.read_text(encoding="utf-8")
+        self.assertIn(old, text)
+        self._write(relative_path, text.replace(old, new))
+
+    def _run_validation(self, root: Path | None = None) -> list[str]:
+        return validate_docs.collect_errors(root or self.root)
+
     def _write_repo(self) -> None:
         self._write(
             "README.md",
             "# Root\n\n"
             "- [Setup Plans](plans/README.md)\n"
             "- [Linux](plans/linux.md)\n"
-            "- [macOS](plans/macos.md)\n"
-            "- [Android](plans/android.md)\n"
             "- [Resource Catalog](catalog/README.md)\n"
             "- [Inventory Exports](exports/README.md)\n"
             "- [Reference](reference/README.md)\n",
@@ -43,8 +96,6 @@ class ValidateDocsTests(unittest.TestCase):
             "plans/README.md",
             "# Plans\n\n"
             "- [Linux](./linux.md)\n"
-            "- [macOS](./macos.md)\n"
-            "- [Android](./android.md)\n"
             "- [Catalog](../catalog/README.md)\n"
             "- [Exports](../exports/README.md)\n"
             "- [Reference](../reference/README.md)\n",
@@ -72,97 +123,42 @@ class ValidateDocsTests(unittest.TestCase):
             "- [Catalog](../catalog/README.md)\n"
             "- [Exports](../exports/README.md)\n",
         )
-        self._write(
-            "plans/linux.md",
-            "---\n"
-            "id: linux-setup-plan\n"
-            "title: Linux setup plan\n"
-            "entry_point: linux\n"
-            "status: current\n"
-            "supported: Linux\n"
-            "verified_on: 2026-08-15\n"
-            "---\n\n"
-            "- [Catalog](../catalog/README.md)\n"
-            "- [Exports](../exports/linux/README.md)\n"
-            "- [Reference](../reference/README.md)\n",
-        )
-        self._write(
-            "plans/macos.md",
-            "---\n"
-            "id: macos-setup-plan\n"
-            "title: macOS setup plan\n"
-            "entry_point: macos\n"
-            "status: current\n"
-            "supported: macOS\n"
-            "verified_on: 2026-08-15\n"
-            "---\n\n"
-            "- [Catalog](../catalog/README.md)\n"
-            "- [Exports](../exports/macos/README.md)\n"
-            "- [Reference](../reference/README.md)\n",
-        )
-        self._write(
-            "plans/android.md",
-            "---\n"
-            "id: android-setup-plan\n"
-            "title: Android setup plan\n"
-            "entry_point: android\n"
-            "status: current\n"
-            "supported: Android\n"
-            "verified_on: 2026-08-15\n"
-            "---\n\n"
-            "- [Catalog](../catalog/README.md)\n"
-            "- [Exports](../exports/android/README.md)\n"
-            "- [Reference](../reference/README.md)\n",
-        )
-        self._write(
-            "plans/windows.md",
-            "---\n"
-            "id: windows-setup-plan\n"
-            "title: Windows setup plan\n"
-            "entry_point: windows\n"
-            "status: reference\n"
-            "supported: Windows\n"
-            "verified_on: pending\n"
-            "---\n\n"
-            "- [Windows Applications](../reference/windows/Applications.md)\n",
-        )
+        self._write("plans/linux.md", plan("linux", body=LINUX_PLAN_BODY))
+        self._write("plans/windows.md", plan("windows", status="reference"))
         self._write(
             "exports/linux/README.md",
             "# Linux exports\n\n"
             "- [Linux Plan](../../plans/linux.md)\n"
-            "- [Catalog](../../catalog/README.md)\n",
+            "- [Catalog](../../catalog/README.md)\n"
+            "- [Primary machine](./primary-machine.md)\n",
         )
         self._write(
-            "exports/macos/README.md",
-            "# macOS exports\n\n"
-            "- [macOS Plan](../../plans/macos.md)\n"
-            "- [Catalog](../../catalog/README.md)\n",
+            "exports/linux/primary-machine.md",
+            "# Primary machine\n\n## Flatpak applications\n\n- org.example.Editor\n\n## Other\n\n- not.a.flatpak.Id\n",
         )
         self._write(
-            "exports/android/README.md",
-            "# Android exports\n\n"
-            "- [Android Plan](../../plans/android.md)\n"
-            "- [Catalog](../../catalog/README.md)\n",
+            "catalog/linux-application-catalog.md",
+            record(
+                "linux-application-catalog",
+                "linux",
+                body="| Application | Install Channel | Notes |\n"
+                "| --- | --- | --- |\n"
+                "| Editor | Flatpak | `org.example.Editor` from Flathub. |\n"
+                "| Optional | Flatpak | `org.example.Optional`; install manually. |\n",
+            ),
         )
         self._write(
-            "catalog/example.md",
-            "---\n"
-            "id: linux-example\n"
-            "title: Example\n"
-            "entry_points: linux\n"
-            "execution_mode: manual\n"
-            "status: current\n"
-            "supported: Linux\n"
-            "verified_on: 2026-08-15\n"
-            "source_docs: linux/source.md\n"
-            "---\n",
+            "environment/SetupLinux.sh",
+            "#!/bin/bash\n"
+            "sudo flatpak install --system --noninteractive flathub \\\n"
+            "  org.example.Editor\n"
+            "echo done.with.three.parts\n",
         )
-        self._write("linux/source.md", "# Source\n")
+        self._write("reference/linux/source.md", "# Source\n")
         self._write("reference/windows/Applications.md", "# Windows apps\n")
 
-    def _run_validation(self, root: Path | None = None) -> list[str]:
-        return validate_docs.collect_errors(root or self.root)
 
+class NavigationContractTests(ValidatorFixture):
     def test_validation_passes_for_valid_role_navigation(self) -> None:
         self.assertEqual(self._run_validation(), [])
 
@@ -175,47 +171,191 @@ class ValidateDocsTests(unittest.TestCase):
         self.assertEqual(self._run_validation(link), [])
 
     def test_validation_rejects_missing_required_navigation_link(self) -> None:
-        self._write(
-            "README.md",
-            "# Root\n\n"
-            "- [Setup Plans](plans/README.md)\n"
-            "- [Linux](plans/linux.md)\n"
-            "- [macOS](plans/macos.md)\n"
-            "- [Resource Catalog](catalog/README.md)\n"
-            "- [Inventory Exports](exports/README.md)\n"
-            "- [Reference](reference/README.md)\n",
+        self._replace("README.md", "- [Linux](plans/linux.md)\n", "")
+
+        errors = self._run_validation()
+
+        self.assertIn("README.md: missing required navigation link: plans/linux.md", errors)
+
+    def test_activating_an_entry_point_derives_its_navigation_requirements(self) -> None:
+        self._write("plans/windows.md", plan("windows"))
+
+        errors = self._run_validation()
+
+        self.assertIn("README.md: missing required navigation link: plans/windows.md", errors)
+        self.assertIn("plans/README.md: missing required navigation link: plans/windows.md", errors)
+        self.assertIn("plans/windows.md: missing required navigation link: exports/windows/README.md", errors)
+        self.assertIn("exports/windows/README.md: missing required navigation surface", errors)
+
+    def test_validation_rejects_retired_entry_point_link_in_active_navigation(self) -> None:
+        self._append("README.md", "- [Windows](plans/windows.md)\n")
+        self._append("reference/README.md", "- [Windows apps](./windows/Applications.md)\n")
+
+        errors = self._run_validation()
+
+        self.assertIn("README.md: forbidden link to retired entry point windows: plans/windows.md", errors)
+        self.assertIn(
+            "reference/README.md: forbidden link to retired entry point windows: reference/windows/Applications.md",
+            errors,
         )
 
-        errors = self._run_validation()
-
-        self.assertIn("README.md: missing required navigation link: plans/android.md", errors)
-
-    def test_validation_rejects_windows_link_in_active_navigation(self) -> None:
-        self._append("README.md", "- [Windows](plans/windows.md)\n")
+    def test_every_retired_entry_point_is_guarded(self) -> None:
+        self._write("plans/synology.md", plan("synology", status="reference"))
+        self._write("reference/synology/Apps.md", "# Synology apps\n")
+        self._append("plans/README.md", "- [Synology](../reference/synology/Apps.md)\n")
 
         errors = self._run_validation()
 
-        self.assertIn("README.md: forbidden Windows link in active navigation: plans/windows.md", errors)
+        self.assertIn(
+            "plans/README.md: forbidden link to retired entry point synology: reference/synology/Apps.md", errors
+        )
 
     def test_navigation_examples_in_code_fences_do_not_satisfy_contract(self) -> None:
+        self._replace("README.md", "- [Linux](plans/linux.md)\n", "```md\n- [Linux](plans/linux.md)\n```\n")
+
+        errors = self._run_validation()
+
+        self.assertIn("README.md: missing required navigation link: plans/linux.md", errors)
+
+
+class ActiveRouteTests(ValidatorFixture):
+    def test_active_plan_needs_an_export_snapshot_link(self) -> None:
+        self._replace("plans/linux.md", "- [Primary machine export](../exports/linux/primary-machine.md)\n", "")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/linux.md: active Setup Plan needs a link to an Inventory Export snapshot", errors)
+
+    def test_export_index_needs_a_snapshot_link(self) -> None:
+        self._replace("exports/linux/README.md", "- [Primary machine](./primary-machine.md)\n", "")
+
+        errors = self._run_validation()
+
+        self.assertIn("exports/linux/README.md: export index needs a link to an Inventory Export snapshot", errors)
+
+    def test_active_plan_needs_a_current_inventory_record_for_its_entry_point(self) -> None:
+        self._replace("plans/linux.md", "- [Linux apps](../catalog/linux-application-catalog.md)\n", "")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/linux.md: active Setup Plan needs a link to a current linux Inventory Record", errors)
+
+    def test_active_plan_rejects_reference_inventory_records(self) -> None:
+        self._write("catalog/linux-old.md", record("linux-old", "linux", status="reference"))
+        self._append("plans/linux.md", "- [Old](../catalog/linux-old.md)\n")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/linux.md: active Setup Plan links reference Inventory Record: catalog/linux-old.md", errors)
+
+    def test_legacy_entry_point_directory_at_root_is_rejected(self) -> None:
+        self._write("windows/Applications.md", "# Windows apps\n")
+
+        errors = self._run_validation()
+
+        self.assertIn("windows/: legacy entry point directory at repository root; move it under reference/", errors)
+
+    def test_empty_legacy_directory_is_ignored(self) -> None:
+        (self.root / "linux").mkdir()
+
+        self.assertEqual(self._run_validation(), [])
+
+
+class RecordSchemaTests(ValidatorFixture):
+    def test_plan_provisioning_adapter_is_root_relative(self) -> None:
         self._write(
-            "README.md",
-            "# Root\n\n"
-            "- [Setup Plans](plans/README.md)\n"
-            "- [Linux](plans/linux.md)\n"
-            "- [macOS](plans/macos.md)\n"
-            "- [Resource Catalog](catalog/README.md)\n"
-            "- [Inventory Exports](exports/README.md)\n"
-            "- [Reference](reference/README.md)\n\n"
-            "```md\n"
-            "- [Android](plans/android.md)\n"
-            "```\n",
+            "plans/linux.md",
+            plan("linux", extra_metadata="provisioning_adapter: ../environment/SetupLinux.sh\n", body=LINUX_PLAN_BODY),
         )
 
         errors = self._run_validation()
 
-        self.assertIn("README.md: missing required navigation link: plans/android.md", errors)
+        self.assertIn(
+            "plans/linux.md: provisioning_adapter escapes repository root: ../environment/SetupLinux.sh", errors
+        )
 
+    def test_plan_provisioning_adapter_must_exist(self) -> None:
+        self._write(
+            "plans/linux.md",
+            plan("linux", extra_metadata="provisioning_adapter: environment/Missing.sh\n", body=LINUX_PLAN_BODY),
+        )
+
+        errors = self._run_validation()
+
+        self.assertIn(
+            "plans/linux.md: provisioning_adapter does not exist relative to repository root: environment/Missing.sh",
+            errors,
+        )
+
+    def test_lifecycle_rules_apply_to_both_record_kinds(self) -> None:
+        self._replace("plans/linux.md", "verified_on: 2026-08-15", "verified_on: soon")
+        self._replace("catalog/linux-application-catalog.md", "verified_on: 2026-08-15", "verified_on: soon")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/linux.md: current plan needs an ISO verified_on date", errors)
+        self.assertIn("catalog/linux-application-catalog.md: current resource needs an ISO verified_on date", errors)
+
+    def test_automated_resource_needs_provisioning_adapter(self) -> None:
+        self._replace("catalog/linux-application-catalog.md", "execution_mode: manual", "execution_mode: automated")
+
+        errors = self._run_validation()
+
+        self.assertIn("catalog/linux-application-catalog.md: automated resource needs provisioning_adapter", errors)
+
+    def test_missing_plan_metadata_is_reported(self) -> None:
+        self._replace("plans/windows.md", "supported: windows\n", "")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/windows.md: missing plan metadata: supported", errors)
+
+    def test_resource_entry_points_must_be_known(self) -> None:
+        self._replace("catalog/linux-application-catalog.md", "entry_points: linux", "entry_points: linux, beos")
+
+        errors = self._run_validation()
+
+        self.assertIn("catalog/linux-application-catalog.md: unknown entry point: beos", errors)
+
+    def test_plan_resource_ids_are_checked_for_every_entry_point_and_shared_records(self) -> None:
+        self._append("plans/linux.md", "Then apply `shared-missing` and `windows-missing`.\n")
+
+        errors = self._run_validation()
+
+        self.assertIn("plans/linux.md: unknown resource id: shared-missing", errors)
+        self.assertIn("plans/linux.md: unknown resource id: windows-missing", errors)
+
+
+class FlatpakInventoryTests(ValidatorFixture):
+    def test_adapter_flatpak_missing_from_export_and_record(self) -> None:
+        self._replace("environment/SetupLinux.sh", "  org.example.Editor\n", "  org.example.Editor \\\n  org.example.New\n")
+
+        errors = self._run_validation()
+
+        self.assertIn(
+            "exports/linux/primary-machine.md: Flatpak installed by environment/SetupLinux.sh is missing from export: "
+            "org.example.New",
+            errors,
+        )
+        self.assertIn(
+            "catalog/linux-application-catalog.md: Flatpak installed by environment/SetupLinux.sh has no "
+            "Inventory Record row: org.example.New",
+            errors,
+        )
+
+    def test_exported_flatpak_not_installed_by_adapter(self) -> None:
+        self._replace("exports/linux/primary-machine.md", "- org.example.Editor\n", "- org.example.Editor\n- org.example.Typo\n")
+
+        errors = self._run_validation()
+
+        self.assertIn(
+            "exports/linux/primary-machine.md: exported Flatpak is not installed by environment/SetupLinux.sh: "
+            "org.example.Typo",
+            errors,
+        )
+
+
+class LinkTests(ValidatorFixture):
     def test_reference_links_are_validated(self) -> None:
         self._append("reference/README.md", "- [Missing](../reference/missing.md)\n")
 
@@ -226,7 +366,7 @@ class ValidateDocsTests(unittest.TestCase):
     def test_titled_and_angle_bracket_links_are_resolved(self) -> None:
         self._append(
             "reference/README.md",
-            '- [Titled](../linux/source.md "Source doc")\n- [Angled](<../linux/source.md>)\n',
+            '- [Titled](./linux/source.md "Source doc")\n- [Angled](<./linux/source.md>)\n',
         )
 
         self.assertEqual(self._run_validation(), [])
@@ -259,98 +399,6 @@ class ValidateDocsCliTests(unittest.TestCase):
 
         self.assertEqual(exit_code, 0)
         self.assertIn("Documentation validation passed.", stdout.getvalue())
-
-
-class AndroidMigrationTests(unittest.TestCase):
-    def _read(self, relative_path: str) -> str:
-        path = validate_docs.DEFAULT_ROOT / relative_path
-        self.assertTrue(path.exists(), f"{relative_path} does not exist")
-        return path.read_text(encoding="utf-8")
-
-    def _front_matter(self, relative_path: str) -> dict[str, str]:
-        return validate_docs.parse_front_matter(self._read(relative_path))
-
-    def test_android_plan_links_to_canonical_application_catalog(self) -> None:
-        text = self._read("plans/android.md")
-        self.assertIn("[Android application catalog](../catalog/android-application-catalog.md)", text)
-
-    def test_android_plan_links_to_inventory_export(self) -> None:
-        text = self._read("plans/android.md")
-        self.assertIn("[Primary device export](../exports/android/primary-device.md)", text)
-
-    def test_android_plan_does_not_reference_legacy_applications(self) -> None:
-        text = self._read("plans/android.md")
-        self.assertNotIn("../android/Applications.md", text)
-
-    def test_android_export_index_links_to_primary_device(self) -> None:
-        text = self._read("exports/android/README.md")
-        self.assertIn("[Primary device](./primary-device.md)", text)
-
-    def test_android_catalog_is_current(self) -> None:
-        metadata = self._front_matter("catalog/android-application-catalog.md")
-        self.assertEqual(metadata.get("status"), "current")
-        self.assertRegex(metadata.get("verified_on", ""), r"\d{4}-\d{2}-\d{2}")
-
-    def test_legacy_android_applications_moved_to_reference(self) -> None:
-        legacy_path = validate_docs.DEFAULT_ROOT / "android" / "Applications.md"
-        reference_path = validate_docs.DEFAULT_ROOT / "reference" / "android" / "Applications.md"
-        self.assertFalse(legacy_path.exists(), "legacy android/Applications.md should no longer exist")
-        self.assertTrue(reference_path.exists(), "reference/android/Applications.md should exist")
-
-
-class LinuxMigrationTests(unittest.TestCase):
-    def _read(self, relative_path: str) -> str:
-        path = validate_docs.DEFAULT_ROOT / relative_path
-        self.assertTrue(path.exists(), f"{relative_path} does not exist")
-        return path.read_text(encoding="utf-8")
-
-    def _front_matter(self, relative_path: str) -> dict[str, str]:
-        return validate_docs.parse_front_matter(self._read(relative_path))
-
-    def test_linux_plan_links_to_inventory_export(self) -> None:
-        text = self._read("plans/linux.md")
-        self.assertIn("[Primary machine export](../exports/linux/primary-machine.md)", text)
-
-    def test_linux_plan_does_not_reference_legacy_navigation_roots(self) -> None:
-        text = self._read("plans/linux.md")
-        self.assertNotIn("../linux/", text)
-        self.assertNotIn("./linux/", text)
-
-    def test_linux_export_index_links_to_primary_machine(self) -> None:
-        text = self._read("exports/linux/README.md")
-        self.assertIn("[Primary machine](./primary-machine.md)", text)
-
-    def test_linux_plan_links_to_canonical_application_catalog(self) -> None:
-        text = self._read("plans/linux.md")
-        self.assertIn("[Linux application catalog](../catalog/linux-application-catalog.md)", text)
-
-    def test_linux_application_catalog_is_current(self) -> None:
-        metadata = self._front_matter("catalog/linux-application-catalog.md")
-        self.assertEqual(metadata.get("status"), "current")
-        self.assertRegex(metadata.get("verified_on", ""), r"\d{4}-\d{2}-\d{2}")
-
-    def test_legacy_linux_files_moved_to_reference(self) -> None:
-        legacy_dir = validate_docs.DEFAULT_ROOT / "linux"
-        reference_dir = validate_docs.DEFAULT_ROOT / "reference" / "linux"
-        self.assertFalse(legacy_dir.exists(), "legacy linux/ directory should no longer exist")
-        self.assertTrue(reference_dir.exists(), "reference/linux/ directory should exist")
-        self.assertTrue((reference_dir / "Applications.md").exists())
-        self.assertTrue((reference_dir / "Desktop-Setup.md").exists())
-
-
-class LegacyPlatformRetirementTests(unittest.TestCase):
-    def test_legacy_platform_directories_moved_to_reference(self) -> None:
-        root = validate_docs.DEFAULT_ROOT
-        for legacy_dir in ("windows", "synology", "self-hosting", "printers"):
-            with self.subTest(legacy_dir=legacy_dir):
-                self.assertFalse(
-                    (root / legacy_dir).exists(),
-                    f"legacy {legacy_dir}/ directory should no longer exist at repo root",
-                )
-                self.assertTrue(
-                    (root / "reference" / legacy_dir).exists(),
-                    f"reference/{legacy_dir}/ directory should exist",
-                )
 
 
 if __name__ == "__main__":

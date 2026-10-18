@@ -37,18 +37,27 @@ Use this `Inventory Record` as the canonical Linux application catalog. Each app
 | Bruno | Flatpak | `com.usebruno.Bruno` from Flathub. |
 | Buckets | Flatpak | `com.budgetwithbuckets.Buckets` from Flathub. |
 | Calibre | Flatpak | `com.calibre_ebook.calibre` from Flathub. |
+| Cedilla | Flatpak | `dev.mariinkys.Cedilla` from Flathub. |
+| COSMIC Calculator | Flatpak | `dev.edfloreshz.Calculator` from Flathub. |
+| COSMIC Camera | Flatpak | `io.github.cosmic_utils.camera` from Flathub. |
+| COSMIC Color Picker | Flatpak | `io.github.pixeldoted.cosmic-ext-color-picker` from Flathub. |
+| COSMIC Tasks | Flatpak | `dev.edfloreshz.Tasks` from Flathub. |
+| COSMIC Tweaks | Flatpak | `dev.edfloreshz.CosmicTweaks` from Flathub. |
 | Cryptomator | manual download | Download the AppImage or `.deb` from the upstream release page. |
 | Droidcam | manual download | Use only if phone-as-webcam workflow is needed. |
 | Epiphany | Flatpak | `org.gnome.Epiphany` from Flathub; WebKit test browser. |
 | Forecast | Flatpak | `com.jwestall.Forecast` from Flathub. |
 | Grayjay | Flatpak | `app.grayjay.Grayjay` from Flathub. |
 | HandBrake | Flatpak | `fr.handbrake.ghb` from Flathub. |
+| Interstellar | Flatpak | `one.jwr.interstellar` from Flathub. |
 | Joplin | Flatpak | `net.cozic.joplin_desktop` from Flathub. |
 | MegaSync | apt | Installed from the MEGA apt repository configured by the provisioning adapter. |
 | Mullvad Browser | apt | Installed from the Mullvad apt repository configured by the provisioning adapter. |
 | OBS Studio | Flatpak | `com.obsproject.Studio` from Flathub. |
-| Piper | Flatpak | `org.freedesktop.Piper` from Flathub. |
-| Plexamp | AppImage | Desktop player; use AppImage Launcher for menu integration. |
+| Obsidian | Flatpak | `md.obsidian.Obsidian` from Flathub. |
+| Piper | Flatpak | `org.freedesktop.Piper` from Flathub; not installed by the provisioning adapter, install manually when needed. |
+| Plex Desktop | Flatpak | `tv.plex.PlexDesktop` from Flathub. |
+| Plexamp | Flatpak | `com.plexamp.Plexamp` from Flathub. |
 | Podman Desktop | Flatpak | `io.podman_desktop.PodmanDesktop` from Flathub. |
 | Proton Pass | direct `.deb` | Installed from the Proton Pass desktop `.deb` by the provisioning adapter. |
 | Proton Pass CLI | curl installer | Installed via the official Proton pass-cli installer. |
@@ -56,8 +65,10 @@ Use this `Inventory Record` as the canonical Linux application catalog. Each app
 | qBittorrent | Flatpak | `org.qbittorrent.qBittorrent` from Flathub. |
 | Redis Insight | Flatpak | `com.redis.RedisInsight` from Flathub. |
 | Shotcut | Flatpak | `org.shotcut.Shotcut` from Flathub. |
+| Startup Configuration | Flatpak | `best.ellie.StartupConfiguration` from Flathub. |
 | Syncthing | manual download | Use only if Syncthing is needed outside the NAS workflow. |
-| Thunderbird | Flatpak | `org.mozilla.Thunderbird` from Flathub. |
+| Thunderbird | Flatpak | `org.mozilla.Thunderbird` from Flathub; not installed by the provisioning adapter, install manually when needed. |
+| Trayscale | Flatpak | `dev.deedles.Trayscale` from Flathub; Tailscale tray client. |
 | VLC | Flatpak | `org.videolan.VLC` from Flathub. |
 | Zed | Flatpak | `dev.zed.Zed` from Flathub; native install preferred where available. |
 

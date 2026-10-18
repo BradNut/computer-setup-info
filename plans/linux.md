@@ -5,7 +5,7 @@ entry_point: linux
 status: current
 supported: Ubuntu and Pop!_OS
 verified_on: 2026-07-17
-provisioning_adapter: ../environment/SetupLinux.sh
+provisioning_adapter: environment/SetupLinux.sh
 ---
 
 # Linux Setup Plan

@@ -6,98 +6,97 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
-REQUIRED_RESOURCE_FIELDS = {
-    "id",
-    "title",
-    "entry_points",
-    "execution_mode",
-    "status",
-    "supported",
-    "verified_on",
-    "source_docs",
-}
-REQUIRED_PLAN_FIELDS = {"id", "title", "entry_point", "status", "supported", "verified_on"}
 VALID_EXECUTION_MODES = {"manual", "automated", "hybrid"}
 VALID_STATUSES = {"current", "reference"}
-RESOURCE_ID_PREFIXES = (
-    "linux-",
-    "android-",
-    "macos-",
-    "synology-",
-    "windows-",
-    "printers-",
-    "self-hosting-",
-)
+ROOT_RELATIVE_PATH_FIELDS = ("source_docs", "provisioning_adapter")
+SHARED_RESOURCE_ID_PREFIX = "shared-"
 IGNORED_DIRECTORIES = {".git", "node_modules", "__pycache__"}
 ISO_DATE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}")
 LINK_PATTERN = re.compile(r"""(?<!!)\[[^\]]*\]\(\s*(<[^>]*>|[^\s)]+)(?:\s+["'(][^)]*)?\)""")
 FENCED_CODE_BLOCK_PATTERN = re.compile(r"^[ \t]*(`{3,}|~{3,}).*?^[ \t]*\1[ \t]*$", re.DOTALL | re.MULTILINE)
-ROLE_NAVIGATION_REQUIREMENTS = {
-    "README.md": {
-        "plans/README.md",
-        "plans/linux.md",
-        "plans/macos.md",
-        "plans/android.md",
-        "catalog/README.md",
-        "exports/README.md",
-        "reference/README.md",
-    },
-    "plans/README.md": {
-        "plans/linux.md",
-        "plans/macos.md",
-        "plans/android.md",
-        "catalog/README.md",
-        "exports/README.md",
-        "reference/README.md",
-    },
-    "catalog/README.md": {
-        "plans/README.md",
-        "exports/README.md",
-        "reference/README.md",
-    },
-    "exports/README.md": {
-        "README.md",
-        "plans/README.md",
-        "catalog/README.md",
-        "reference/README.md",
-    },
-    "reference/README.md": {
-        "README.md",
-        "plans/README.md",
-        "catalog/README.md",
-        "exports/README.md",
-    },
-    "plans/linux.md": {
-        "catalog/README.md",
-        "exports/linux/README.md",
-        "reference/README.md",
-    },
-    "plans/macos.md": {
-        "catalog/README.md",
-        "exports/macos/README.md",
-        "reference/README.md",
-    },
-    "plans/android.md": {
-        "catalog/README.md",
-        "exports/android/README.md",
-        "reference/README.md",
-    },
-    "exports/linux/README.md": {
-        "plans/linux.md",
-        "catalog/README.md",
-    },
-    "exports/macos/README.md": {
-        "plans/macos.md",
-        "catalog/README.md",
-    },
-    "exports/android/README.md": {
-        "plans/android.md",
-        "catalog/README.md",
-    },
+FLATPAK_APP_ID_PATTERN = re.compile(r"[A-Za-z][\w-]*(?:\.[\w-]+){2,}")
+# Links every role hub needs regardless of which Entry Points are active.
+HUB_NAVIGATION_REQUIREMENTS = {
+    "README.md": {"plans/README.md", "catalog/README.md", "exports/README.md", "reference/README.md"},
+    "plans/README.md": {"catalog/README.md", "exports/README.md", "reference/README.md"},
+    "catalog/README.md": {"plans/README.md", "exports/README.md", "reference/README.md"},
+    "exports/README.md": {"README.md", "plans/README.md", "catalog/README.md", "reference/README.md"},
+    "reference/README.md": {"README.md", "plans/README.md", "catalog/README.md", "exports/README.md"},
 }
+
+
+@dataclass(frozen=True)
+class RecordKind:
+    """The front-matter schema for one kind of record: Inventory Record or Setup Plan."""
+
+    noun: str
+    directory: str
+    required_fields: frozenset[str]
+
+
+INVENTORY_RECORD = RecordKind(
+    noun="resource",
+    directory="catalog",
+    required_fields=frozenset(
+        {"id", "title", "entry_points", "execution_mode", "status", "supported", "verified_on", "source_docs"}
+    ),
+)
+SETUP_PLAN = RecordKind(
+    noun="plan",
+    directory="plans",
+    required_fields=frozenset({"id", "title", "entry_point", "status", "supported", "verified_on"}),
+)
+
+
+@dataclass(frozen=True)
+class Record:
+    path: str
+    metadata: dict[str, str]
+    text: str
+
+    @property
+    def current(self) -> bool:
+        return self.metadata["status"] == "current"
+
+
+@dataclass(frozen=True)
+class EntryPoint:
+    """One Entry Point, derived from its Setup Plan; active when the plan is a Current Guide."""
+
+    name: str
+    active: bool
+
+    @property
+    def plan(self) -> str:
+        return f"plans/{self.name}.md"
+
+    @property
+    def export_directory(self) -> str:
+        return f"exports/{self.name}"
+
+    @property
+    def export_index(self) -> str:
+        return f"{self.export_directory}/README.md"
+
+
+@dataclass(frozen=True)
+class FlatpakInventory:
+    """Where one Entry Point's Flatpak set is installed, curated, and snapshotted."""
+
+    provisioning_adapter: str
+    inventory_record: str
+    inventory_export: str
+
+
+LINUX_FLATPAKS = FlatpakInventory(
+    provisioning_adapter="environment/SetupLinux.sh",
+    inventory_record="catalog/linux-application-catalog.md",
+    inventory_export="exports/linux/primary-machine.md",
+)
 
 
 def describe(root: Path, path: Path) -> str:
@@ -170,102 +169,145 @@ def iter_markdown_files(root: Path) -> list[Path]:
     )
 
 
-def is_windows_navigation_target(relative_path: str) -> bool:
-    path = PurePosixPath(relative_path)
-    lowered_parts = [part.lower() for part in path.parts]
-    return "windows" in lowered_parts or "windows" in path.name.lower()
+def split_list(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
-def validate_resource_metadata(root: Path, path: Path, metadata: dict[str, str], errors: list[str]) -> bool:
-    """Validate one catalog resource, returning False when required fields are missing."""
+# --- Records -----------------------------------------------------------------
+
+
+def load_record(root: Path, path: Path, kind: RecordKind, errors: list[str]) -> Record | None:
+    """Parse and validate one record, returning None when it cannot be used further."""
     label = describe(root, path)
-    missing = REQUIRED_RESOURCE_FIELDS - metadata.keys()
+    text = read_text(root, path, errors)
+    if text is None:
+        return None
+    metadata = parse_front_matter(text)
+    missing = kind.required_fields - metadata.keys()
     if missing:
-        errors.append(f"{label}: missing metadata: {', '.join(sorted(missing))}")
-        return False
-    if metadata["execution_mode"] not in VALID_EXECUTION_MODES:
+        qualifier = "" if kind is INVENTORY_RECORD else f"{kind.noun} "
+        errors.append(f"{label}: missing {qualifier}metadata: {', '.join(sorted(missing))}")
+        return None
+
+    status = metadata["status"]
+    if status not in VALID_STATUSES:
+        errors.append(f"{label}: invalid status")
+    if status == "current" and not ISO_DATE_PATTERN.fullmatch(metadata["verified_on"]):
+        errors.append(f"{label}: current {kind.noun} needs an ISO verified_on date")
+    if status == "reference" and metadata["verified_on"] != "pending":
+        errors.append(f"{label}: reference {kind.noun} needs verified_on: pending")
+
+    execution_mode = metadata.get("execution_mode")
+    if execution_mode is not None and execution_mode not in VALID_EXECUTION_MODES:
         errors.append(f"{label}: invalid execution_mode")
-    if metadata["status"] not in VALID_STATUSES:
-        errors.append(f"{label}: invalid status")
-    if metadata["status"] == "current" and not ISO_DATE_PATTERN.fullmatch(metadata["verified_on"]):
-        errors.append(f"{label}: current resource needs an ISO verified_on date")
-    if metadata["status"] == "reference" and metadata["verified_on"] != "pending":
-        errors.append(f"{label}: reference resource needs verified_on: pending")
-    source_docs = metadata["source_docs"]
-    source = resolve_within_root(root, source_docs)
-    if source is None:
-        errors.append(f"{label}: source_docs escapes repository root: {source_docs}")
-    elif not source.exists():
-        errors.append(f"{label}: missing source document: {source_docs}")
-    return True
+    if execution_mode == "automated" and not metadata.get("provisioning_adapter"):
+        errors.append(f"{label}: automated {kind.noun} needs provisioning_adapter")
+
+    for field in ROOT_RELATIVE_PATH_FIELDS:
+        value = metadata.get(field)
+        if not value:
+            continue
+        resolved = resolve_within_root(root, value)
+        if resolved is None:
+            errors.append(f"{label}: {field} escapes repository root: {value}")
+        elif not resolved.exists():
+            errors.append(f"{label}: {field} does not exist relative to repository root: {value}")
+
+    return Record(path=label, metadata=metadata, text=text)
 
 
-def validate_resource_adapter(root: Path, path: Path, metadata: dict[str, str], errors: list[str]) -> None:
-    if metadata["execution_mode"] != "automated":
-        return
-    label = describe(root, path)
-    adapter = metadata.get("provisioning_adapter")
-    if not adapter:
-        errors.append(f"{label}: automated resource needs provisioning_adapter")
-        return
-    resolved = resolve_within_root(root, adapter)
-    if resolved is None:
-        errors.append(f"{label}: provisioning_adapter escapes repository root: {adapter}")
-    elif not resolved.exists():
-        errors.append(f"{label}: missing provisioning adapter: {adapter}")
+def load_records(root: Path, kind: RecordKind, errors: list[str]) -> list[Record]:
+    records = []
+    for path in sorted((root / kind.directory).glob("*.md")):
+        if path.name == "README.md":
+            continue
+        record = load_record(root, path, kind, errors)
+        if record is not None:
+            records.append(record)
+    return records
 
 
-def validate_resources(root: Path, errors: list[str]) -> set[str]:
+# --- Entry Points ------------------------------------------------------------
+
+
+def entry_points_from_plans(plans: list[Record], errors: list[str]) -> list[EntryPoint]:
+    entry_points: dict[str, EntryPoint] = {}
+    for plan in plans:
+        name = plan.metadata["entry_point"]
+        if name in entry_points:
+            errors.append(f"{plan.path}: duplicate Setup Plan for entry point: {name}")
+            continue
+        if plan.path != EntryPoint(name, plan.current).plan:
+            errors.append(f"{plan.path}: Setup Plan for entry point {name} must be plans/{name}.md")
+        entry_points[name] = EntryPoint(name, plan.current)
+    return sorted(entry_points.values(), key=lambda entry_point: entry_point.name)
+
+
+def navigation_requirements(entry_points: list[EntryPoint]) -> dict[str, set[str]]:
+    """Map each active navigation surface to the links it must contain."""
+    requirements = {surface: set(links) for surface, links in HUB_NAVIGATION_REQUIREMENTS.items()}
+    for entry_point in entry_points:
+        if not entry_point.active:
+            continue
+        requirements["README.md"].add(entry_point.plan)
+        requirements["plans/README.md"].add(entry_point.plan)
+        requirements[entry_point.plan] = {"catalog/README.md", entry_point.export_index, "reference/README.md"}
+        requirements[entry_point.export_index] = {entry_point.plan, "catalog/README.md"}
+    return requirements
+
+
+def retired_entry_point_for(link: str, entry_points: list[EntryPoint]) -> str | None:
+    """Return the retired Entry Point a link belongs to, if any."""
+    path = PurePosixPath(link)
+    parts = {part.lower() for part in path.parts}
+    stem = path.stem.lower()
+    for entry_point in entry_points:
+        name = entry_point.name
+        if not entry_point.active and (name in parts or stem == name or stem.startswith(f"{name}-")):
+            return name
+    return None
+
+
+def export_snapshots(links: set[str], entry_point: EntryPoint) -> set[str]:
+    prefix = f"{entry_point.export_directory}/"
+    return {link for link in links if link.startswith(prefix) and link != entry_point.export_index}
+
+
+# --- Checks ------------------------------------------------------------------
+
+
+def validate_resources(
+    resources: list[Record], entry_points: list[EntryPoint], errors: list[str]
+) -> None:
+    known = {entry_point.name for entry_point in entry_points}
     ids: set[str] = set()
-    for path in sorted((root / "catalog").glob("*.md")):
-        if path.name == "README.md":
-            continue
-        text = read_text(root, path, errors)
-        if text is None:
-            continue
-        metadata = parse_front_matter(text)
-        if not validate_resource_metadata(root, path, metadata, errors):
-            continue
-        resource_id = metadata["id"]
+    for resource in resources:
+        resource_id = resource.metadata["id"]
         if resource_id in ids:
-            errors.append(f"{describe(root, path)}: duplicate resource id: {resource_id}")
+            errors.append(f"{resource.path}: duplicate resource id: {resource_id}")
         ids.add(resource_id)
-        validate_resource_adapter(root, path, metadata, errors)
-    return ids
-
-
-def validate_plan_metadata(root: Path, path: Path, metadata: dict[str, str], errors: list[str]) -> None:
-    label = describe(root, path)
-    missing = REQUIRED_PLAN_FIELDS - metadata.keys()
-    if missing:
-        errors.append(f"{label}: missing plan metadata: {', '.join(sorted(missing))}")
-        return
-    if metadata["status"] not in VALID_STATUSES:
-        errors.append(f"{label}: invalid status")
-    if metadata["status"] == "current" and not ISO_DATE_PATTERN.fullmatch(metadata["verified_on"]):
-        errors.append(f"{label}: current plan needs an ISO verified_on date")
-    if metadata["status"] == "reference" and metadata["verified_on"] != "pending":
-        errors.append(f"{label}: reference plan needs verified_on: pending")
-
-
-def validate_plans(root: Path, resource_ids: set[str], errors: list[str]) -> None:
-    for path in sorted((root / "plans").glob("*.md")):
-        if path.name == "README.md":
-            continue
-        text = read_text(root, path, errors)
-        if text is None:
-            continue
-        metadata = parse_front_matter(text)
-        validate_plan_metadata(root, path, metadata, errors)
         errors.extend(
-            f"{describe(root, path)}: unknown resource id: {resource_id}"
-            for resource_id in re.findall(r"`([a-z0-9-]+)`", text)
-            if resource_id.startswith(RESOURCE_ID_PREFIXES) and resource_id not in resource_ids
+            f"{resource.path}: unknown entry point: {name}"
+            for name in split_list(resource.metadata["entry_points"])
+            if name not in known
         )
 
 
-def validate_navigation_contract(root: Path, errors: list[str]) -> None:
-    for relative_path, required_links in ROLE_NAVIGATION_REQUIREMENTS.items():
+def validate_plan_references(
+    plans: list[Record], resources: list[Record], entry_points: list[EntryPoint], errors: list[str]
+) -> None:
+    resource_ids = {resource.metadata["id"] for resource in resources}
+    prefixes = (SHARED_RESOURCE_ID_PREFIX, *(f"{entry_point.name}-" for entry_point in entry_points))
+    for plan in plans:
+        errors.extend(
+            f"{plan.path}: unknown resource id: {resource_id}"
+            for resource_id in re.findall(r"`([a-z0-9-]+)`", plan.text)
+            if resource_id.startswith(prefixes) and resource_id not in resource_ids
+        )
+
+
+def validate_navigation_contract(root: Path, entry_points: list[EntryPoint], errors: list[str]) -> None:
+    for relative_path, required_links in navigation_requirements(entry_points).items():
         path = root / relative_path
         if not path.exists():
             errors.append(f"{relative_path}: missing required navigation surface")
@@ -278,10 +320,119 @@ def validate_navigation_contract(root: Path, errors: list[str]) -> None:
             f"{relative_path}: missing required navigation link: {required_link}"
             for required_link in sorted(required_links - links)
         )
+        for link in sorted(links):
+            retired = retired_entry_point_for(link, entry_points)
+            if retired is not None:
+                errors.append(f"{relative_path}: forbidden link to retired entry point {retired}: {link}")
+
+
+def validate_active_routes(
+    root: Path,
+    plans: list[Record],
+    resources: list[Record],
+    entry_points: list[EntryPoint],
+    errors: list[str],
+) -> None:
+    """Each active Setup Plan routes to a current Inventory Record and an Inventory Export snapshot."""
+    plans_by_path = {plan.path: plan for plan in plans}
+    resources_by_path = {resource.path: resource for resource in resources}
+    for entry_point in entry_points:
+        if not entry_point.active:
+            continue
+        plan = plans_by_path.get(entry_point.plan)
+        if plan is None:
+            continue
+        plan_links = extract_local_links(root, root / plan.path, plan.text)
+        linked_records = [resources_by_path[link] for link in sorted(plan_links) if link in resources_by_path]
         errors.extend(
-            f"{relative_path}: forbidden Windows link in active navigation: {forbidden_link}"
-            for forbidden_link in sorted(link for link in links if is_windows_navigation_target(link))
+            f"{plan.path}: active Setup Plan links reference Inventory Record: {record.path}"
+            for record in linked_records
+            if not record.current
         )
+        if not any(entry_point.name in split_list(record.metadata["entry_points"]) for record in linked_records):
+            errors.append(f"{plan.path}: active Setup Plan needs a link to a current {entry_point.name} Inventory Record")
+        if not export_snapshots(plan_links, entry_point):
+            errors.append(f"{plan.path}: active Setup Plan needs a link to an Inventory Export snapshot")
+
+        index = root / entry_point.export_index
+        index_text = read_text(root, index, errors) if index.exists() else None
+        if index_text is not None and not export_snapshots(extract_local_links(root, index, index_text), entry_point):
+            errors.append(f"{entry_point.export_index}: export index needs a link to an Inventory Export snapshot")
+
+
+def validate_legacy_directories(root: Path, entry_points: list[EntryPoint], errors: list[str]) -> None:
+    errors.extend(
+        f"{entry_point.name}/: legacy entry point directory at repository root; move it under reference/"
+        for entry_point in entry_points
+        if (root / entry_point.name).is_dir() and any((root / entry_point.name).iterdir())
+    )
+
+
+def flatpaks_in_adapter(text: str) -> set[str]:
+    """Collect app ids from `flatpak install` commands, following line continuations."""
+    app_ids: set[str] = set()
+    in_install = False
+    for line in text.splitlines():
+        if "flatpak install" in line:
+            in_install = True
+        if in_install:
+            app_ids.update(FLATPAK_APP_ID_PATTERN.findall(line.split("#", 1)[0]))
+            in_install = line.rstrip().endswith("\\")
+    return app_ids
+
+
+def flatpaks_in_record(text: str) -> set[str]:
+    """Collect app ids from table rows whose Install Channel cell is `Flatpak`."""
+    app_ids: set[str] = set()
+    for line in text.splitlines():
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if line.lstrip().startswith("|") and "Flatpak" in cells:
+            app_ids.update(
+                code for code in re.findall(r"`([^`]+)`", line) if FLATPAK_APP_ID_PATTERN.fullmatch(code)
+            )
+    return app_ids
+
+
+def flatpaks_in_export(text: str) -> set[str]:
+    """Collect app ids from the bullets under the export's `## Flatpak applications` heading."""
+    app_ids: set[str] = set()
+    in_section = False
+    for line in text.splitlines():
+        if line.startswith("## "):
+            in_section = line.strip() == "## Flatpak applications"
+        elif in_section and line.startswith("- "):
+            app_ids.add(line[2:].strip().strip("`"))
+    return app_ids
+
+
+def validate_flatpak_inventory(root: Path, inventory: FlatpakInventory, errors: list[str]) -> None:
+    """The adapter installs exactly the exported Flatpaks, and every one is catalogued."""
+    texts = {}
+    for relative_path in (inventory.provisioning_adapter, inventory.inventory_record, inventory.inventory_export):
+        path = root / relative_path
+        if not path.exists():
+            errors.append(f"{relative_path}: missing Flatpak inventory source")
+            return
+        text = read_text(root, path, errors)
+        if text is None:
+            return
+        texts[relative_path] = text
+
+    adapter = flatpaks_in_adapter(texts[inventory.provisioning_adapter])
+    record = flatpaks_in_record(texts[inventory.inventory_record])
+    export = flatpaks_in_export(texts[inventory.inventory_export])
+    errors.extend(
+        f"{inventory.inventory_export}: Flatpak installed by {inventory.provisioning_adapter} is missing from export: {app_id}"
+        for app_id in sorted(adapter - export)
+    )
+    errors.extend(
+        f"{inventory.inventory_export}: exported Flatpak is not installed by {inventory.provisioning_adapter}: {app_id}"
+        for app_id in sorted(export - adapter)
+    )
+    errors.extend(
+        f"{inventory.inventory_record}: Flatpak installed by {inventory.provisioning_adapter} has no Inventory Record row: {app_id}"
+        for app_id in sorted(adapter - record)
+    )
 
 
 def validate_links(root: Path, errors: list[str]) -> None:
@@ -298,9 +449,15 @@ def collect_errors(root: Path = DEFAULT_ROOT) -> list[str]:
     """Run every documentation check against `root` and return the error messages."""
     root = root.resolve()
     errors: list[str] = []
-    resource_ids = validate_resources(root, errors)
-    validate_plans(root, resource_ids, errors)
-    validate_navigation_contract(root, errors)
+    plans = load_records(root, SETUP_PLAN, errors)
+    resources = load_records(root, INVENTORY_RECORD, errors)
+    entry_points = entry_points_from_plans(plans, errors)
+    validate_resources(resources, entry_points, errors)
+    validate_plan_references(plans, resources, entry_points, errors)
+    validate_navigation_contract(root, entry_points, errors)
+    validate_active_routes(root, plans, resources, entry_points, errors)
+    validate_legacy_directories(root, entry_points, errors)
+    validate_flatpak_inventory(root, LINUX_FLATPAKS, errors)
     validate_links(root, errors)
     return errors
 

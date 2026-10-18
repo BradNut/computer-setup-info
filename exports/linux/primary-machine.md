@@ -102,7 +102,7 @@ This curated `Inventory Export` captures the current Ubuntu/Pop!_OS desktop rebu
 - fr.handbrake.ghb
 - io.dbeaver.DBeaverCommunity
 - io.github.cosmic_utils.camera
-- io.github.pixeldotted.cosmic-ext-color-picker
+- io.github.pixeldoted.cosmic-ext-color-picker
 - io.podman_desktop.PodmanDesktop
 - md.obsidian.Obsidian
 - net.cozic.joplin_desktop
